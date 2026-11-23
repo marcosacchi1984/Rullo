@@ -1,0 +1,2918 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0e1116">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Rullo</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="data:image/png;base64,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">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <style>
+:root {
+  --bg: #0e1116; --panel: #161b22; --panel2: #1d242e; --line: #2a3340; --text: #e6edf3; --muted: #8b97a7;
+  --accent: #ff7a1a; --accent2: #ffa15c; --ok: #22c55e; --warn: #eab308; --bad: #ef4444; --blue: #3b82f6;
+  --r: 14px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+  font: 16px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overscroll-behavior: none; }
+body { display: flex; flex-direction: column; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+h1, h2, h3 { margin: 0 0 .5em; font-weight: 650; }
+h2 { font-size: 1.35rem; } h3 { font-size: 1.05rem; color: var(--muted); font-weight: 600; }
+a { color: var(--accent2); }
+.muted { color: var(--muted); } .small { font-size: .85rem; }
+.hidden { display: none !important; }
+
+/* ---------- barra in alto */
+#topbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; padding-top: max(8px, env(safe-area-inset-top));
+  background: var(--panel); border-bottom: 1px solid var(--line); flex: 0 0 auto; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.15rem; padding: 4px 6px; border-radius: 10px; }
+.brand img { width: 30px; height: 30px; border-radius: 8px; }
+#nav { display: flex; gap: 4px; flex: 1; overflow-x: auto; }
+#nav button { padding: 8px 14px; border-radius: 10px; color: var(--muted); white-space: nowrap; }
+#nav button.active { background: var(--panel2); color: var(--text); }
+.devices { display: flex; gap: 8px; }
+.chip { display: flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; background: var(--panel2);
+  border: 1px solid var(--line); font-size: .9rem; white-space: nowrap; }
+.chip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--bad); }
+.chip.on .dot { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.chip.busy .dot { background: var(--warn); }
+body.riding #nav, body.riding .brand span { display: none; }
+
+main { flex: 1; overflow: auto; padding: 16px; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+main.ride { padding: 8px; overflow: hidden; display: flex; flex-direction: column; gap: 8px; }
+
+/* ---------- elementi comuni */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 18px; border-radius: 12px;
+  background: var(--panel2); border: 1px solid var(--line); font-weight: 600; min-height: 46px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #111; }
+.btn.danger { color: #fca5a5; border-color: #7f1d1d; }
+.btn.big { padding: 16px 28px; font-size: 1.15rem; min-height: 60px; }
+.btn:disabled { opacity: .45; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.spacer { flex: 1; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; }
+.grid { display: grid; gap: 12px; }
+.grid.cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 6px; background: var(--panel2); color: var(--muted); font-size: .8rem; }
+.banner { background: #3a2a12; border: 1px solid #7c5a1c; border-radius: var(--r); padding: 12px 14px; margin-bottom: 14px; }
+
+/* home */
+.home-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.tile { text-align: left; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 18px; min-height: 140px;
+  display: flex; flex-direction: column; gap: 6px; }
+.tile .ico { font-size: 2rem; }
+.tile b { font-size: 1.2rem; }
+.tile:active { transform: scale(.98); }
+.tile.main { background: linear-gradient(135deg, #3a1d07, #161b22 70%); border-color: #6b3510; }
+.devbox { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.devbox .card { display: flex; align-items: center; gap: 12px; }
+.devbox .big-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--bad); flex: 0 0 auto; }
+.devbox .on .big-dot { background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+
+/* liste */
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; text-align: left; width: 100%; }
+.item.sel { border-color: var(--accent); }
+.item canvas { width: 100%; height: 46px; display: block; margin-top: 8px; border-radius: 6px; background: #0b0e13; }
+.split { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 14px; align-items: start; }
+.stats { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0; }
+.stats div { display: flex; flex-direction: column; }
+.stats b { font-size: 1.25rem; }
+.stats span { color: var(--muted); font-size: .8rem; }
+canvas.chart { width: 100%; height: 180px; display: block; background: #0b0e13; border-radius: 10px; }
+.map { height: 320px; border-radius: 12px; overflow: hidden; background: #0b0e13; }
+
+/* moduli */
+label.f { display: flex; flex-direction: column; gap: 4px; font-size: .9rem; color: var(--muted); }
+input, select, textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; min-height: 44px; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: .85rem; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* editor */
+.blk { display: grid; grid-template-columns: 130px 1fr auto; gap: 8px; align-items: end; background: var(--panel2); border-radius: 12px; padding: 10px; }
+.blk .fields { display: flex; gap: 8px; flex-wrap: wrap; }
+.blk .fields label { width: 92px; }
+.blk .fields input { width: 100%; }
+.blk .tools { display: flex; gap: 4px; }
+.blk .tools button { width: 40px; height: 40px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
+
+/* modale e avvisi */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 16px; }
+.modal[hidden] { display: none; }
+.modal-box { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 20px; width: min(560px, 100%); max-height: 90vh; overflow: auto; }
+.modal-box .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; flex-wrap: wrap; }
+#toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 3000; display: flex; flex-direction: column; gap: 8px; align-items: center; pointer-events: none; }
+#toast div { background: #222b36; border: 1px solid var(--line); padding: 10px 16px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.5); }
+
+/* ---------- schermata pedalata */
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; flex: 0 0 auto; }
+.m { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 6px 10px 8px; display: flex; flex-direction: column; min-width: 0;
+  container-type: inline-size; overflow: hidden; }
+.m .k { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+/* la dimensione del numero segue la larghezza del riquadro, cosi' non esce mai */
+.m .v { font-size: clamp(1.3rem, 24cqi, 2.8rem); font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.05; white-space: nowrap; }
+.m .v small { font-size: .45em; color: var(--muted); font-weight: 600; margin-left: 2px; }
+.m .sub { font-size: .8rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m.power .v { color: var(--accent2); }
+.m.hi { border-color: var(--accent); }
+.ride-body { flex: 1; min-height: 0; display: grid; gap: 8px; }
+.ride-body.route { grid-template-columns: 1.5fr 1fr; grid-template-rows: 1fr 120px; }
+.ride-body.route .map-wrap { grid-row: 1; grid-column: 1; }
+.ride-body.route .side { grid-row: 1; grid-column: 2; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+.ride-body.route .full-profile { grid-row: 2; grid-column: 1 / span 2; }
+.ride-body.workout { grid-template-rows: auto 1fr; }
+.ride-body.free { grid-template-rows: auto 1fr; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 8px; min-height: 0; position: relative; }
+.panel canvas { width: 100%; height: 100%; display: block; }
+.map-wrap { border-radius: 14px; overflow: hidden; min-height: 0; }
+.map-wrap .leaflet-container { height: 100%; background: #0b0e13; }
+.gradebox { text-align: center; padding: 10px; container-type: inline-size; overflow: hidden; }
+/* "-12.5%" deve stare nel riquadro: la dimensione segue la larghezza */
+.gradebox .g { font-size: clamp(1.8rem, 21cqi, 4.5rem); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; white-space: nowrap; }
+.step-info { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; padding: 6px 10px; }
+.step-info .target { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 800; font-variant-numeric: tabular-nums; }
+.step-info .left { font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.controls { display: flex; gap: 8px; flex: 0 0 auto; align-items: center; }
+.controls .btn { min-height: 58px; font-size: 1.1rem; }
+.controls .adj { display: flex; align-items: center; gap: 6px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 4px; }
+.controls .adj button { width: 64px; height: 50px; border-radius: 10px; background: var(--panel2); font-size: 1.6rem; font-weight: 700; }
+.controls .adj .val { min-width: 120px; text-align: center; font-weight: 700; font-size: 1.1rem; }
+.controls .adj .val small { display: block; color: var(--muted); font-weight: 500; font-size: .75rem; }
+.wait-banner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 700;
+  background: rgba(14,17,22,.65); border-radius: 14px; z-index: 500; pointer-events: none; text-align: center; }
+.seg { display: inline-flex; background: var(--panel2); border-radius: 12px; padding: 3px; border: 1px solid var(--line); }
+.seg button { padding: 8px 14px; border-radius: 9px; color: var(--muted); font-weight: 600; }
+.seg button.on { background: var(--accent); color: #111; }
+.rider-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; box-shadow: 0 0 10px rgba(0,0,0,.6); }
+
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+  .devbox { grid-template-columns: 1fr; }
+  .ride-body.route { grid-template-columns: 1fr; grid-template-rows: 1fr auto 100px; }
+  .ride-body.route .side { grid-row: 2; grid-column: 1; flex-direction: row; }
+  .ride-body.route .full-profile { grid-row: 3; grid-column: 1; }
+  .chip .lbl { display: none; }
+}
+@media (orientation: portrait) and (min-width: 600px) {
+  .ride-body.route { grid-template-columns: 1fr; grid-template-rows: 1fr 200px 120px; }
+  .ride-body.route .side { grid-row: 2; grid-column: 1; flex-direction: row; }
+  .ride-body.route .side > * { flex: 1; }
+  .ride-body.route .full-profile { grid-row: 3; grid-column: 1; }
+}
+
+</style>
+  <script>window.RULLO_CONFIG = { standalone: true, sw: true };</script>
+</head>
+<body>
+  <header id="topbar">
+    <button id="btnHome" class="brand" title="Home">
+      <img src="data:image/png;base64,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" alt=""> <span>Rullo</span>
+    </button>
+    <nav id="nav">
+      <button data-go="workouts">Allenamenti</button>
+      <button data-go="routes">Percorsi</button>
+      <button data-go="history">Storico</button>
+      <button data-go="profile">Profilo</button>
+    </nav>
+    <div class="devices">
+      <button id="chipTrainer" class="chip off"><span class="dot"></span><span class="lbl">Rullo</span></button>
+      <button id="chipHr" class="chip off"><span class="dot"></span><span class="lbl">Cardio</span></button>
+    </div>
+  </header>
+  <main id="main"></main>
+  <div id="modal" class="modal" hidden><div class="modal-box"></div></div>
+  <div id="toast"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+'use strict';
+const __m = {};
+// ===== physics.js
+__m.physics = (() => {
+// Modello fisico della bici "virtuale": dalla potenza ai pedali ricava velocita' e distanza.
+const G = 9.80665;
+
+// Posizioni in sella: CdA di riferimento per un ciclista di 75 kg / 1,78 m
+const POSITIONS = {
+  alto: { label: 'Mani sul manubrio alto', cda: 0.44 },
+  cappe: { label: 'Mani sulle leve (cappe)', cda: 0.38 },
+  basso: { label: 'Presa bassa', cda: 0.32 },
+  custom: { label: 'Valore personalizzato', cda: null },
+};
+
+const SURFACES = {
+  liscio: { label: 'Asfalto liscio, gomme da corsa', crr: 0.004 },
+  normale: { label: 'Asfalto normale', crr: 0.005 },
+  rovinato: { label: 'Asfalto rovinato / gomme larghe', crr: 0.007 },
+  sterrato: { label: 'Sterrato compatto', crr: 0.010 },
+  custom: { label: 'Valore personalizzato', crr: null },
+};
+
+// La superficie frontale cresce con la corporatura (circa massa^(2/3))
+function sizeFactor(weightKg) {
+  return Math.pow(Math.max(40, weightKg) / 75, 2 / 3);
+}
+
+function profileCda(p) {
+  if (p.position === 'custom' && p.cdaCustom) return +p.cdaCustom;
+  const base = (POSITIONS[p.position] || POSITIONS.cappe).cda;
+  return +(base * sizeFactor(p.weight || 75)).toFixed(3);
+}
+
+function profileCrr(p) {
+  if (p.surface === 'custom' && p.crrCustom) return +p.crrCustom;
+  return (SURFACES[p.surface] || SURFACES.normale).crr;
+}
+
+// Densita' dell'aria alla quota data (atmosfera standard, 20 gradi)
+function airDensity(altM = 0, tempC = 20) {
+  const p = 101325 * Math.pow(1 - 2.25577e-5 * Math.max(-400, Math.min(6000, altM)), 5.25588);
+  return p / (287.05 * (tempC + 273.15));
+}
+
+class VirtualBike {
+  constructor(params) {
+    this.v = 0;      // m/s
+    this.dist = 0;   // m
+    this.setParams(params);
+  }
+
+  setParams({ mass, cda, crr, eta = 0.975 }) {
+    this.mass = mass;
+    this.mEff = mass + 1.5; // inerzia delle ruote
+    this.cda = cda;
+    this.crr = crr;
+    this.eta = eta;
+  }
+
+  // power in W, grade in %, dt in s, rho densita' aria
+  step(power, gradePct, dt, rho = 1.2) {
+    const th = Math.atan((gradePct || 0) / 100);
+    const sin = Math.sin(th), cos = Math.cos(th);
+    const Pin = Math.max(0, power || 0) * this.eta;
+    let remaining = dt;
+    while (remaining > 1e-6) {
+      const h = Math.min(0.1, remaining);
+      remaining -= h;
+      const v = this.v;
+      const drive = Pin / Math.max(v, 1.0);
+      const Fg = this.mass * G * sin;
+      const Fr = this.mass * G * this.crr * cos;
+      const Fa = 0.5 * rho * this.cda * v * v;
+      let net = drive - Fg - Fa;
+      if (v < 0.05) {
+        // da fermo l'attrito volvente non spinge indietro
+        if (net <= Fr) { this.v = 0; continue; }
+      }
+      net -= Fr;
+      let nv = v + (net / this.mEff) * h;
+      if (nv < 0) nv = 0;
+      this.dist += (v + nv) / 2 * h;
+      this.v = nv;
+    }
+    return this.v;
+  }
+}
+
+// Velocita' di equilibrio a potenza costante (per stime e anteprime)
+function steadySpeed(power, gradePct, { mass, cda, crr, eta = 0.975 }, rho = 1.2) {
+  const th = Math.atan(gradePct / 100);
+  const f = v => v * (mass * G * (Math.sin(th) + crr * Math.cos(th)) + 0.5 * rho * cda * v * v) - power * eta;
+  let lo = 0, hi = 40;
+  if (f(hi) < 0) return hi;
+  for (let i = 0; i < 60; i++) {
+    const mid = (lo + hi) / 2;
+    if (f(mid) > 0) hi = mid; else lo = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+return { G, POSITIONS, SURFACES, sizeFactor, profileCda, profileCrr, airDensity, VirtualBike, steadySpeed };
+})();
+// ===== ble.js
+__m.ble = (() => {
+// Collegamento Bluetooth (Web Bluetooth) al rullo e alla fascia cardio.
+// Rullo: protocollo standard FTMS (0x1826) oppure protocollo Wahoo (caratteristica
+// a026e005 dentro il servizio Cycling Power 0x1818). Lettura dati da FTMS
+// "Indoor Bike Data" oppure da "Cycling Power Measurement".
+
+const FTMS = 0x1826, FTMS_DATA = 0x2ad2, FTMS_CP = 0x2ad9, FTMS_STATUS = 0x2ada;
+const CPS = 0x1818, CPS_MEAS = 0x2a63;
+const WAHOO_CTRL = 'a026e005-0a7d-4ab3-97fa-f1500f9feb8b';
+const WAHOO_SVC2 = 'a026ee0b-0a7d-4ab3-97fa-f1500f9feb8b';
+const HR_SVC = 0x180d, HR_MEAS = 0x2a37;
+
+const bluetoothAvailable = () => !!(navigator.bluetooth && navigator.bluetooth.requestDevice);
+
+class Emitter {
+  constructor() { this._h = {}; }
+  on(ev, fn) { (this._h[ev] ||= []).push(fn); return () => this.off(ev, fn); }
+  off(ev, fn) { this._h[ev] = (this._h[ev] || []).filter(f => f !== fn); }
+  emit(ev, data) { (this._h[ev] || []).forEach(f => { try { f(data); } catch (e) { console.error(e); } }); }
+}
+
+const u16 = v => [v & 0xff, (v >> 8) & 0xff];
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+// ------------------------------------------------------------------ Rullo
+class Trainer extends Emitter {
+  constructor() {
+    super();
+    this.device = null;
+    this.connected = false;
+    this.protocol = null;   // 'ftms' | 'wahoo'
+    this.preferred = 'auto';
+    this.data = { power: 0, cadence: null, speed: null, ts: 0 };
+    this.mode = null;       // 'erg' | 'sim'
+    this.last = {};         // ultimi comandi per riapplicarli dopo una riconnessione
+    this._q = Promise.resolve();
+    this._crank = null;
+    this._manualClose = false;
+  }
+
+  get name() { return this.device ? (this.device.name || 'Rullo') : ''; }
+
+  async connect(preferred = 'auto') {
+    this.preferred = preferred;
+    this.device = await navigator.bluetooth.requestDevice({
+      filters: [{ services: [FTMS] }, { services: [CPS] }, { namePrefix: 'KICKR' }],
+      optionalServices: [FTMS, CPS, WAHOO_SVC2, 0x180a],
+    });
+    this.device.addEventListener('gattserverdisconnected', () => this._onDisconnect());
+    this._manualClose = false;
+    await this._setup();
+  }
+
+  async _setup() {
+    this.emit('status', 'Collegamento…');
+    const server = await this.device.gatt.connect();
+    let ftms = null, cps = null, wahoo = null;
+    try { ftms = await server.getPrimaryService(FTMS); } catch { /* assente */ }
+    try { cps = await server.getPrimaryService(CPS); } catch { /* assente */ }
+    if (cps) { try { wahoo = await cps.getCharacteristic(WAHOO_CTRL); } catch { /* assente */ } }
+
+    let proto = this.preferred;
+    if (proto === 'wahoo' && !wahoo) proto = 'auto';
+    if (proto === 'ftms' && !ftms) proto = 'auto';
+    if (proto === 'auto') proto = wahoo ? 'wahoo' : (ftms ? 'ftms' : null);
+    if (!proto) throw new Error('Il dispositivo non espone ne\' FTMS ne\' il controllo Wahoo');
+    this.protocol = proto;
+    this.mode = null;
+    this._crank = null;
+
+    if (proto === 'ftms') {
+      const data = await ftms.getCharacteristic(FTMS_DATA);
+      data.addEventListener('characteristicvaluechanged', e => this._parseFtms(e.target.value));
+      await data.startNotifications();
+      this.cp = await ftms.getCharacteristic(FTMS_CP);
+      this.cp.addEventListener('characteristicvaluechanged', e => this._ftmsResponse(e.target.value));
+      await this.cp.startNotifications();
+      try {
+        const st = await ftms.getCharacteristic(FTMS_STATUS);
+        await st.startNotifications();
+      } catch { /* facoltativa */ }
+      await this._write(this.cp, [0x00]);        // richiesta controllo
+      await this._write(this.cp, [0x07]);        // avvio/ripresa
+    } else {
+      // dati da Cycling Power, controllo con protocollo Wahoo
+      const meas = await cps.getCharacteristic(CPS_MEAS);
+      meas.addEventListener('characteristicvaluechanged', e => this._parseCps(e.target.value));
+      await meas.startNotifications();
+      this.cp = wahoo;
+      this.cp.addEventListener('characteristicvaluechanged', e => this._wahooResponse(e.target.value));
+      await this.cp.startNotifications();
+      await this._write(this.cp, [0x20, 0xee, 0xfc]); // sblocco
+    }
+    this.connected = true;
+    this.emit('status', `Collegato (${proto === 'ftms' ? 'FTMS' : 'Wahoo'})`);
+    this.emit('connected', this);
+    // riapplica l'ultimo comando (dopo una riconnessione)
+    if (this.last.erg != null && this.lastMode === 'erg') await this.setErg(this.last.erg);
+    else if (this.last.sim) await this.setSim(this.last.sim);
+  }
+
+  _onDisconnect() {
+    const was = this.connected;
+    this.connected = false;
+    this.emit('status', 'Disconnesso');
+    this.emit('disconnected', this);
+    if (was && !this._manualClose) this._reconnect();
+  }
+
+  async _reconnect() {
+    for (let i = 1; i <= 10 && !this._manualClose; i++) {
+      this.emit('status', `Riconnessione (${i})…`);
+      try { await this._setup(); return; } catch (e) { console.warn('riconnessione', e); }
+      await new Promise(r => setTimeout(r, 2000));
+    }
+    this.emit('status', 'Disconnesso');
+  }
+
+  disconnect() {
+    this._manualClose = true;
+    if (this.device && this.device.gatt.connected) this.device.gatt.disconnect();
+  }
+
+  // scritture in fila: Web Bluetooth non accetta due operazioni GATT insieme
+  _write(char, bytes) {
+    const buf = new Uint8Array(bytes);
+    this._q = this._q.then(() => (char.writeValueWithResponse ? char.writeValueWithResponse(buf) : char.writeValue(buf)))
+      .catch(e => { console.warn('scrittura BLE', e); });
+    return this._q;
+  }
+
+  _ftmsResponse(dv) {
+    if (dv.getUint8(0) === 0x80 && dv.byteLength >= 3) {
+      const op = dv.getUint8(1), res = dv.getUint8(2);
+      if (res !== 1) console.warn(`FTMS: comando 0x${op.toString(16)} risposta ${res}`);
+    }
+  }
+  _wahooResponse(dv) {
+    if (dv.byteLength >= 2 && dv.getUint8(0) !== 0x01) console.warn('Wahoo risposta', dv.getUint8(0), dv.getUint8(1));
+  }
+
+  // ---- comandi
+  async setErg(watts) {
+    watts = Math.round(clamp(watts, 0, 2000));
+    this.last.erg = watts;
+    this.lastMode = 'erg';
+    if (!this.connected) return;
+    if (this.protocol === 'ftms') await this._write(this.cp, [0x05, ...u16(watts)]);
+    else await this._write(this.cp, [0x42, ...u16(watts)]);
+    this.mode = 'erg';
+  }
+
+  // sim: { grade %, crr, cw (kg/m = rho*CdA), weight kg, wind m/s }
+  async setSim(sim) {
+    const prev = this.last.sim || {};
+    this.last.sim = { ...prev, ...sim };
+    this.lastMode = 'sim';
+    if (!this.connected) return;
+    const s = this.last.sim;
+    const grade = clamp(s.grade || 0, -20, 20);
+    if (this.protocol === 'ftms') {
+      const wind = Math.round(clamp(s.wind || 0, -32, 32) * 1000);
+      const g = Math.round(grade * 100);
+      await this._write(this.cp, [0x11, ...u16(wind & 0xffff), ...u16(g & 0xffff),
+        clamp(Math.round((s.crr ?? 0.004) * 10000), 0, 255), clamp(Math.round((s.cw ?? 0.51) * 100), 0, 255)]);
+    } else {
+      const needInit = this.mode !== 'sim' || prev.weight !== s.weight || prev.crr !== s.crr || prev.cw !== s.cw;
+      if (needInit) {
+        await this._write(this.cp, [0x43, ...u16(Math.round((s.weight ?? 85) * 100)),
+          ...u16(Math.round((s.crr ?? 0.004) * 10000)), ...u16(Math.round((s.cw ?? 0.51) * 1000))]);
+      }
+      const v = clamp(Math.round((grade / 100 + 1) * 32768), 0, 65535);
+      await this._write(this.cp, [0x46, ...u16(v)]);
+    }
+    this.mode = 'sim';
+  }
+
+  // ---- lettura dati
+  _parseFtms(dv) {
+    let o = 0;
+    const flags = dv.getUint16(o, true); o += 2;
+    const d = { ts: performance.now() };
+    if (!(flags & 0x0001)) { d.speed = dv.getUint16(o, true) / 100; o += 2; }
+    if (flags & 0x0002) o += 2;
+    if (flags & 0x0004) { d.cadence = dv.getUint16(o, true) / 2; o += 2; }
+    if (flags & 0x0008) o += 2;
+    if (flags & 0x0010) o += 3;
+    if (flags & 0x0020) o += 2;
+    if (flags & 0x0040) { d.power = dv.getInt16(o, true); o += 2; }
+    if (flags & 0x0080) o += 2;
+    if (flags & 0x0100) o += 5;
+    if (flags & 0x0200) { d.hr = dv.getUint8(o); o += 1; }
+    Object.assign(this.data, d);
+    this.emit('data', this.data);
+  }
+
+  _parseCps(dv) {
+    let o = 0;
+    const flags = dv.getUint16(o, true); o += 2;
+    const d = { ts: performance.now(), power: dv.getInt16(o, true) }; o += 2;
+    if (flags & 0x0001) o += 1;          // bilanciamento
+    if (flags & 0x0004) o += 2;          // coppia accumulata
+    if (flags & 0x0010) o += 6;          // giri ruota
+    if (flags & 0x0020) {                // giri pedivella -> cadenza
+      const revs = dv.getUint16(o, true), t = dv.getUint16(o + 2, true); o += 4;
+      const now = performance.now();
+      const c = this._crank;
+      if (c) {
+        const dr = (revs - c.revs + 65536) % 65536;
+        const dt = ((t - c.t + 65536) % 65536) / 1024;
+        if (dr > 0 && dt > 0) {
+          const cad = dr / dt * 60;
+          if (cad < 220) d.cadence = Math.round(cad);
+          this._crank = { revs, t, at: now };
+        } else if (now - c.at > 2500) {
+          d.cadence = 0;
+        }
+      } else {
+        this._crank = { revs, t, at: now };
+      }
+    }
+    Object.assign(this.data, d);
+    this.emit('data', this.data);
+  }
+}
+
+// ------------------------------------------------------------------ Cardio
+class HeartRate extends Emitter {
+  constructor() { super(); this.device = null; this.connected = false; this.hr = null; this.ts = 0; this._manualClose = false; }
+  get name() { return this.device ? (this.device.name || 'Cardio') : ''; }
+
+  async connect() {
+    this.device = await navigator.bluetooth.requestDevice({ filters: [{ services: [HR_SVC] }] });
+    this.device.addEventListener('gattserverdisconnected', () => this._onDisconnect());
+    this._manualClose = false;
+    await this._setup();
+  }
+  async _setup() {
+    const server = await this.device.gatt.connect();
+    const svc = await server.getPrimaryService(HR_SVC);
+    const ch = await svc.getCharacteristic(HR_MEAS);
+    ch.addEventListener('characteristicvaluechanged', e => {
+      const dv = e.target.value;
+      const f = dv.getUint8(0);
+      this.hr = (f & 1) ? dv.getUint16(1, true) : dv.getUint8(1);
+      this.ts = performance.now();
+      this.emit('data', this.hr);
+    });
+    await ch.startNotifications();
+    this.connected = true;
+    this.emit('status', 'Collegato');
+    this.emit('connected', this);
+  }
+  _onDisconnect() {
+    const was = this.connected;
+    this.connected = false; this.hr = null;
+    this.emit('status', 'Disconnesso');
+    this.emit('disconnected', this);
+    if (was && !this._manualClose) this._reconnect();
+  }
+  async _reconnect() {
+    for (let i = 1; i <= 10 && !this._manualClose; i++) {
+      this.emit('status', `Riconnessione (${i})…`);
+      try { await this._setup(); return; } catch { /* riprova */ }
+      await new Promise(r => setTimeout(r, 2000));
+    }
+  }
+  disconnect() { this._manualClose = true; if (this.device && this.device.gatt.connected) this.device.gatt.disconnect(); }
+}
+
+// ------------------------------------------------------------------ Simulatore (prove senza rullo)
+class SimTrainer extends Emitter {
+  constructor() {
+    super();
+    this.connected = false; this.protocol = 'demo';
+    this.data = { power: 0, cadence: 0, speed: 0, ts: 0 };
+    this.mode = null; this.last = {};
+    this.effort = 110; // watt "spontanei" del ciclista simulato
+  }
+  get name() { return 'Rullo simulato'; }
+  async connect() {
+    this.connected = true;
+    this._t = setInterval(() => this._tick(), 250);
+    this.emit('status', 'Collegato (demo)');
+    this.emit('connected', this);
+  }
+  disconnect() { clearInterval(this._t); this.connected = false; this.emit('status', 'Disconnesso'); this.emit('disconnected', this); }
+  async setErg(w) { this.mode = 'erg'; this.last.erg = w; }
+  async setSim(s) { this.mode = 'sim'; this.last.sim = { ...(this.last.sim || {}), ...s }; }
+  _tick() {
+    let target;
+    if (this.mode === 'erg') target = this.last.erg;
+    else target = this.effort + clamp((this.last.sim?.grade || 0) * 8, -this.effort, 120);
+    const p = this.data.power + (target - this.data.power) * 0.3 + (Math.random() - 0.5) * 8;
+    this.data = { power: Math.max(0, Math.round(p)), cadence: target > 5 ? Math.round(85 + (Math.random() - 0.5) * 6) : 0, speed: null, ts: performance.now() };
+    this.emit('data', this.data);
+  }
+}
+
+class SimHeartRate extends Emitter {
+  constructor(trainer) { super(); this.trainer = trainer; this.connected = false; this.hr = null; this.ts = 0; }
+  get name() { return 'Cardio simulato'; }
+  async connect() {
+    this.connected = true; this.hr = 90;
+    this._t = setInterval(() => {
+      const target = 80 + (this.trainer?.data.power || 0) * 0.45;
+      this.hr = Math.round(this.hr + (target - this.hr) * 0.05);
+      this.ts = performance.now();
+      this.emit('data', this.hr);
+    }, 1000);
+    this.emit('status', 'Collegato (demo)'); this.emit('connected', this);
+  }
+  disconnect() { clearInterval(this._t); this.connected = false; this.hr = null; this.emit('status', 'Disconnesso'); this.emit('disconnected', this); }
+}
+
+return { bluetoothAvailable, Trainer, HeartRate, SimTrainer, SimHeartRate };
+})();
+// ===== gpx.js
+__m.gpx = (() => {
+// Lettura dei file GPX e preparazione del percorso: ricampionamento ogni 10 m,
+// quote livellate, pendenze, dislivello.
+
+const STEP = 10; // metri tra un punto e l'altro dopo il ricampionamento
+
+function parseGpx(text) {
+  const doc = new DOMParser().parseFromString(text, 'application/xml');
+  if (doc.getElementsByTagName('parsererror').length) throw new Error('File GPX non valido');
+  let nodes = [...doc.getElementsByTagNameNS('*', 'trkpt')];
+  if (!nodes.length) nodes = [...doc.getElementsByTagNameNS('*', 'rtept')];
+  if (nodes.length < 2) throw new Error('Il GPX non contiene una traccia');
+  let hasEle = false;
+  const pts = nodes.map(n => {
+    const e = n.getElementsByTagNameNS('*', 'ele')[0];
+    const ele = e ? parseFloat(e.textContent) : NaN;
+    if (!isNaN(ele)) hasEle = true;
+    return { lat: parseFloat(n.getAttribute('lat')), lon: parseFloat(n.getAttribute('lon')), ele };
+  }).filter(p => isFinite(p.lat) && isFinite(p.lon));
+  const nameEl = doc.getElementsByTagNameNS('*', 'trk')[0]?.getElementsByTagNameNS('*', 'name')[0]
+    || doc.getElementsByTagNameNS('*', 'metadata')[0]?.getElementsByTagNameNS('*', 'name')[0]
+    || doc.getElementsByTagNameNS('*', 'name')[0];
+  // quote mancanti: interpolazione dai vicini, oppure zero
+  if (hasEle) {
+    let lastIdx = -1;
+    for (let i = 0; i < pts.length; i++) {
+      if (!isNaN(pts[i].ele)) {
+        if (lastIdx === -1) for (let j = 0; j < i; j++) pts[j].ele = pts[i].ele;
+        else for (let j = lastIdx + 1; j < i; j++) pts[j].ele = pts[lastIdx].ele + (pts[i].ele - pts[lastIdx].ele) * (j - lastIdx) / (i - lastIdx);
+        lastIdx = i;
+      }
+    }
+    for (let j = lastIdx + 1; j < pts.length; j++) pts[j].ele = pts[lastIdx].ele;
+  } else pts.forEach(p => { p.ele = 0; });
+  return { name: nameEl ? nameEl.textContent.trim() : '', points: pts, hasEle };
+}
+
+function haversine(a, b) {
+  const R = 6371008.8, rad = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * rad, dLon = (b.lon - a.lon) * rad;
+  const s = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(s)));
+}
+
+function movingAvg(arr, half) {
+  const out = new Float64Array(arr.length);
+  let sum = 0, n = 0;
+  const L = arr.length;
+  // finestra centrata con somma scorrevole
+  for (let i = 0; i < Math.min(half, L); i++) { sum += arr[i]; n++; }
+  for (let i = 0; i < L; i++) {
+    const add = i + half, rem = i - half - 1;
+    if (add < L) { sum += arr[add]; n++; }
+    if (rem >= 0) { sum -= arr[rem]; n--; }
+    out[i] = sum / n;
+  }
+  return out;
+}
+
+class Route {
+  constructor(points, name = '') {
+    this.name = name;
+    // distanze cumulative, scartando i punti doppi
+    const p = [points[0]];
+    const cum = [0];
+    for (let i = 1; i < points.length; i++) {
+      const d = haversine(p[p.length - 1], points[i]);
+      if (d < 0.5) continue;
+      p.push(points[i]); cum.push(cum[cum.length - 1] + d);
+    }
+    this.length = cum[cum.length - 1];
+    const n = Math.max(2, Math.floor(this.length / STEP) + 1);
+    this.lat = new Float64Array(n); this.lon = new Float64Array(n);
+    const raw = new Float64Array(n);
+    let j = 0;
+    for (let i = 0; i < n; i++) {
+      const d = Math.min(i * STEP, this.length);
+      while (j < cum.length - 2 && cum[j + 1] < d) j++;
+      const seg = cum[j + 1] - cum[j] || 1;
+      const t = Math.max(0, Math.min(1, (d - cum[j]) / seg));
+      this.lat[i] = p[j].lat + (p[j + 1].lat - p[j].lat) * t;
+      this.lon[i] = p[j].lon + (p[j + 1].lon - p[j].lon) * t;
+      raw[i] = p[j].ele + (p[j + 1].ele - p[j].ele) * t;
+    }
+    this.n = n;
+    // quote livellate (finestra ~90 m) e pendenze livellate (~50 m)
+    this.ele = movingAvg(raw, 4);
+    const g = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      const a = Math.max(0, i - 1), b = Math.min(n - 1, i + 1);
+      const dd = (b - a) * STEP;
+      g[i] = dd > 0 ? (this.ele[b] - this.ele[a]) / dd * 100 : 0;
+    }
+    this.grade = movingAvg(g, 2).map(x => Math.max(-25, Math.min(25, x)));
+    let up = 0, down = 0, maxG = 0;
+    for (let i = 1; i < n; i++) {
+      const dz = this.ele[i] - this.ele[i - 1];
+      if (dz > 0) up += dz; else down -= dz;
+    }
+    // pendenza massima su tratti di almeno 100 m
+    for (let i = 10; i < n; i++) maxG = Math.max(maxG, (this.ele[i] - this.ele[i - 10]) / (10 * STEP) * 100);
+    this.ascent = up; this.descent = down; this.maxGrade = maxG;
+    this.minEle = Math.min(...this.ele); this.maxEle = Math.max(...this.ele);
+  }
+
+  // stato alla distanza d (m): posizione, quota, pendenza
+  at(d) {
+    const x = Math.max(0, Math.min(this.length, d)) / STEP;
+    const i = Math.min(this.n - 2, Math.floor(x));
+    const t = Math.min(1, x - i);
+    const lerp = (arr) => arr[i] + (arr[i + 1] - arr[i]) * t;
+    return { lat: lerp(this.lat), lon: lerp(this.lon), ele: lerp(this.ele), grade: lerp(this.grade) };
+  }
+
+  // pendenza media dei prossimi `ahead` metri
+  gradeAhead(d, ahead = 200) {
+    const a = this.at(d), b = this.at(Math.min(this.length, d + ahead));
+    const dist = Math.min(this.length, d + ahead) - d;
+    return dist > 1 ? (b.ele - a.ele) / dist * 100 : a.grade;
+  }
+
+  latlngs() {
+    const out = [];
+    const every = Math.max(1, Math.floor(this.n / 3000));
+    for (let i = 0; i < this.n; i += every) out.push([this.lat[i], this.lon[i]]);
+    out.push([this.lat[this.n - 1], this.lon[this.n - 1]]);
+    return out;
+  }
+
+  summary() {
+    return { distance: Math.round(this.length), ascent: Math.round(this.ascent), descent: Math.round(this.descent),
+      maxGrade: +this.maxGrade.toFixed(1), minEle: Math.round(this.minEle), maxEle: Math.round(this.maxEle),
+      start: [+this.lat[0].toFixed(5), +this.lon[0].toFixed(5)] };
+  }
+}
+
+function routeFromGpx(text) {
+  const g = parseGpx(text);
+  const r = new Route(g.points, g.name);
+  r.hasEle = g.hasEle;
+  return r;
+}
+
+return { parseGpx, haversine, Route, routeFromGpx };
+})();
+// ===== workouts.js
+__m.workouts = (() => {
+// Allenamenti strutturati: modello a blocchi, espansione in passi, import .zwo/.erg/.mrc,
+// allenamenti di base, zone e disegno del grafico.
+//
+// Blocchi (percentuali di FTP, durate in secondi):
+//   { type:'steady', dur, pct, text? }
+//   { type:'ramp', dur, from, to, text? }
+//   { type:'intervals', reps, onDur, onPct, offDur, offPct }
+//   { type:'free', dur, text? }     -> pedalata libera (modalita' pendenza 0%)
+
+const ZONES = [
+  { max: 55, name: 'Z1 Recupero', color: '#8a93a6' },
+  { max: 75, name: 'Z2 Fondo', color: '#3b82f6' },
+  { max: 90, name: 'Z3 Tempo', color: '#22c55e' },
+  { max: 105, name: 'Z4 Soglia', color: '#eab308' },
+  { max: 120, name: 'Z5 VO2max', color: '#f97316' },
+  { max: 999, name: 'Z6 Anaerobico', color: '#ef4444' },
+];
+const zoneOf = pct => ZONES.find(z => pct <= z.max) || ZONES[ZONES.length - 1];
+const FREE_COLOR = '#475569';
+
+function expand(blocks) {
+  const steps = [];
+  let t = 0;
+  const push = (s) => { if (s.dur > 0) { steps.push({ ...s, start: t }); t += s.dur; } };
+  for (const b of blocks || []) {
+    if (b.type === 'steady') push({ kind: 'erg', dur: +b.dur, from: +b.pct, to: +b.pct, text: b.text });
+    else if (b.type === 'ramp') push({ kind: 'erg', dur: +b.dur, from: +b.from, to: +b.to, text: b.text });
+    else if (b.type === 'free') push({ kind: 'free', dur: +b.dur, from: 0, to: 0, text: b.text });
+    else if (b.type === 'intervals') {
+      for (let i = 0; i < (+b.reps || 1); i++) {
+        push({ kind: 'erg', dur: +b.onDur, from: +b.onPct, to: +b.onPct, text: `Ripetuta ${i + 1}/${b.reps}` });
+        push({ kind: 'erg', dur: +b.offDur, from: +b.offPct, to: +b.offPct, text: 'Recupero' });
+      }
+    }
+  }
+  return { steps, duration: t };
+}
+
+// percentuale di FTP al secondo t del passo
+const pctAt = (step, t) => step.from + (step.to - step.from) * Math.min(1, Math.max(0, t / step.dur));
+
+function stats(blocks) {
+  const { steps, duration } = expand(blocks);
+  // TSS stimato: somma di IF^2 per secondo (approssimazione con NP ~ potenza media del passo)
+  let sum4 = 0, n = 0;
+  for (const s of steps) {
+    const p = s.kind === 'free' ? 50 : (s.from + s.to) / 2;
+    sum4 += Math.pow(p / 100, 4) * s.dur; n += s.dur;
+  }
+  const IF = n ? Math.pow(sum4 / n, 0.25) : 0;
+  return { duration, IF, tss: Math.round(duration / 3600 * IF * IF * 100) };
+}
+
+function fmtDur(s) {
+  s = Math.round(s);
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}` : `${m}:${String(sec).padStart(2, '0')}`;
+}
+
+// --------------------------------------------------------------- disegno
+// Disegna il profilo dell'allenamento su un canvas. progress = secondi trascorsi (facoltativo)
+function drawWorkout(canvas, blocks, opts = {}) {
+  const { steps, duration } = expand(blocks);
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (!w || !h) return;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, w, h);
+  if (!duration) return;
+  const maxPct = Math.max(130, ...steps.map(s => Math.max(s.from, s.to) + 10));
+  const X = t => t / duration * w, Y = p => h - p / maxPct * h;
+  for (const s of steps) {
+    const x0 = X(s.start), x1 = X(s.start + s.dur);
+    if (s.kind === 'free') {
+      ctx.fillStyle = FREE_COLOR;
+      ctx.fillRect(x0, Y(45), Math.max(1, x1 - x0 - 0.5), h - Y(45));
+      continue;
+    }
+    // le rampe sono disegnate a fette per colorarle per zona
+    const slices = s.from === s.to ? 1 : Math.max(1, Math.ceil((x1 - x0) / 3));
+    for (let k = 0; k < slices; k++) {
+      const ta = s.dur * k / slices, tb = s.dur * (k + 1) / slices;
+      const pa = pctAt(s, ta), pb = pctAt(s, tb);
+      ctx.fillStyle = zoneOf((pa + pb) / 2).color;
+      ctx.beginPath();
+      ctx.moveTo(X(s.start + ta), h); ctx.lineTo(X(s.start + ta), Y(pa));
+      ctx.lineTo(X(s.start + tb) + (k === slices - 1 ? -0.5 : 1), Y(pb)); ctx.lineTo(X(s.start + tb) + (k === slices - 1 ? -0.5 : 1), h);
+      ctx.closePath(); ctx.fill();
+    }
+  }
+  // linea FTP
+  ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(0, Y(100)); ctx.lineTo(w, Y(100)); ctx.stroke(); ctx.setLineDash([]);
+  if (opts.power && opts.power.length && opts.ftp) {
+    // potenza reale registrata
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.beginPath();
+    opts.power.forEach((p, i) => { const x = X(i), y = Y(p / opts.ftp * 100); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+    ctx.stroke();
+  }
+  if (opts.progress != null) {
+    const x = X(opts.progress);
+    ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(0, 0, x, h);
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+  }
+}
+
+// --------------------------------------------------------------- import
+function attr(el, ...names) {
+  for (const n of names) { const v = el.getAttribute(n); if (v != null && v !== '') return parseFloat(v); }
+  return NaN;
+}
+
+function parseZwo(text) {
+  const doc = new DOMParser().parseFromString(text, 'application/xml');
+  if (doc.getElementsByTagName('parsererror').length) throw new Error('File .zwo non valido');
+  const get = tag => doc.getElementsByTagName(tag)[0]?.textContent?.trim() || '';
+  const wk = doc.getElementsByTagName('workout')[0];
+  if (!wk) throw new Error('Nel file non c\'e\' la sezione <workout>');
+  const blocks = [];
+  const P = v => Math.round(v * 100);
+  for (const el of wk.children) {
+    const tag = el.tagName.toLowerCase();
+    const dur = attr(el, 'Duration');
+    if (tag === 'steadystate' || tag === 'solidstate') blocks.push({ type: 'steady', dur, pct: P(attr(el, 'Power', 'PowerLow')) });
+    else if (tag === 'warmup' || tag === 'cooldown' || tag === 'ramp') {
+      let from = attr(el, 'PowerLow'), to = attr(el, 'PowerHigh');
+      if (tag === 'cooldown' && from < to) [from, to] = [to, from];
+      blocks.push({ type: 'ramp', dur, from: P(from), to: P(to), text: tag === 'warmup' ? 'Riscaldamento' : tag === 'cooldown' ? 'Defaticamento' : '' });
+    } else if (tag === 'intervalst') {
+      blocks.push({ type: 'intervals', reps: attr(el, 'Repeat') || 1, onDur: attr(el, 'OnDuration'), offDur: attr(el, 'OffDuration'),
+        onPct: P(attr(el, 'OnPower', 'PowerOnHigh', 'PowerOnLow')), offPct: P(attr(el, 'OffPower', 'PowerOffLow', 'PowerOffHigh')) });
+    } else if (tag === 'freeride' || tag === 'maxeffort') blocks.push({ type: 'free', dur, text: tag === 'maxeffort' ? 'Massimo sforzo' : 'Libera' });
+  }
+  if (!blocks.length) throw new Error('Nessun blocco riconosciuto nel file');
+  return { name: get('name') || 'Allenamento importato', description: get('description'), blocks };
+}
+
+function parseErgMrc(text, profileFtp) {
+  const lines = text.split(/\r?\n/).map(l => l.trim());
+  let units = '', ftp = profileFtp, name = '', desc = '', inData = false;
+  const pts = [];
+  for (const l of lines) {
+    if (!l || l.startsWith(';')) continue;
+    if (/^\[COURSE DATA\]/i.test(l)) { inData = true; continue; }
+    if (/^\[END COURSE DATA\]/i.test(l)) { inData = false; continue; }
+    if (/^\[/.test(l)) { inData = false; continue; }
+    if (!inData) {
+      const m = l.match(/^([A-Z ]+?)\s*=\s*(.*)$/i);
+      if (m) {
+        const k = m[1].trim().toUpperCase(), v = m[2].trim();
+        if (k === 'FTP' && +v > 0) ftp = +v;
+        if (k === 'FILE NAME') name = v;
+        if (k === 'DESCRIPTION') desc = v;
+      } else {
+        const u = l.match(/MINUTES\s+(WATTS|PERCENT)/i);
+        if (u) units = u[1].toUpperCase();
+      }
+      continue;
+    }
+    const nums = l.split(/\s+/).map(Number);
+    if (nums.length >= 2 && isFinite(nums[0]) && isFinite(nums[1])) pts.push([nums[0], nums[1]]);
+  }
+  if (pts.length < 2) throw new Error('Nessun dato nel file');
+  const isWatts = units ? units === 'WATTS' : pts.some(p => p[1] > 200);
+  const toPct = v => isWatts ? Math.round(v / ftp * 100) : Math.round(v);
+  const blocks = [];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const dur = Math.round((pts[i + 1][0] - pts[i][0]) * 60);
+    if (dur <= 0) continue;
+    const a = toPct(pts[i][1]), b = toPct(pts[i + 1][1]);
+    blocks.push(a === b ? { type: 'steady', dur, pct: a } : { type: 'ramp', dur, from: a, to: b });
+  }
+  // unisce i passi costanti consecutivi uguali
+  const merged = [];
+  for (const b of blocks) {
+    const last = merged[merged.length - 1];
+    if (last && last.type === 'steady' && b.type === 'steady' && last.pct === b.pct) last.dur += b.dur;
+    else merged.push(b);
+  }
+  return { name: name || 'Allenamento importato', description: desc, blocks: merged };
+}
+
+function importWorkoutFile(filename, text, profileFtp) {
+  const ext = filename.toLowerCase().split('.').pop();
+  let w;
+  if (ext === 'zwo' || text.includes('<workout_file')) w = parseZwo(text);
+  else w = parseErgMrc(text, profileFtp);
+  if (!w.name || w.name === 'Allenamento importato') w.name = filename.replace(/\.[^.]+$/, '');
+  return w;
+}
+
+// Esportazione in .zwo (per usare i propri allenamenti anche altrove)
+function toZwo(w) {
+  const esc = s => String(s || '').replace(/[<>&"]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
+  const f = p => (p / 100).toFixed(2);
+  const rows = w.blocks.map(b => {
+    if (b.type === 'steady') return `    <SteadyState Duration="${b.dur}" Power="${f(b.pct)}"/>`;
+    if (b.type === 'ramp') return `    <Ramp Duration="${b.dur}" PowerLow="${f(b.from)}" PowerHigh="${f(b.to)}"/>`;
+    if (b.type === 'intervals') return `    <IntervalsT Repeat="${b.reps}" OnDuration="${b.onDur}" OffDuration="${b.offDur}" OnPower="${f(b.onPct)}" OffPower="${f(b.offPct)}"/>`;
+    return `    <FreeRide Duration="${b.dur}"/>`;
+  });
+  return `<workout_file>\n  <author>Rullo</author>\n  <name>${esc(w.name)}</name>\n  <description>${esc(w.description)}</description>\n  <sportType>bike</sportType>\n  <workout>\n${rows.join('\n')}\n  </workout>\n</workout_file>\n`;
+}
+
+// --------------------------------------------------------------- allenamenti di base
+const W = (m) => Math.round(m * 60);
+const BUILTIN = [
+  {
+    id: 'b-recupero', name: 'Recupero attivo', category: 'Recupero',
+    description: 'Pedalata facile per smaltire la fatica. Cadenza sciolta, 85-95 rpm.',
+    blocks: [{ type: 'ramp', dur: W(5), from: 40, to: 55 }, { type: 'steady', dur: W(20), pct: 55 }, { type: 'ramp', dur: W(5), from: 55, to: 40 }],
+  },
+  {
+    id: 'b-fondo45', name: 'Fondo lento 45\'', category: 'Fondo',
+    description: 'Ritmo costante in Z2: costruisce la base aerobica.',
+    blocks: [{ type: 'ramp', dur: W(8), from: 45, to: 65 }, { type: 'steady', dur: W(32), pct: 68 }, { type: 'ramp', dur: W(5), from: 60, to: 45 }],
+  },
+  {
+    id: 'b-fondo60', name: 'Fondo medio 3×12\'', category: 'Fondo',
+    description: 'Tre blocchi in Z3 (tempo) con recuperi brevi.',
+    blocks: [{ type: 'ramp', dur: W(10), from: 45, to: 70 }, { type: 'intervals', reps: 3, onDur: W(12), onPct: 80, offDur: W(4), offPct: 55 }, { type: 'ramp', dur: W(6), from: 60, to: 40 }],
+  },
+  {
+    id: 'b-sweetspot', name: 'Sweet spot 2×15\'', category: 'Soglia',
+    description: 'Due blocchi all\'88-90% di FTP: ottimo rapporto fatica/beneficio.',
+    blocks: [{ type: 'ramp', dur: W(10), from: 45, to: 75 }, { type: 'steady', dur: W(3), pct: 55 }, { type: 'intervals', reps: 2, onDur: W(15), onPct: 89, offDur: W(5), offPct: 55 }, { type: 'ramp', dur: W(7), from: 60, to: 40 }],
+  },
+  {
+    id: 'b-soglia', name: 'Soglia 3×8\'', category: 'Soglia',
+    description: 'Tre ripetute alla soglia (FTP). Impegnativo ma gestibile.',
+    blocks: [{ type: 'ramp', dur: W(10), from: 45, to: 75 }, { type: 'steady', dur: W(1), pct: 110 }, { type: 'steady', dur: W(4), pct: 55 }, { type: 'intervals', reps: 3, onDur: W(8), onPct: 100, offDur: W(4), offPct: 55 }, { type: 'ramp', dur: W(6), from: 60, to: 40 }],
+  },
+  {
+    id: 'b-overunder', name: 'Sopra-sotto soglia 3×9\'', category: 'Soglia',
+    description: 'Alternanza 2\' al 95% e 1\' al 105%: insegna a gestire i cambi di ritmo.',
+    blocks: [{ type: 'ramp', dur: W(10), from: 45, to: 75 },
+      ...[1, 2, 3].flatMap(() => [{ type: 'intervals', reps: 3, onDur: W(2), onPct: 95, offDur: W(1), offPct: 105 }, { type: 'steady', dur: W(5), pct: 55 }]),
+      { type: 'ramp', dur: W(5), from: 55, to: 40 }],
+  },
+  {
+    id: 'b-vo2', name: 'VO2max 5×3\'', category: 'Intensità',
+    description: 'Cinque ripetute brevi e dure al 115-120%.',
+    blocks: [{ type: 'ramp', dur: W(12), from: 45, to: 80 }, { type: 'steady', dur: W(3), pct: 55 }, { type: 'intervals', reps: 5, onDur: W(3), onPct: 117, offDur: W(3), offPct: 50 }, { type: 'ramp', dur: W(7), from: 55, to: 40 }],
+  },
+  {
+    id: 'b-ramptest', name: 'Test FTP a rampa', category: 'Test', rampTest: true,
+    description: 'Ogni minuto la potenza sale del 6% di FTP: vai avanti finché ce la fai, poi premi "Fine". FTP stimato = 75% della miglior potenza su 1 minuto.',
+    blocks: [{ type: 'steady', dur: W(5), pct: 45, text: 'Riscaldamento' },
+      ...Array.from({ length: 20 }, (_, i) => ({ type: 'steady', dur: 60, pct: 50 + i * 6, text: `Gradino ${i + 1}` })),
+      { type: 'ramp', dur: W(5), from: 45, to: 35, text: 'Defaticamento' }],
+  },
+];
+
+return { ZONES, zoneOf, FREE_COLOR, expand, pctAt, stats, fmtDur, drawWorkout, parseZwo, parseErgMrc, importWorkoutFile, toZwo, BUILTIN };
+})();
+// ===== fit.js
+__m.fit = (() => {
+// Scrittura di file .FIT (attivita') da importare in Garmin Connect.
+// Messaggi: file_id, event, record, lap, session, activity.
+
+const FIT_EPOCH = 631065600; // 31/12/1989 00:00 UTC in secondi Unix
+const fitTime = ms => Math.round(ms / 1000) - FIT_EPOCH;
+
+const T = { enum: 0x00, sint8: 0x01, uint8: 0x02, sint16: 0x83, uint16: 0x84, sint32: 0x85, uint32: 0x86, uint32z: 0x8c };
+const SIZE = { 0x00: 1, 0x01: 1, 0x02: 1, 0x83: 2, 0x84: 2, 0x85: 4, 0x86: 4, 0x8c: 4 };
+const INVALID = { 0x00: 0xff, 0x01: 0x7f, 0x02: 0xff, 0x83: 0x7fff, 0x84: 0xffff, 0x85: 0x7fffffff, 0x86: 0xffffffff, 0x8c: 0 };
+
+const CRC_TABLE = [0x0000, 0xcc01, 0xd801, 0x1400, 0xf001, 0x3c00, 0x2800, 0xe401, 0xa001, 0x6c00, 0x7800, 0xb401, 0x5000, 0x9c01, 0x8801, 0x4400];
+function crc16(bytes, crc = 0) {
+  for (const b of bytes) {
+    let tmp = CRC_TABLE[crc & 0xf];
+    crc = (crc >> 4) & 0x0fff; crc = crc ^ tmp ^ CRC_TABLE[b & 0xf];
+    tmp = CRC_TABLE[crc & 0xf];
+    crc = (crc >> 4) & 0x0fff; crc = crc ^ tmp ^ CRC_TABLE[(b >> 4) & 0xf];
+  }
+  return crc;
+}
+
+class FitWriter {
+  constructor() { this.out = []; this.defs = {}; }
+  _num(v, type) {
+    const size = SIZE[type];
+    if (v == null || !isFinite(v)) v = INVALID[type];
+    v = Math.round(v);
+    if (type === 0x83) v = Math.max(-32767, Math.min(32767, v)) & 0xffff;
+    else if (type === 0x85) v = Math.max(-2147483647, Math.min(2147483647, v)) >>> 0;
+    else if (type === 0x01) v = Math.max(-127, Math.min(127, v)) & 0xff;
+    else if (size === 1) v = Math.max(0, Math.min(0xff, v));
+    else if (size === 2) v = Math.max(0, Math.min(0xffff, v));
+    else v = Math.max(0, Math.min(0xffffffff, v)) >>> 0;
+    for (let i = 0; i < size; i++) this.out.push((v / Math.pow(256, i)) & 0xff);
+  }
+  // fields: [[numero campo, tipo, nome]]
+  define(local, global, fields) {
+    this.defs[local] = fields;
+    this.out.push(0x40 | local, 0, 0, global & 0xff, global >> 8, fields.length);
+    for (const [num, type] of fields) this.out.push(num, SIZE[type], type);
+  }
+  write(local, values) {
+    this.out.push(local);
+    for (const [, type, name] of this.defs[local]) this._num(values[name], type);
+  }
+  bytes() {
+    const data = this.out;
+    const header = [14, 0x10, 0x54, 0x08, ...[0, 1, 2, 3].map(i => (data.length >>> (8 * i)) & 0xff), 0x2e, 0x46, 0x49, 0x54];
+    const hc = crc16(header);
+    header.push(hc & 0xff, hc >> 8);
+    const all = header.concat(data);
+    const c = crc16(all);
+    all.push(c & 0xff, c >> 8);
+    return new Uint8Array(all);
+  }
+}
+
+const semi = deg => deg == null ? null : Math.round(deg * 2147483648 / 180);
+
+function statsOf(samples) {
+  const s = { n: samples.length };
+  const val = k => samples.map(x => x[k]).filter(v => v != null && isFinite(v));
+  const avg = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+  const max = a => a.length ? Math.max(...a) : null;
+  const P = val('p'), H = val('hr'), C = val('c').filter(c => c > 0), V = val('v');
+  s.avgP = avg(P); s.maxP = max(P); s.avgHr = avg(H); s.maxHr = max(H); s.avgC = avg(C); s.maxC = max(C);
+  s.avgV = avg(V); s.maxV = max(V);
+  s.kj = P.reduce((a, b) => a + b, 0) / 1000;
+  let up = 0, down = 0, lastE = null;
+  for (const x of samples) {
+    if (x.ele == null) continue;
+    if (lastE != null) { const dz = x.ele - lastE; if (dz > 0) up += dz; else down -= dz; }
+    lastE = x.ele;
+  }
+  s.ascent = up; s.descent = down;
+  s.dist = samples.length ? samples[samples.length - 1].d - (samples[0].d0 ?? samples[0].d) : 0;
+  return s;
+}
+
+// act: { start (ms), end (ms), samples:[{ts,p,c,hr,v,d,g,lat,lon,ele}], laps:[{start,end}],
+//        pauses:[{start,end}], subSport:'indoor'|'virtual', summary:{np,tss,if,ftp,kcal} }
+function buildFit(act) {
+  const w = new FitWriter();
+  const S = act.samples;
+  const subSport = act.subSport === 'virtual' ? 58 : 6;
+  const startT = fitTime(act.start), endT = fitTime(act.end);
+  const hasPos = S.some(x => x.lat != null);
+
+  w.define(0, 0, [[0, T.enum, 'type'], [1, T.uint16, 'manufacturer'], [2, T.uint16, 'product'], [3, T.uint32z, 'serial'], [4, T.uint32, 'time']]);
+  w.write(0, { type: 4, manufacturer: 255, product: 1, serial: 12345, time: startT });
+
+  w.define(1, 21, [[253, T.uint32, 'ts'], [0, T.enum, 'event'], [1, T.enum, 'type']]);
+  w.write(1, { ts: startT, event: 0, type: 0 });
+
+  const recFields = [[253, T.uint32, 'ts'], [5, T.uint32, 'd'], [6, T.uint16, 'v'], [7, T.uint16, 'p'],
+    [3, T.uint8, 'hr'], [4, T.uint8, 'c']];
+  if (hasPos) recFields.push([0, T.sint32, 'lat'], [1, T.sint32, 'lon'], [2, T.uint16, 'alt'], [9, T.sint16, 'g']);
+  w.define(2, 20, recFields);
+
+  // pause come eventi timer stop/start inseriti in ordine cronologico
+  const pauses = (act.pauses || []).filter(p => p.end > p.start);
+  let pi = 0;
+  for (const x of S) {
+    while (pi < pauses.length && pauses[pi].end <= x.ts) {
+      w.write(1, { ts: fitTime(pauses[pi].start), event: 0, type: 4 });
+      w.write(1, { ts: fitTime(pauses[pi].end), event: 0, type: 0 });
+      pi++;
+    }
+    w.write(2, {
+      ts: fitTime(x.ts), d: x.d * 100, v: x.v * 1000, p: x.p, hr: x.hr, c: x.c,
+      lat: semi(x.lat), lon: semi(x.lon), alt: x.ele != null ? (x.ele + 500) * 5 : null, g: x.g != null ? x.g * 100 : null,
+    });
+  }
+  w.write(1, { ts: endT, event: 0, type: 4 });
+
+  // giri
+  const lapFields = [[253, T.uint32, 'ts'], [254, T.uint16, 'idx'], [0, T.enum, 'event'], [1, T.enum, 'etype'], [2, T.uint32, 'start'],
+    [7, T.uint32, 'elapsed'], [8, T.uint32, 'timer'], [9, T.uint32, 'dist'], [11, T.uint16, 'kcal'], [13, T.uint16, 'avgV'], [14, T.uint16, 'maxV'],
+    [15, T.uint8, 'avgHr'], [16, T.uint8, 'maxHr'], [17, T.uint8, 'avgC'], [19, T.uint16, 'avgP'], [20, T.uint16, 'maxP'],
+    [21, T.uint16, 'up'], [22, T.uint16, 'down'], [24, T.enum, 'trigger'], [25, T.enum, 'sport'], [39, T.enum, 'sub']];
+  w.define(3, 19, lapFields);
+  const laps = (act.laps && act.laps.length) ? act.laps : [{ start: act.start, end: act.end }];
+  let li = 0;
+  laps.forEach((lap, i) => {
+    const ls = S.filter(x => x.ts >= lap.start && x.ts < (i === laps.length - 1 ? Infinity : lap.end));
+    if (!ls.length) return;
+    const prev = S[S.indexOf(ls[0]) - 1];
+    ls[0] = { ...ls[0], d0: prev ? prev.d : 0 };
+    const st = statsOf(ls);
+    w.write(3, {
+      ts: fitTime(lap.end), idx: li++, event: 9, etype: 1, start: fitTime(lap.start),
+      elapsed: (lap.end - lap.start), timer: ls.length * 1000, dist: st.dist * 100, kcal: st.kj,
+      avgV: st.avgV * 1000, maxV: st.maxV * 1000, avgHr: st.avgHr, maxHr: st.maxHr, avgC: st.avgC,
+      avgP: st.avgP, maxP: st.maxP, up: st.ascent, down: st.descent, trigger: i === laps.length - 1 ? 7 : 0, sport: 2, sub: subSport,
+    });
+  });
+
+  const st = statsOf(S);
+  const sm = act.summary || {};
+  w.define(4, 18, [[253, T.uint32, 'ts'], [254, T.uint16, 'idx'], [0, T.enum, 'event'], [1, T.enum, 'etype'], [2, T.uint32, 'start'],
+    [5, T.enum, 'sport'], [6, T.enum, 'sub'], [7, T.uint32, 'elapsed'], [8, T.uint32, 'timer'], [9, T.uint32, 'dist'], [11, T.uint16, 'kcal'],
+    [14, T.uint16, 'avgV'], [15, T.uint16, 'maxV'], [16, T.uint8, 'avgHr'], [17, T.uint8, 'maxHr'], [18, T.uint8, 'avgC'], [19, T.uint8, 'maxC'],
+    [20, T.uint16, 'avgP'], [21, T.uint16, 'maxP'], [22, T.uint16, 'up'], [23, T.uint16, 'down'], [25, T.uint16, 'firstLap'], [26, T.uint16, 'numLaps'],
+    [28, T.enum, 'trigger'], [34, T.uint16, 'np'], [35, T.uint16, 'tss'], [36, T.uint16, 'if'], [45, T.uint16, 'ftp']]);
+  w.write(4, {
+    ts: endT, idx: 0, event: 8, etype: 1, start: startT, sport: 2, sub: subSport,
+    elapsed: act.end - act.start, timer: S.length * 1000, dist: (S.length ? S[S.length - 1].d : 0) * 100, kcal: sm.kcal ?? st.kj,
+    avgV: st.avgV * 1000, maxV: st.maxV * 1000, avgHr: st.avgHr, maxHr: st.maxHr, avgC: st.avgC, maxC: st.maxC,
+    avgP: st.avgP, maxP: st.maxP, up: st.ascent, down: st.descent, firstLap: 0, numLaps: li || 1, trigger: 0,
+    np: sm.np, tss: sm.tss != null ? sm.tss * 10 : null, if: sm.if != null ? sm.if * 1000 : null, ftp: sm.ftp,
+  });
+
+  w.define(5, 34, [[253, T.uint32, 'ts'], [0, T.uint32, 'timer'], [1, T.uint16, 'num'], [2, T.enum, 'type'], [3, T.enum, 'event'], [4, T.enum, 'etype'], [5, T.uint32, 'local']]);
+  const tzOff = -new Date(act.end).getTimezoneOffset() * 60;
+  w.write(5, { ts: endT, timer: S.length * 1000, num: 1, type: 0, event: 26, etype: 1, local: endT + tzOff });
+  return w.bytes();
+}
+
+function toBase64(bytes) {
+  let s = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+
+return { buildFit, toBase64 };
+})();
+// ===== charts.js
+__m.charts = (() => {
+// Grafici su canvas: profilo altimetrico, serie temporali, barre settimanali.
+
+function setup(canvas) {
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  }
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+  return { ctx, w, h };
+}
+
+function gradeColor(g) {
+  if (g < -2) return '#3b82f6';
+  if (g < 2) return '#22c55e';
+  if (g < 5) return '#a3e635';
+  if (g < 8) return '#eab308';
+  if (g < 11) return '#f97316';
+  return '#ef4444';
+}
+
+// Profilo altimetrico tra le distanze from..to (m), con posizione del ciclista pos (m)
+function drawProfile(canvas, route, { from = 0, to = route.length, pos = null, labels = true } = {}) {
+  const { ctx, w, h } = setup(canvas);
+  if (!w || !h) return;
+  const padB = labels ? 16 : 2, padT = 6;
+  const step = Math.max(10, (to - from) / w);
+  let lo = Infinity, hi = -Infinity;
+  for (let d = from; d <= to; d += step) { const e = route.at(d).ele; lo = Math.min(lo, e); hi = Math.max(hi, e); }
+  const range = Math.max(30, hi - lo);
+  const base = lo - range * 0.15, top = hi + range * 0.1;
+  const X = d => (d - from) / (to - from) * w;
+  const Y = e => padT + (1 - (e - base) / (top - base)) * (h - padB - padT);
+  for (let d = from; d < to; d += step) {
+    const a = route.at(d), b = route.at(Math.min(to, d + step));
+    ctx.fillStyle = gradeColor((b.ele - a.ele) / step * 100);
+    ctx.beginPath();
+    ctx.moveTo(X(d), h - padB); ctx.lineTo(X(d), Y(a.ele)); ctx.lineTo(X(d + step) + 0.5, Y(b.ele)); ctx.lineTo(X(d + step) + 0.5, h - padB);
+    ctx.closePath(); ctx.fill();
+  }
+  if (labels) {
+    ctx.fillStyle = '#8b97a7'; ctx.font = '11px system-ui';
+    ctx.textBaseline = 'top';
+    ctx.fillText(`${Math.round(hi)} m`, 4, 2);
+    const km = (to - from) / 1000;
+    const tick = km > 50 ? 10 : km > 20 ? 5 : km > 6 ? 1 : km > 2 ? 0.5 : 0.1;
+    ctx.textBaseline = 'bottom';
+    for (let k = Math.ceil(from / 1000 / tick) * tick; k * 1000 <= to; k += tick) {
+      const x = X(k * 1000);
+      ctx.fillRect(x, h - padB, 1, 3);
+      if (x > 14 && x < w - 20) ctx.fillText(`${+k.toFixed(1)}`, x - 6, h);
+    }
+  }
+  if (pos != null) {
+    const x = X(pos), e = route.at(pos).ele;
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, h - padB); ctx.stroke();
+    ctx.fillStyle = '#ff7a1a'; ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(x, Y(e), 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+  }
+}
+
+// Serie temporali: series = [{ data:[...], color, max?, fill? }]
+function drawSeries(canvas, series, { xmax = null, grid = [] } = {}) {
+  const { ctx, w, h } = setup(canvas);
+  if (!w || !h) return;
+  const n = xmax || Math.max(1, ...series.map(s => s.data.length));
+  for (const g of grid) {
+    const s = series[0]; const max = s.max || Math.max(1, ...s.data.filter(v => v != null));
+    const y = h - g.value / max * h;
+    ctx.strokeStyle = g.color || 'rgba(255,255,255,.25)'; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); ctx.setLineDash([]);
+  }
+  for (const s of series) {
+    const vals = s.data;
+    const max = s.max || Math.max(1, ...vals.filter(v => v != null)) * 1.1;
+    const every = Math.max(1, Math.floor(vals.length / (w * 1.5)));
+    ctx.beginPath();
+    let started = false;
+    for (let i = 0; i < vals.length; i += every) {
+      // media sul gruppo di punti
+      let sum = 0, c = 0;
+      for (let k = i; k < Math.min(vals.length, i + every); k++) if (vals[k] != null) { sum += vals[k]; c++; }
+      if (!c) continue;
+      const x = i / n * w, y = h - (sum / c) / max * h;
+      if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
+    }
+    if (s.fill && started) {
+      ctx.lineTo((vals.length - 1) / n * w, h); ctx.lineTo(0, h); ctx.closePath();
+      ctx.fillStyle = s.fill; ctx.fill();
+    } else {
+      ctx.strokeStyle = s.color; ctx.lineWidth = s.width || 1.5; ctx.stroke();
+    }
+  }
+}
+
+// Barre: items = [{ label, value }]
+function drawBars(canvas, items, { color = '#ff7a1a', fmt = v => v } = {}) {
+  const { ctx, w, h } = setup(canvas);
+  if (!w || !h || !items.length) return;
+  const max = Math.max(1, ...items.map(i => i.value));
+  const bw = w / items.length;
+  ctx.font = '11px system-ui'; ctx.textAlign = 'center';
+  items.forEach((it, i) => {
+    const bh = it.value / max * (h - 34);
+    ctx.fillStyle = color;
+    ctx.fillRect(i * bw + bw * 0.15, h - 16 - bh, bw * 0.7, bh);
+    ctx.fillStyle = '#8b97a7';
+    ctx.fillText(it.label, i * bw + bw / 2, h - 3);
+    if (it.value) { ctx.fillStyle = '#e6edf3'; ctx.fillText(fmt(it.value), i * bw + bw / 2, h - 20 - bh); }
+  });
+}
+
+return { setup, gradeColor, drawProfile, drawSeries, drawBars };
+})();
+// ===== localdb.js
+__m.localdb = (() => {
+// Archivio nel browser (IndexedDB) per la versione portatile: stesse funzioni dell'API del server.
+const DB_NAME = 'rullo';
+const STORES = ['kv', 'workouts', 'routes', 'activities'];
+
+const DEFAULT_PROFILE = {
+  weight: 75, bikeWeight: 9, ftp: 180, hrMax: null, position: 'cappe', cdaCustom: null, surface: 'normale',
+  crrCustom: null, difficulty: 100, protocol: 'auto', autoPause: true, garminAuto: false, history: [], setupDone: false,
+};
+const TRACKED = ['weight', 'bikeWeight', 'ftp', 'hrMax'];
+
+let dbp = null;
+function db() {
+  dbp ||= new Promise((resolve, reject) => {
+    const r = indexedDB.open(DB_NAME, 1);
+    r.onupgradeneeded = () => { for (const s of STORES) if (!r.result.objectStoreNames.contains(s)) r.result.createObjectStore(s); };
+    r.onsuccess = () => resolve(r.result);
+    r.onerror = () => reject(r.error);
+  });
+  return dbp;
+}
+
+async function tx(store, mode, fn) {
+  const d = await db();
+  return new Promise((resolve, reject) => {
+    const t = d.transaction(store, mode);
+    const st = t.objectStore(store);
+    let out;
+    const r = fn(st);
+    if (r) r.onsuccess = () => { out = r.result; };
+    t.oncomplete = () => resolve(out);
+    t.onerror = () => reject(t.error);
+    t.onabort = () => reject(t.error || new Error('Spazio di archiviazione pieno?'));
+  });
+}
+const get = (s, k) => tx(s, 'readonly', st => st.get(k));
+const put = (s, k, v) => tx(s, 'readwrite', st => st.put(v, k));
+const del = (s, k) => tx(s, 'readwrite', st => st.delete(k));
+const all = (s) => tx(s, 'readonly', st => st.getAll());
+
+const pad = n => String(n).padStart(2, '0');
+function newId() {
+  const d = new Date();
+  return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}-` +
+    Math.random().toString(16).slice(2, 8);
+}
+const today = () => { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; };
+const nowIso = () => new Date().toISOString().slice(0, 19);
+const byIdDesc = arr => arr.sort((a, b) => (a.id < b.id ? 1 : -1));
+
+async function loadProfile() {
+  const p = { ...DEFAULT_PROFILE, ...((await get('kv', 'profile')) || {}) };
+  if (!p.history?.length) p.history = [{ date: today(), ...Object.fromEntries(TRACKED.map(k => [k, p[k]])) }];
+  return p;
+}
+
+const localApi = {
+  profile: loadProfile,
+  async saveProfile(np) {
+    const old = await loadProfile();
+    const merged = { ...old };
+    for (const k of Object.keys(DEFAULT_PROFILE)) if (k in np && k !== 'history') merged[k] = np[k];
+    merged.setupDone = true;
+    if (TRACKED.some(k => merged[k] !== old[k])) {
+      const entry = { date: today(), ...Object.fromEntries(TRACKED.map(k => [k, merged[k]])) };
+      const hist = [...(old.history || [])];
+      if (hist.length && hist[hist.length - 1].date === entry.date) hist[hist.length - 1] = entry; else hist.push(entry);
+      merged.history = hist;
+    }
+    await put('kv', 'profile', merged);
+    return merged;
+  },
+
+  workouts: async () => byIdDesc(await all('workouts')),
+  async saveWorkout(w) {
+    const id = w.id && !String(w.id).startsWith('b-') ? w.id : newId();
+    const obj = { ...structuredClone(w), id, source: 'user', updated: nowIso() };
+    await put('workouts', id, obj);
+    return obj;
+  },
+  deleteWorkout: id => del('workouts', id),
+
+  routes: async () => byIdDesc((await all('routes')).map(({ gpx, ...meta }) => meta)),
+  async routeGpx(id) { const r = await get('routes', id); if (!r) throw new Error('GPX non trovato'); return r.gpx; },
+  async saveRoute(r) {
+    if (!r.gpx) throw new Error('manca il file GPX');
+    const obj = { ...r, id: newId(), created: nowIso() };
+    await put('routes', obj.id, obj);
+    const { gpx, ...meta } = obj;
+    return meta;
+  },
+  async renameRoute(id, name) { const r = await get('routes', id); r.name = String(name).slice(0, 100); await put('routes', id, r); const { gpx, ...m } = r; return m; },
+  deleteRoute: id => del('routes', id),
+
+  activities: async () => byIdDesc((await all('activities')).map(({ samples, ...meta }) => meta)),
+  async activity(id) { const a = await get('activities', id); if (!a) throw new Error('Uscita non trovata'); return a; },
+  async saveActivity(a) {
+    const { fit, ...rest } = a; // il .FIT si rigenera quando serve
+    const obj = { ...rest, id: newId() };
+    await put('activities', obj.id, obj);
+    const { samples, ...meta } = obj;
+    return meta;
+  },
+  deleteActivity: id => del('activities', id),
+
+  // niente Garmin automatico nella versione portatile
+  garminStatus: async () => ({ available: false, configured: false, standalone: true }),
+  garminUpload: async () => ({ status: 'err', message: 'Non disponibile nella versione portatile' }),
+  garminLog: async () => null,
+
+  // ---- copia di sicurezza (i dati stanno solo in questo browser)
+  async exportAll() {
+    return {
+      app: 'rullo', version: 1, exported: nowIso(),
+      profile: await get('kv', 'profile') || null,
+      workouts: await all('workouts'), routes: await all('routes'), activities: await all('activities'),
+    };
+  },
+  async importAll(data) {
+    if (!data || data.app !== 'rullo') throw new Error('Il file non è una copia di Rullo');
+    if (data.profile) await put('kv', 'profile', data.profile);
+    let n = 0;
+    for (const s of ['workouts', 'routes', 'activities']) for (const o of data[s] || []) { if (o.id) { await put(s, o.id, o); n++; } }
+    return n;
+  },
+};
+
+return { DEFAULT_PROFILE, localApi };
+})();
+// ===== api.js
+__m.api = (() => {
+// Accesso ai dati: server del mini PC (versione di casa) oppure browser (versione portatile)
+const { localApi } = __m.localdb;
+const STANDALONE = !!(window.RULLO_CONFIG && window.RULLO_CONFIG.standalone);
+
+async function req(method, url, body) {
+  const r = await fetch(url, {
+    method,
+    headers: body ? { 'Content-Type': 'application/json' } : {},
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.error || `Errore ${r.status}`);
+  return data;
+}
+
+const serverApi = {
+  profile: () => req('GET', '/api/profile'),
+  saveProfile: p => req('PUT', '/api/profile', p),
+  workouts: () => req('GET', '/api/workouts'),
+  saveWorkout: w => req('POST', '/api/workouts', w),
+  deleteWorkout: id => req('DELETE', `/api/workouts/${id}`),
+  routes: () => req('GET', '/api/routes'),
+  routeGpx: async id => { const r = await fetch(`/api/routes/${id}.gpx`); if (!r.ok) throw new Error('GPX non trovato'); return r.text(); },
+  saveRoute: r => req('POST', '/api/routes', r),
+  renameRoute: (id, name) => req('PUT', `/api/routes/${id}`, { name }),
+  deleteRoute: id => req('DELETE', `/api/routes/${id}`),
+  activities: () => req('GET', '/api/activities'),
+  activity: id => req('GET', `/api/activities/${id}`),
+  saveActivity: a => req('POST', '/api/activities', a),
+  garminStatus: () => req('GET', '/api/garmin'),
+  garminUpload: (id, force = false) => req('POST', `/api/activities/${id}/garmin-upload`, { force }),
+  garminLog: (id, action) => req('POST', `/api/activities/${id}/garmin`, { action }),
+  deleteActivity: id => req('DELETE', `/api/activities/${id}`),
+};
+
+const api = STANDALONE ? localApi : serverApi;
+
+return { STANDALONE, api };
+})();
+// ===== ride.js
+__m.ride = (() => {
+// Motore della pedalata: legge i dati dal rullo, muove la bici virtuale, comanda il rullo
+// (ERG o pendenza), registra i campioni al secondo e prepara l'attivita' da salvare.
+const { VirtualBike, airDensity, profileCda, profileCrr } = __m.physics;
+const { expand, pctAt } = __m.workouts;
+const STALE_MS = 3000;
+
+class Emitter {
+  constructor() { this._h = {}; }
+  on(ev, fn) { (this._h[ev] ||= []).push(fn); }
+  emit(ev, d) { (this._h[ev] || []).forEach(f => f(d)); }
+}
+
+function normalizedPower(powers) {
+  if (powers.length < 30) return powers.length ? powers.reduce((a, b) => a + b, 0) / powers.length : 0;
+  let sum = 0, acc = 0, n = 0;
+  for (let i = 0; i < powers.length; i++) {
+    sum += powers[i];
+    if (i >= 30) sum -= powers[i - 30];
+    if (i >= 29) { acc += Math.pow(sum / 30, 4); n++; }
+  }
+  return Math.pow(acc / n, 0.25);
+}
+
+function bestAvg(powers, secs) {
+  if (powers.length < secs) return null;
+  let sum = 0, best = 0;
+  for (let i = 0; i < powers.length; i++) {
+    sum += powers[i];
+    if (i >= secs) sum -= powers[i - secs];
+    if (i >= secs - 1) best = Math.max(best, sum / secs);
+  }
+  return best;
+}
+
+class RideSession extends Emitter {
+  // opts: { kind:'free'|'workout'|'route', workout, route, routeMeta, profile, trainer, hr, freeMode:'sim'|'erg' }
+  constructor(opts) {
+    super();
+    Object.assign(this, opts);
+    const p = this.profile;
+    this.mass = (+p.weight || 75) + (+p.bikeWeight || 9);
+    this.cda = profileCda(p);
+    this.crr = profileCrr(p);
+    this.bike = new VirtualBike({ mass: this.mass, cda: this.cda, crr: this.crr });
+    this.ftp = +p.ftp || 150;
+    this.difficulty = +p.difficulty || 100;
+    this.intensity = 100;            // % di regolazione dell'allenamento
+    this.freeErg = Math.round(this.ftp * 0.6);
+    this.freeGrade = 0;
+    this.freeMode = this.freeMode || 'sim';
+    if (this.kind === 'workout') {
+      const ex = expand(this.workout.blocks);
+      this.steps = ex.steps; this.duration = ex.duration;
+    }
+    this.state = 'waiting';          // waiting -> running <-> paused -> ended
+    this.manualPause = false;
+    this.elapsed = 0;                // secondi attivi
+    this.samples = [];
+    this.laps = [];
+    this.pauses = [];
+    this.pBuf = [];
+    this.lastStep = -1;
+    this.finished = false;
+    this.ascent = 0;
+    this._acc = 0;
+    this._zeroSince = null;
+    this._sent = { at: 0 };
+  }
+
+  get dist() { return this.bike.dist; }
+  get speed() { return this.bike.v; }
+
+  start() {
+    this._last = performance.now();
+    this._timer = setInterval(() => this._tick(), 250);
+    this._applyControl(true);
+  }
+
+  // ------------------------------------------------------------ ingressi
+  _inputs() {
+    const now = performance.now();
+    const t = this.trainer;
+    const fresh = t && t.connected && now - (t.data.ts || 0) < STALE_MS;
+    const power = fresh ? Math.max(0, t.data.power || 0) : 0;
+    const cadence = fresh && t.data.cadence != null ? Math.round(t.data.cadence) : null;
+    let hr = null;
+    if (this.hr && this.hr.connected && now - this.hr.ts < 5000) hr = this.hr.hr;
+    else if (fresh && t.data.hr) hr = t.data.hr;
+    return { power, cadence, hr };
+  }
+
+  // pendenza reale nel punto attuale (per la fisica) e quella mandata al rullo
+  currentGrade() {
+    if (this.kind === 'route') {
+      if (this.finished) return 0;
+      return this.route.at(this.bike.dist).grade;
+    }
+    if (this.kind === 'free' && this.freeMode === 'sim') return this.freeGrade;
+    return 0;
+  }
+
+  currentStep() {
+    if (this.kind !== 'workout') return null;
+    for (let i = 0; i < this.steps.length; i++) {
+      const s = this.steps[i];
+      if (this.elapsed < s.start + s.dur) return { i, s, t: this.elapsed - s.start };
+    }
+    return null;
+  }
+
+  targetPower() {
+    if (this.kind === 'workout') {
+      const cs = this.currentStep();
+      if (!cs || cs.s.kind === 'free') return null;
+      return Math.round(pctAt(cs.s, cs.t) / 100 * this.ftp * this.intensity / 100);
+    }
+    if (this.kind === 'free' && this.freeMode === 'erg') return this.freeErg;
+    return null;
+  }
+
+  // ------------------------------------------------------------ comandi al rullo
+  _simParams(grade) {
+    const ele = this.kind === 'route' ? this.route.at(this.bike.dist).ele : 0;
+    return { grade, crr: this.crr, cw: +(airDensity(ele) * this.cda).toFixed(3), weight: this.mass };
+  }
+
+  _applyControl(force = false) {
+    const t = this.trainer;
+    if (!t || !t.connected) return;
+    const now = performance.now();
+    let target = this.targetPower();
+    if (target != null) {
+      // Partenza morbida: in ERG, con il volano fermo o lento, il rullo frena fortissimo per
+      // raggiungere i watt. Finche' non giri le gambe resta in "strada piana"; poi passa a ERG
+      // e porta i watt al valore richiesto in 8 secondi.
+      const cad = this.inputs?.cadence;
+      const runFor = this._runSince ? (now - this._runSince) / 1000 : 0;
+      if (this.state !== 'running') this._ergOn = false;
+      else if (!this._ergOn && (cad != null ? cad >= 50 : runFor > 3)) {
+        this._ergOn = true;
+        this._ergFrom = { at: now, p: Math.max(30, Math.min(target, this.power3s())) };
+      } else if (this._ergOn && cad != null && cad < 25) this._ergOn = false;
+      if (!this._ergOn) {
+        if (force || t.mode !== 'sim') { t.setSim(this._simParams(0)); this._sent = { grade: 0, at: now }; }
+        return;
+      }
+      const k = Math.min(1, (now - this._ergFrom.at) / 8000);
+      target = Math.round(this._ergFrom.p + (target - this._ergFrom.p) * k);
+      const diff = Math.abs(target - (this._sent.erg ?? -99));
+      if (force || t.mode !== 'erg' || (diff >= 2 && now - this._sent.at > 500) || (diff > 0 && now - this._sent.at > 3000)) {
+        t.setErg(target); this._sent = { erg: target, at: now };
+      }
+      return;
+    }
+    let g = this.currentGrade();
+    if (this.kind === 'route') g = g * this.difficulty / 100;
+    g = Math.round(g * 10) / 10;
+    if (force || t.mode !== 'sim' || (Math.abs(g - (this._sent.grade ?? 999)) >= 0.1 && now - this._sent.at > 900)) {
+      t.setSim(this._simParams(g)); this._sent = { grade: g, at: now };
+    }
+  }
+
+  // ------------------------------------------------------------ ciclo
+  _tick() {
+    const nowP = performance.now();
+    const dt = Math.min(1, (nowP - this._last) / 1000);
+    this._last = nowP;
+    const inp = this._inputs();
+    this.inputs = inp;
+    this.pBuf.push(inp.power); if (this.pBuf.length > 12) this.pBuf.shift();
+
+    if (this.state === 'waiting') {
+      if (inp.power > 0) { this.state = 'running'; this.startTime = Date.now(); this._runSince = nowP; this.laps.push({ start: this.startTime }); }
+      else { this._applyControl(); this.emit('tick', this); return; }
+    }
+    if (this.state === 'ended') return;
+
+    // pausa automatica: niente potenza e bici ferma per 3 s
+    if (!this.manualPause) {
+      // sul percorso in discesa si puo' andare senza pedalare: li' conta che la bici sia ferma
+      const still = this.kind === 'route' ? this.bike.v < 0.5 : true;
+      if (inp.power === 0 && still && this.profile.autoPause !== false) {
+        this._zeroSince ??= nowP;
+        if (this.state === 'running' && nowP - this._zeroSince > 3000) this._setPaused(true);
+      } else {
+        this._zeroSince = null;
+        if (this.state === 'paused' && inp.power > 0) this._setPaused(false);
+      }
+    }
+
+    if (this.state === 'running') {
+      const grade = this.currentGrade();
+      const ele0 = this.kind === 'route' ? this.route.at(this.bike.dist).ele : 0;
+      this.bike.step(inp.power, grade, dt, airDensity(ele0));
+      if (this.kind === 'route') {
+        if (this.bike.dist >= this.route.length && !this.finished) {
+          this.bike.dist = this.route.length; this.finished = true; this.emit('finished', this);
+        }
+        const ele1 = this.route.at(this.bike.dist).ele;
+        if (ele1 > ele0) this.ascent += ele1 - ele0;
+      }
+      this.elapsed += dt;
+      if (this.kind === 'workout') {
+        const cs = this.currentStep();
+        const idx = cs ? cs.i : this.steps.length;
+        if (idx !== this.lastStep) {
+          if (this.lastStep >= 0) this._newLap();
+          this.lastStep = idx;
+          this.emit('step', cs);
+        }
+        if (!cs && !this.finished) {
+          this.finished = true;
+          this.kind = 'free'; this.freeMode = 'sim'; this.freeGrade = 0; // si continua in libera
+          this.emit('finished', this);
+        }
+      }
+      this._acc += dt;
+      while (this._acc >= 1) { this._acc -= 1; this._record(inp); }
+    }
+    this._applyControl();
+    this.emit('tick', this);
+  }
+
+  _record(inp) {
+    let ts = Date.now();
+    const last = this.samples[this.samples.length - 1];
+    if (last && ts <= last.ts) ts = last.ts + 1000;
+    const s = { ts, p: inp.power, c: inp.cadence, hr: inp.hr, v: +this.bike.v.toFixed(3), d: +this.bike.dist.toFixed(1) };
+    if (this.kind === 'route' || this.route) {
+      const a = this.route.at(this.bike.dist);
+      s.lat = +a.lat.toFixed(6); s.lon = +a.lon.toFixed(6); s.ele = +a.ele.toFixed(1); s.g = +a.grade.toFixed(1);
+    }
+    this.samples.push(s);
+    if (this.samples.length % 30 === 0) this.emit('autosave', this);
+  }
+
+  _newLap() {
+    const now = Date.now();
+    const cur = this.laps[this.laps.length - 1];
+    if (cur && now - cur.start < 1500) return;
+    if (cur) cur.end = now;
+    this.laps.push({ start: now });
+  }
+  lap() { if (this.state === 'running') this._newLap(); }
+
+  _setPaused(p) {
+    if (p && this.state === 'running') {
+      this.state = 'paused'; this.pauses.push({ start: Date.now() });
+      this.bike.v = 0;
+    } else if (!p && this.state === 'paused') {
+      this.state = 'running'; const last = this.pauses[this.pauses.length - 1]; if (last) last.end = Date.now();
+      this._last = performance.now();
+      this._runSince = this._last;
+    }
+    this.emit('pause', this.state === 'paused');
+  }
+
+  togglePause() {
+    if (this.state === 'waiting') return;
+    this.manualPause = this.state === 'running';
+    this._setPaused(this.manualPause);
+  }
+
+  // regolazione con i pulsanti +/-
+  adjust(dir) {
+    if (this.kind === 'workout') this.intensity = Math.max(50, Math.min(150, this.intensity + dir * 5));
+    else if (this.kind === 'route') this.difficulty = Math.max(0, Math.min(150, this.difficulty + dir * 10));
+    else if (this.freeMode === 'erg') this.freeErg = Math.max(30, Math.min(800, this.freeErg + dir * 5));
+    else this.freeGrade = Math.max(-10, Math.min(16, Math.round((this.freeGrade + dir * 0.5) * 10) / 10));
+    this._applyControl(true);
+    this.emit('tick', this);
+  }
+
+  setFreeMode(m) { this.freeMode = m; this._applyControl(true); }
+
+  skipStep() {
+    if (this.kind !== 'workout') return;
+    const cs = this.currentStep();
+    if (cs) { this.elapsed = cs.s.start + cs.s.dur + 0.01; this._applyControl(true); }
+  }
+
+  // ------------------------------------------------------------ statistiche
+  liveStats() {
+    const P = this.samples.map(s => s.p);
+    const H = this.samples.map(s => s.hr).filter(Boolean);
+    const avg = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+    const np = normalizedPower(P);
+    const IF = this.ftp ? np / this.ftp : 0;
+    return {
+      time: this.samples.length, dist: this.bike.dist, avgP: avg(P), np, IF,
+      tss: this.samples.length / 3600 * IF * IF * 100, kj: P.reduce((a, b) => a + b, 0) / 1000,
+      avgHr: avg(H), maxHr: H.length ? Math.max(...H) : null, maxP: P.length ? Math.max(...P) : null,
+      ascent: this.ascent,
+    };
+  }
+
+  power3s() { return this.pBuf.length ? Math.round(this.pBuf.reduce((a, b) => a + b, 0) / this.pBuf.length) : 0; }
+
+  stop() {
+    clearInterval(this._timer);
+    if (this.state === 'paused') { const last = this.pauses[this.pauses.length - 1]; if (last && !last.end) last.end = Date.now(); }
+    this.state = 'ended';
+    return this.activity();
+  }
+
+  activity() {
+    const st = this.liveStats();
+    const end = this.samples.length ? this.samples[this.samples.length - 1].ts + 1000 : Date.now();
+    const laps = this.laps.map((l, i) => ({ start: l.start, end: l.end || end }));
+    const P = this.samples.map(s => s.p);
+    const name = this.workout ? this.workout.name : this.routeMeta ? this.routeMeta.name : 'Pedalata libera';
+    const sum = {
+      duration: this.samples.length, elapsed: this.startTime ? Math.round((end - this.startTime) / 1000) : 0,
+      distance: Math.round(this.bike.dist), avgP: st.avgP && Math.round(st.avgP), maxP: st.maxP, np: Math.round(st.np),
+      if: +st.IF.toFixed(3), tss: +st.tss.toFixed(1), kj: Math.round(st.kj), kcal: Math.round(st.kj),
+      avgHr: st.avgHr && Math.round(st.avgHr), maxHr: st.maxHr, ascent: Math.round(st.ascent),
+      avgSpeed: this.samples.length ? +(this.bike.dist / this.samples.length * 3.6).toFixed(1) : 0,
+      ftp: this.ftp, weight: +this.profile.weight, cda: this.cda, crr: this.crr,
+      best1m: bestAvg(P, 60) && Math.round(bestAvg(P, 60)), best5m: bestAvg(P, 300) && Math.round(bestAvg(P, 300)),
+      best20m: bestAvg(P, 1200) && Math.round(bestAvg(P, 1200)),
+    };
+    const C = this.samples.map(s => s.c).filter(c => c > 0);
+    sum.avgC = C.length ? Math.round(C.reduce((a, b) => a + b, 0) / C.length) : null;
+    return {
+      name, kind: this.workout ? 'workout' : this.routeMeta ? 'route' : 'free',
+      workoutId: this.workout?.id, routeId: this.routeMeta?.id, rampTest: !!this.workout?.rampTest,
+      start: this.startTime || Date.now(), end, subSport: this.routeMeta ? 'virtual' : 'indoor',
+      samples: this.samples, laps, pauses: this.pauses.filter(p => p.end), summary: sum,
+    };
+  }
+}
+
+return { normalizedPower, bestAvg, RideSession };
+})();
+// ===== app.js
+__m.app = (() => {
+const { api, STANDALONE } = __m.api;
+const { Trainer, HeartRate, SimTrainer, SimHeartRate, bluetoothAvailable } = __m.ble;
+const { BUILTIN, expand, stats: wStats, drawWorkout, fmtDur, importWorkoutFile, toZwo, ZONES, zoneOf, pctAt } = __m.workouts;
+const { routeFromGpx } = __m.gpx;
+const { RideSession, bestAvg } = __m.ride;
+const { buildFit, toBase64 } = __m.fit;
+const { drawProfile, drawSeries, drawBars, gradeColor } = __m.charts;
+const { POSITIONS, SURFACES, profileCda, profileCrr, steadySpeed, airDensity } = __m.physics;
+// ====================================================================== stato
+const S = window.rulloState = {
+  profile: null,
+  trainer: null,
+  hr: null,
+  session: null,
+  workouts: [],
+  routes: [],
+  routeCache: {},  // id -> Route
+  wakeLock: null,
+};
+
+// ====================================================================== utilita'
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const main = $('#main');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const n0 = v => v == null || !isFinite(v) ? '–' : Math.round(v).toString();
+const km = m => (m / 1000).toLocaleString('it-IT', { minimumFractionDigits: 1, maximumFractionDigits: m < 10000 ? 2 : 1 });
+const dateStr = ms => new Date(ms).toLocaleDateString('it-IT', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+const timeStr = ms => new Date(ms).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+
+function toast(msg, ms = 3000) {
+  const d = document.createElement('div');
+  d.textContent = msg;
+  $('#toast').appendChild(d);
+  setTimeout(() => d.remove(), ms);
+}
+
+// finestra modale; buttons: [{label, value, cls}] -> Promise(value)
+let modalClose = null;
+function modal(html, buttons = [{ label: 'OK', value: true, cls: 'primary' }], onOpen) {
+  return new Promise(resolve => {
+    const m = $('#modal'), box = $('.modal-box', m);
+    box.innerHTML = `${html}<div class="actions">${buttons.map((b, i) => `<button class="btn ${b.cls || ''}" data-i="${i}">${esc(b.label)}</button>`).join('')}</div>`;
+    m.hidden = false;
+    if (modalClose) modalClose(null);
+    const close = v => { modalClose = null; m.hidden = true; box.innerHTML = ''; resolve(v); };
+    modalClose = close;
+    $$('.actions button', box).forEach(btn => btn.onclick = () => {
+      const b = buttons[+btn.dataset.i];
+      const v = typeof b.value === 'function' ? b.value(box) : b.value;
+      if (v === undefined && typeof b.value === 'function') return; // validazione fallita
+      close(v);
+    });
+    m.onclick = e => { if (e.target === m && buttons.some(b => b.value === false || b.value === null)) close(null); };
+    if (onOpen) onOpen(box, close);
+  });
+}
+const confirmBox = (msg, ok = 'Conferma', cls = 'primary') => modal(`<p>${msg}</p>`, [{ label: 'Annulla', value: false }, { label: ok, value: true, cls }]);
+
+function pickFile(accept, multiple = false) {
+  return new Promise(resolve => {
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = accept; inp.multiple = multiple;
+    inp.onchange = () => resolve([...inp.files]);
+    inp.click();
+  });
+}
+
+function download(name, data, type = 'application/octet-stream') {
+  const blob = data instanceof Blob ? data : new Blob([data], { type });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+
+// durata "mm:ss" o "h:mm:ss" o minuti
+function parseDur(s) {
+  s = String(s).trim().replace(',', '.');
+  if (!s) return 0;
+  if (s.includes(':')) {
+    const p = s.split(':').map(Number);
+    return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1];
+  }
+  return Math.round(parseFloat(s) * 60);
+}
+
+// ====================================================================== dispositivi
+function updateChips() {
+  const t = S.trainer, h = S.hr;
+  const ct = $('#chipTrainer'), ch = $('#chipHr');
+  ct.className = 'chip ' + (t?.connected ? 'on' : t?._busy ? 'busy' : 'off');
+  ch.className = 'chip ' + (h?.connected ? 'on' : h?._busy ? 'busy' : 'off');
+  $('.lbl', ct).textContent = t?.connected ? (t.name || 'Rullo') : 'Rullo';
+  $('.lbl', ch).textContent = h?.connected ? (h.hr ? `${h.hr} bpm` : (h.name || 'Cardio')) : 'Cardio';
+  $$('[data-dev]').forEach(el => {
+    const d = el.dataset.dev === 'trainer' ? t : h;
+    el.classList.toggle('on', !!d?.connected);
+    const st = $('.st', el);
+    if (st) st.textContent = d?.connected ? `${d.name} – ${d.statusText || 'collegato'}` : (d?.statusText && d.statusText !== 'Disconnesso' ? d.statusText : 'Non collegato');
+  });
+}
+
+function wireDevice(dev) {
+  dev.on('status', s => { dev.statusText = s; updateChips(); });
+  dev.on('connected', updateChips);
+  dev.on('disconnected', () => { updateChips(); toast(`${dev.name || 'Dispositivo'} disconnesso`); });
+  if (dev instanceof HeartRate || dev instanceof SimHeartRate) dev.on('data', () => updateChips());
+}
+
+async function connectTrainer(demo = false) {
+  if (S.trainer?.connected) S.trainer.disconnect();
+  const t = demo ? new SimTrainer() : new Trainer();
+  wireDevice(t);
+  S.trainer = t; t._busy = true; updateChips();
+  try {
+    await t.connect(S.profile?.protocol || 'auto');
+    toast(`${t.name} collegato${t.protocol && t.protocol !== 'demo' ? ` (protocollo ${t.protocol.toUpperCase()})` : ''}`);
+  } catch (e) {
+    if (e.name !== 'NotFoundError') toast('Rullo: ' + e.message, 5000);
+    S.trainer = null;
+  } finally { t._busy = false; updateChips(); }
+}
+
+async function connectHr(demo = false) {
+  if (S.hr?.connected) S.hr.disconnect();
+  const h = demo ? new SimHeartRate(S.trainer) : new HeartRate();
+  wireDevice(h);
+  S.hr = h; h._busy = true; updateChips();
+  try { await h.connect(); toast(`${h.name} collegato`); }
+  catch (e) { if (e.name !== 'NotFoundError') toast('Cardio: ' + e.message, 5000); S.hr = null; }
+  finally { h._busy = false; updateChips(); }
+}
+
+async function deviceDialog(kind) {
+  const isT = kind === 'trainer';
+  const dev = isT ? S.trainer : S.hr;
+  const bt = bluetoothAvailable();
+  const btns = [{ label: 'Chiudi', value: null }];
+  if (dev?.connected) btns.push({ label: 'Scollega', value: 'off', cls: 'danger' });
+  btns.push({ label: 'Demo (simulato)', value: 'demo' });
+  if (bt) btns.push({ label: dev?.connected ? 'Cambia' : 'Cerca e collega', value: 'scan', cls: 'primary' });
+  const info = isT
+    ? `<p>Il rullo deve essere acceso e <b>non collegato ad altre app</b> (chiudi Rouvy e l'app Wahoo, anche sul telefono).</p>`
+    : `<p>Sull'orologio Garmin avvia <b>Trasmetti FC</b> (o una fascia Bluetooth), poi cercala qui.</p>`;
+  const warn = bt ? '' : `<p class="banner">Questo browser non supporta il Bluetooth web. Usa <b>Chrome su Android</b> o su PC, con l'app aperta in HTTPS.</p>`;
+  const r = await modal(`<h2>${isT ? 'Rullo' : 'Fascia cardio'}</h2>${warn}${info}
+    <p class="muted small">Stato: ${dev?.connected ? esc(dev.name) + ' collegato' : 'non collegato'}</p>`, btns);
+  if (r === 'off') dev.disconnect();
+  if (r === 'scan') isT ? connectTrainer() : connectHr();
+  if (r === 'demo') isT ? connectTrainer(true) : connectHr(true);
+}
+
+// ====================================================================== navigazione
+const SCREENS = { home: renderHome, workouts: renderWorkouts, routes: renderRoutes, history: renderHistory, profile: renderProfile, ride: renderRide };
+let currentScreen = null;
+
+function go(name, push = true) {
+  if (push) location.hash = name;
+  else route();
+}
+
+function route() {
+  const name = (location.hash.slice(1) || 'home').split('/')[0];
+  if (S.session && name !== 'ride') {
+    // durante la pedalata non si esce dalla schermata
+    history.replaceState(null, '', '#ride');
+    if (currentScreen !== 'ride') renderRide();
+    toast('Premi "Fine" per terminare la pedalata');
+    return;
+  }
+  if (name === 'ride' && !S.session) { history.replaceState(null, '', '#home'); return renderScreen('home'); }
+  renderScreen(SCREENS[name] ? name : 'home');
+}
+
+function renderScreen(name) {
+  if (modalClose && name !== 'home') modalClose(null); // cambiando schermata si chiude la finestra aperta
+  currentScreen = name;
+  main.className = name === 'ride' ? 'ride' : '';
+  document.body.classList.toggle('riding', name === 'ride');
+  $$('#nav button').forEach(b => b.classList.toggle('active', b.dataset.go === name));
+  if (window._mapCleanup) { window._mapCleanup(); window._mapCleanup = null; }
+  main.innerHTML = '';
+  SCREENS[name]();
+}
+
+// ====================================================================== HOME
+async function renderHome() {
+  const p = S.profile;
+  const pending = loadPending();
+  main.innerHTML = `
+    ${pending ? `<div class="banner row"><div>C'è una pedalata non salvata del <b>${dateStr(pending.start)} ${timeStr(pending.start)}</b>
+      (${fmtDur(pending.samples.length)}, ${km(pending.summary?.distance || 0)} km).</div><div class="spacer"></div>
+      <button class="btn" id="pDiscard">Scarta</button><button class="btn primary" id="pSave">Rivedi e salva</button></div>` : ''}
+    <div class="devbox">
+      <button class="card" data-dev="trainer" id="devT"><span class="big-dot"></span><div style="text-align:left"><b>Rullo</b><div class="st muted small"></div></div></button>
+      <button class="card" data-dev="hr" id="devH"><span class="big-dot"></span><div style="text-align:left"><b>Cardio</b><div class="st muted small"></div></div></button>
+    </div>
+    <div class="home-grid">
+      <button class="tile main" id="tFree"><span class="ico">🚴</span><b>Pedalata libera</b><span class="muted">Scegli tu pendenza o watt</span></button>
+      <button class="tile" data-go="workouts"><span class="ico">📈</span><b>Allenamenti</b><span class="muted" id="hW">Di base e tuoi, import .zwo/.erg/.mrc</span></button>
+      <button class="tile" data-go="routes"><span class="ico">🗺️</span><b>Percorsi GPX</b><span class="muted" id="hR">Pedala sulle salite vere</span></button>
+      <button class="tile" data-go="history"><span class="ico">📊</span><b>Storico</b><span class="muted" id="hH">Le tue uscite</span></button>
+      <button class="tile" data-go="profile"><span class="ico">⚙️</span><b>Profilo</b><span class="muted">${p.weight} kg · FTP ${p.ftp} W · ${(p.ftp / p.weight).toFixed(2)} W/kg</span></button>
+    </div>`;
+  $('#devT').onclick = () => deviceDialog('trainer');
+  $('#devH').onclick = () => deviceDialog('hr');
+  $('#tFree').onclick = startFree;
+  $$('[data-go]', main).forEach(b => b.onclick = () => go(b.dataset.go));
+  if (pending) {
+    $('#pDiscard').onclick = async () => { if (await confirmBox('Scartare la pedalata non salvata?', 'Scarta', 'danger')) { clearPending(); renderHome(); } };
+    $('#pSave').onclick = () => showSummary(pending, true);
+  }
+  updateChips();
+  try {
+    const acts = await api.activities();
+    const week = acts.filter(a => a.start > Date.now() - 7 * 86400e3);
+    $('#hH').textContent = week.length ? `Ultimi 7 giorni: ${week.length} uscite, ${fmtDur(week.reduce((s, a) => s + (a.summary?.duration || 0), 0))}` : `${acts.length} uscite salvate`;
+    $('#hR').textContent = `${S.routes.length} percorsi caricati`;
+    $('#hW').textContent = `${BUILTIN.length} di base · ${S.workouts.length} tuoi`;
+  } catch { /* server non raggiungibile */ }
+}
+
+async function startFree() {
+  const mode = await modal(`<h2>Pedalata libera</h2>
+    <p><b>Pendenza</b>: il rullo simula una strada, tu cambi la pendenza con + e −.<br>
+    <b>Watt</b>: il rullo tiene la potenza che scegli (modalità ERG).</p>`,
+  [{ label: 'Annulla', value: null }, { label: 'Watt (ERG)', value: 'erg' }, { label: 'Pendenza', value: 'sim', cls: 'primary' }]);
+  if (mode) startSession({ kind: 'free', freeMode: mode });
+}
+
+// ====================================================================== ALLENAMENTI
+function allWorkouts() { return [...S.workouts, ...BUILTIN]; }
+
+async function renderWorkouts(selId) {
+  try { S.workouts = await api.workouts(); } catch (e) { toast(e.message); }
+  const list = allWorkouts();
+  const sel = list.find(w => w.id === selId) || list[0];
+  const groups = [['I miei allenamenti', S.workouts], ['Di base', BUILTIN]];
+  main.innerHTML = `
+    <div class="row" style="margin-bottom:12px"><h2 style="margin:0">Allenamenti</h2><div class="spacer"></div>
+      <button class="btn" id="wImport">Importa file</button><button class="btn primary" id="wNew">+ Nuovo</button></div>
+    <div class="split">
+      <div class="list" id="wList">${groups.map(([title, arr]) => `
+        <h3 style="margin:6px 0 0">${title}</h3>
+        ${arr.length ? arr.map(w => { const st = wStats(w.blocks); return `
+          <button class="item ${w.id === sel?.id ? 'sel' : ''}" data-id="${esc(w.id)}">
+            <div class="row"><b>${esc(w.name)}</b><div class="spacer"></div><span class="tag">${fmtDur(st.duration)}</span><span class="tag">TSS ${st.tss}</span></div>
+            <canvas data-blocks="${esc(w.id)}"></canvas></button>`; }).join('') : '<p class="muted small">Nessuno: creane uno o importa un file .zwo/.erg/.mrc</p>'}`).join('')}
+      </div>
+      <div class="card" id="wDetail"></div>
+    </div>`;
+  $$('#wList canvas').forEach(c => drawWorkout(c, list.find(w => w.id === c.dataset.blocks).blocks));
+  $$('#wList .item').forEach(b => b.onclick = () => {
+    $$('#wList .item').forEach(x => x.classList.toggle('sel', x === b));
+    showWorkoutDetail(list.find(w => w.id === b.dataset.id));
+  });
+  $('#wNew').onclick = () => editWorkout({ name: 'Nuovo allenamento', description: '', blocks: [{ type: 'ramp', dur: 600, from: 45, to: 70 }, { type: 'steady', dur: 1200, pct: 75 }, { type: 'ramp', dur: 300, from: 60, to: 40 }] });
+  $('#wImport').onclick = importWorkouts;
+  if (sel) showWorkoutDetail(sel);
+}
+
+function blockText(b, ftp) {
+  const w = p => `${p}% (${Math.round(p * ftp / 100)} W)`;
+  if (b.type === 'steady') return `${fmtDur(b.dur)} a ${w(b.pct)}`;
+  if (b.type === 'ramp') return `${fmtDur(b.dur)} da ${w(b.from)} a ${w(b.to)}`;
+  if (b.type === 'intervals') return `${b.reps} × (${fmtDur(b.onDur)} a ${w(b.onPct)} + ${fmtDur(b.offDur)} a ${w(b.offPct)})`;
+  return `${fmtDur(b.dur)} libera${b.text ? ' – ' + esc(b.text) : ''}`;
+}
+
+function showWorkoutDetail(w) {
+  const box = $('#wDetail');
+  const st = wStats(w.blocks);
+  const ftp = S.profile.ftp;
+  const user = w.source === 'user';
+  box.innerHTML = `
+    <div class="row"><h2 style="margin:0">${esc(w.name)}</h2><div class="spacer"></div>${w.category ? `<span class="tag">${esc(w.category)}</span>` : ''}</div>
+    <p class="muted">${esc(w.description || '')}</p>
+    <div class="stats"><div><b>${fmtDur(st.duration)}</b><span>durata</span></div><div><b>${st.tss}</b><span>TSS stimato</span></div>
+      <div><b>${st.IF.toFixed(2)}</b><span>intensità (IF)</span></div><div><b>${Math.round(st.IF * ftp)} W</b><span>potenza normalizzata</span></div></div>
+    <canvas class="chart" id="wChart"></canvas>
+    <ol class="small" style="padding-left:20px;max-height:220px;overflow:auto">${w.blocks.map(b => `<li>${blockText(b, ftp)}</li>`).join('')}</ol>
+    <div class="row" style="margin-top:12px">
+      <button class="btn primary big" id="wStart">▶ Inizia</button>
+      <button class="btn" id="wEdit">${user ? 'Modifica' : 'Copia e modifica'}</button>
+      <button class="btn" id="wExport">Esporta .zwo</button>
+      ${user ? '<button class="btn danger" id="wDel">Elimina</button>' : ''}
+    </div>`;
+  drawWorkout($('#wChart'), w.blocks);
+  $('#wStart').onclick = () => startSession({ kind: 'workout', workout: w });
+  $('#wEdit').onclick = () => editWorkout(user ? structuredClone(w) : { ...structuredClone(w), id: undefined, source: 'user', name: w.name + ' (copia)' });
+  $('#wExport').onclick = () => download(`${w.name.replace(/[^\w-]+/g, '_')}.zwo`, toZwo(w), 'application/xml');
+  if (user) $('#wDel').onclick = async () => {
+    if (!await confirmBox(`Eliminare "${esc(w.name)}"?`, 'Elimina', 'danger')) return;
+    await api.deleteWorkout(w.id); toast('Eliminato'); renderWorkouts();
+  };
+}
+
+async function importWorkouts() {
+  const files = await pickFile('.zwo,.erg,.mrc,.xml,.txt', true);
+  let ok = 0, last;
+  for (const f of files) {
+    try {
+      const w = importWorkoutFile(f.name, await f.text(), S.profile.ftp);
+      last = await api.saveWorkout(w); ok++;
+    } catch (e) { toast(`${f.name}: ${e.message}`, 5000); }
+  }
+  if (ok) { toast(`${ok} allenamenti importati`); renderWorkouts(last.id); }
+}
+
+function editWorkout(w) {
+  const ftp = S.profile.ftp;
+  const types = { steady: 'Costante', ramp: 'Rampa', intervals: 'Ripetute', free: 'Libera' };
+  const defaults = {
+    steady: { type: 'steady', dur: 300, pct: 75 }, ramp: { type: 'ramp', dur: 300, from: 50, to: 80 },
+    intervals: { type: 'intervals', reps: 4, onDur: 120, onPct: 100, offDur: 120, offPct: 55 }, free: { type: 'free', dur: 300 },
+  };
+  main.innerHTML = `
+    <div class="row" style="margin-bottom:12px"><h2 style="margin:0">Modifica allenamento</h2><div class="spacer"></div>
+      <button class="btn" id="eCancel">Annulla</button><button class="btn primary" id="eSave">Salva</button></div>
+    <div class="card" style="margin-bottom:12px">
+      <div class="form-grid"><label class="f">Nome<input id="eName"></label><label class="f" style="grid-column:span 2">Descrizione<input id="eDesc"></label></div>
+      <div class="stats" id="eStats"></div>
+      <canvas class="chart" id="eChart"></canvas>
+      <p class="muted small">Durate in minuti (es. 5 o 4:30). Intensità in % di FTP (${ftp} W): accanto vedi i watt.</p>
+    </div>
+    <div class="list" id="eBlocks"></div>
+    <div class="row" style="margin-top:12px">${Object.entries(types).map(([k, v]) => `<button class="btn" data-add="${k}">+ ${v}</button>`).join('')}</div>`;
+  $('#eName').value = w.name || '';
+  $('#eDesc').value = w.description || '';
+  const pctField = (key, label, b) => `<label class="f">${label}<input type="number" inputmode="numeric" data-k="${key}" value="${b[key]}"><span class="small">${Math.round(b[key] * ftp / 100)} W</span></label>`;
+  const durField = (key, label, b) => `<label class="f">${label}<input data-k="${key}" data-dur="1" inputmode="decimal" value="${fmtDur(b[key])}"></label>`;
+  const redraw = () => {
+    drawWorkout($('#eChart'), w.blocks);
+    const st = wStats(w.blocks);
+    $('#eStats').innerHTML = `<div><b>${fmtDur(st.duration)}</b><span>durata</span></div><div><b>${st.tss}</b><span>TSS</span></div><div><b>${st.IF.toFixed(2)}</b><span>IF</span></div>`;
+  };
+  const renderBlocks = () => {
+    $('#eBlocks').innerHTML = w.blocks.map((b, i) => `
+      <div class="blk" data-i="${i}">
+        <label class="f">Tipo<select data-type>${Object.entries(types).map(([k, v]) => `<option value="${k}" ${k === b.type ? 'selected' : ''}>${v}</option>`).join('')}</select></label>
+        <div class="fields">${
+          b.type === 'steady' ? durField('dur', 'Durata', b) + pctField('pct', '% FTP', b)
+          : b.type === 'ramp' ? durField('dur', 'Durata', b) + pctField('from', 'Da %', b) + pctField('to', 'A %', b)
+          : b.type === 'intervals' ? `<label class="f">Ripetizioni<input type="number" data-k="reps" value="${b.reps}"></label>` + durField('onDur', 'Lavoro', b) + pctField('onPct', 'Lavoro %', b) + durField('offDur', 'Recupero', b) + pctField('offPct', 'Recupero %', b)
+          : durField('dur', 'Durata', b)}</div>
+        <div class="tools"><button data-act="up" title="Su">↑</button><button data-act="down" title="Giù">↓</button><button data-act="dup" title="Duplica">⧉</button><button data-act="del" title="Elimina">✕</button></div>
+      </div>`).join('');
+    $$('#eBlocks .blk').forEach(el => {
+      const i = +el.dataset.i;
+      $('[data-type]', el).onchange = e => { w.blocks[i] = { ...defaults[e.target.value] }; renderBlocks(); };
+      $$('input[data-k]', el).forEach(inp => inp.onchange = () => {
+        const k = inp.dataset.k;
+        w.blocks[i][k] = inp.dataset.dur ? parseDur(inp.value) : Math.max(0, +inp.value || 0);
+        renderBlocks();
+      });
+      $$('[data-act]', el).forEach(btn => btn.onclick = () => {
+        const a = btn.dataset.act, bl = w.blocks;
+        if (a === 'del') bl.splice(i, 1);
+        if (a === 'dup') bl.splice(i + 1, 0, structuredClone(bl[i]));
+        if (a === 'up' && i > 0) [bl[i - 1], bl[i]] = [bl[i], bl[i - 1]];
+        if (a === 'down' && i < bl.length - 1) [bl[i + 1], bl[i]] = [bl[i], bl[i + 1]];
+        renderBlocks();
+      });
+    });
+    redraw();
+  };
+  $$('[data-add]').forEach(b => b.onclick = () => { w.blocks.push(structuredClone(defaults[b.dataset.add])); renderBlocks(); });
+  $('#eCancel').onclick = () => renderWorkouts(w.id);
+  $('#eSave').onclick = async () => {
+    w.name = $('#eName').value.trim() || 'Allenamento';
+    w.description = $('#eDesc').value.trim();
+    if (!w.blocks.length) return toast('Aggiungi almeno un blocco');
+    try { const saved = await api.saveWorkout(w); toast('Salvato'); renderWorkouts(saved.id); }
+    catch (e) { toast(e.message, 5000); }
+  };
+  renderBlocks();
+}
+
+// ====================================================================== PERCORSI
+async function loadRoute(meta) {
+  if (!S.routeCache[meta.id]) S.routeCache[meta.id] = routeFromGpx(await api.routeGpx(meta.id));
+  return S.routeCache[meta.id];
+}
+
+function estimateTime(route, profile, watts) {
+  const params = { mass: +profile.weight + +profile.bikeWeight, cda: profileCda(profile), crr: profileCrr(profile) };
+  let t = 0;
+  for (let d = 0; d < route.length; d += 100) {
+    const seg = Math.min(100, route.length - d);
+    const a = route.at(d), b = route.at(d + seg);
+    const g = (b.ele - a.ele) / seg * 100;
+    t += seg / Math.max(1, steadySpeed(watts, g, params, airDensity(a.ele)));
+  }
+  return t;
+}
+
+async function renderRoutes(selId) {
+  try { S.routes = await api.routes(); } catch (e) { toast(e.message); }
+  const sel = S.routes.find(r => r.id === selId) || S.routes[0];
+  main.innerHTML = `
+    <div class="row" style="margin-bottom:12px"><h2 style="margin:0">Percorsi</h2><div class="spacer"></div>
+      <button class="btn primary" id="rUpload">+ Carica GPX</button></div>
+    ${S.routes.length ? `<div class="split"><div class="list" id="rList">${S.routes.map(r => `
+      <button class="item ${r.id === sel?.id ? 'sel' : ''}" data-id="${r.id}">
+        <b>${esc(r.name)}</b>
+        <div class="row small muted"><span>${km(r.distance)} km</span><span>↗ ${r.ascent} m</span><span>max ${r.maxGrade}%</span></div>
+      </button>`).join('')}</div><div class="card" id="rDetail"><p class="muted">Caricamento…</p></div></div>`
+    : `<div class="card"><p>Nessun percorso. Carica un file <b>.gpx</b> (da Strava, Komoot, Garmin Connect, ecc.).</p>
+       <p class="muted small">Serve la traccia con le quote: se il GPX non le ha, il percorso sarà piatto.</p></div>`}`;
+  $('#rUpload').onclick = uploadGpx;
+  $$('#rList .item').forEach(b => b.onclick = () => {
+    $$('#rList .item').forEach(x => x.classList.toggle('sel', x === b));
+    showRouteDetail(S.routes.find(r => r.id === b.dataset.id));
+  });
+  if (sel) showRouteDetail(sel);
+}
+
+async function uploadGpx() {
+  const files = await pickFile('.gpx,application/gpx+xml', true);
+  let last;
+  for (const f of files) {
+    try {
+      const text = await f.text();
+      const r = routeFromGpx(text);
+      if (!r.hasEle) toast(`${f.name}: il file non ha le quote, il percorso sarà piatto`, 6000);
+      const meta = await api.saveRoute({ name: r.name || f.name.replace(/\.gpx$/i, ''), gpx: text, ...r.summary() });
+      S.routeCache[meta.id] = r; last = meta;
+    } catch (e) { toast(`${f.name}: ${e.message}`, 6000); }
+  }
+  if (last) { toast('Percorso caricato'); renderRoutes(last.id); }
+}
+
+async function showRouteDetail(meta) {
+  const box = $('#rDetail');
+  if (window._mapCleanup) { window._mapCleanup(); window._mapCleanup = null; }
+  box.innerHTML = '<p class="muted">Caricamento…</p>';
+  let r;
+  try { r = await loadRoute(meta); } catch (e) { box.innerHTML = `<p>${esc(e.message)}</p>`; return; }
+  const p = S.profile;
+  const tEasy = estimateTime(r, p, p.ftp * 0.65), tHard = estimateTime(r, p, p.ftp * 0.8);
+  box.innerHTML = `
+    <div class="row"><h2 style="margin:0">${esc(meta.name)}</h2></div>
+    <div class="stats"><div><b>${km(r.length)} km</b><span>distanza</span></div><div><b>${Math.round(r.ascent)} m</b><span>dislivello +</span></div>
+      <div><b>${r.maxGrade.toFixed(1)}%</b><span>pendenza max (100 m)</span></div><div><b>${Math.round(r.minEle)}–${Math.round(r.maxEle)} m</b><span>quota</span></div>
+      <div><b>${fmtDur(tHard)} – ${fmtDur(tEasy)}</b><span>tempo stimato (${Math.round(p.ftp * 0.8)}–${Math.round(p.ftp * 0.65)} W)</span></div></div>
+    <div class="map" id="rMap"></div>
+    <canvas class="chart" id="rProf" style="height:150px;margin-top:10px"></canvas>
+    <div class="row" style="margin-top:12px">
+      <label class="f" style="flex-direction:row;align-items:center;gap:10px">Difficoltà <input type="range" id="rDiff" min="0" max="150" step="10" value="${p.difficulty}" style="width:180px"><b id="rDiffV">${p.difficulty}%</b></label>
+      <span class="muted small">100% = pendenze reali; meno = salite più morbide sui pedali (la velocità resta quella reale)</span>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button class="btn primary big" id="rStart">▶ Pedala</button>
+      <button class="btn" id="rRen">Rinomina</button>
+      <button class="btn danger" id="rDel">Elimina</button>
+    </div>`;
+  drawProfile($('#rProf'), r);
+  const map = makeMap($('#rMap'), r);
+  window._mapCleanup = () => map && map.remove();
+  $('#rDiff').oninput = e => { $('#rDiffV').textContent = e.target.value + '%'; };
+  $('#rStart').onclick = () => startSession({ kind: 'route', route: r, routeMeta: meta, difficulty: +$('#rDiff').value });
+  $('#rRen').onclick = async () => {
+    const name = await modal(`<h2>Rinomina</h2><input id="nn" style="width:100%" value="${esc(meta.name)}">`,
+      [{ label: 'Annulla', value: null }, { label: 'Salva', cls: 'primary', value: b => $('#nn', b).value.trim() || undefined }]);
+    if (name) { await api.renameRoute(meta.id, name); renderRoutes(meta.id); }
+  };
+  $('#rDel').onclick = async () => {
+    if (!await confirmBox(`Eliminare il percorso "${esc(meta.name)}"?`, 'Elimina', 'danger')) return;
+    await api.deleteRoute(meta.id); delete S.routeCache[meta.id]; renderRoutes();
+  };
+}
+
+// Sfondi della mappa. OpenStreetMap blocca le pagine aperte da file (non mandano il "Referer"),
+// quindi aprendo Rullo.html dal disco si usa Esri; se un server da' errori si passa al successivo.
+const TILES = {
+  osm: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap' }],
+  esri: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    { maxZoom: 19, attribution: 'Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap' }],
+  cyclosm: ['https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
+    { maxZoom: 19, subdomains: 'abc', attribution: '© CyclOSM, © OpenStreetMap' }],
+};
+function addTiles(map) {
+  const order = location.protocol === 'file:' ? ['esri', 'cyclosm'] : ['osm', 'esri'];
+  let i = 0, errors = 0, layer;
+  const use = () => {
+    layer = L.tileLayer(...TILES[order[i]]).addTo(map);
+    layer.on('tileerror', () => {
+      if (++errors > 4 && i < order.length - 1) { map.removeLayer(layer); i++; errors = 0; use(); }
+    });
+  };
+  use();
+}
+
+function makeMap(el, route, { interactive = true } = {}) {
+  if (!window.L) { el.innerHTML = '<p class="muted" style="padding:12px">Mappa non disponibile (serve la connessione a Internet)</p>'; return null; }
+  const map = L.map(el, { zoomControl: interactive, attributionControl: true, dragging: interactive, scrollWheelZoom: interactive });
+  addTiles(map);
+  const line = L.polyline(route.latlngs(), { color: '#ff7a1a', weight: 4 }).addTo(map);
+  L.circleMarker([route.lat[0], route.lon[0]], { radius: 6, color: '#fff', fillColor: '#22c55e', fillOpacity: 1 }).addTo(map);
+  L.circleMarker([route.lat[route.n - 1], route.lon[route.n - 1]], { radius: 6, color: '#fff', fillColor: '#ef4444', fillOpacity: 1 }).addTo(map);
+  map.fitBounds(line.getBounds(), { padding: [20, 20] });
+  return map;
+}
+
+// ====================================================================== PEDALATA
+async function startSession(opts) {
+  if (!S.trainer?.connected) {
+    const r = await modal(`<h2>Rullo non collegato</h2><p>Collega il rullo per iniziare. Puoi anche provare l'app con il rullo simulato.</p>`,
+      [{ label: 'Annulla', value: null }, { label: 'Demo (simulato)', value: 'demo' }, ...(bluetoothAvailable() ? [{ label: 'Collega rullo', value: 'scan', cls: 'primary' }] : [])]);
+    if (!r) return;
+    await connectTrainer(r === 'demo');
+    if (!S.trainer?.connected) return;
+    if (r === 'demo' && !S.hr?.connected) await connectHr(true);
+  }
+  const profile = { ...S.profile };
+  if (opts.difficulty != null) profile.difficulty = opts.difficulty;
+  const s = new RideSession({ ...opts, profile, trainer: S.trainer, hr: S.hr });
+  S.session = s;
+  s.on('autosave', () => savePending(s.activity()));
+  s.on('finished', () => toast(opts.kind === 'route' ? '🏁 Arrivato! Premi "Fine" per salvare' : '✅ Allenamento completato! Puoi continuare in libera o premere "Fine"', 6000));
+  s.on('step', cs => { if (cs && S.session === s) { const nx = cs.s; toast(nx.kind === 'free' ? 'Tratto libero' : `${nx.text ? nx.text + ': ' : ''}${Math.round(pctAt(nx, 0) * s.ftp / 100 * s.intensity / 100)} W per ${fmtDur(nx.dur)}`); beep(); } });
+  s.start();
+  requestWakeLock();
+  go('ride');
+}
+
+let audioCtx;
+function beep() {
+  try {
+    audioCtx ||= new AudioContext();
+    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+    o.frequency.value = 880; g.gain.value = 0.08;
+    o.connect(g); g.connect(audioCtx.destination);
+    o.start(); o.stop(audioCtx.currentTime + 0.15);
+  } catch { /* niente audio */ }
+}
+
+async function requestWakeLock() {
+  try { if ('wakeLock' in navigator) S.wakeLock = await navigator.wakeLock.request('screen'); } catch { /* non disponibile */ }
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.session) requestWakeLock(); });
+
+function renderRide() {
+  const s = S.session;
+  const kind = s.workout && !s.routeMeta ? 'workout' : s.routeMeta ? 'route' : 'free';
+  main.innerHTML = `
+    <div class="metrics">
+      <div class="m power"><span class="k">Potenza</span><span class="v" id="mP">0<small>W</small></span><span class="sub" id="mPs"></span></div>
+      <div class="m"><span class="k">Cadenza</span><span class="v" id="mC">–<small>rpm</small></span></div>
+      <div class="m"><span class="k">Cardio</span><span class="v" id="mH">–<small>bpm</small></span><span class="sub" id="mHs"></span></div>
+      <div class="m"><span class="k">Velocità</span><span class="v" id="mV">0<small>km/h</small></span></div>
+      <div class="m"><span class="k">Distanza</span><span class="v" id="mD">0<small>km</small></span><span class="sub" id="mDs"></span></div>
+      <div class="m"><span class="k">Tempo</span><span class="v" id="mT">0:00</span><span class="sub" id="mTs"></span></div>
+    </div>
+    <div class="ride-body ${kind}" id="rb"></div>
+    <div class="controls">
+      <button class="btn" id="cPause">⏸ Pausa</button>
+      <div class="adj"><button id="cMinus">−</button><div class="val" id="cVal"></div><button id="cPlus">+</button></div>
+      ${kind === 'workout' ? '<button class="btn" id="cSkip">Salta ⏭</button>' : ''}
+      ${kind === 'free' ? `<div class="seg" id="cMode"><button data-m="sim">Pendenza</button><button data-m="erg">Watt</button></div>` : ''}
+      <button class="btn" id="cLap">Giro</button>
+      <div class="spacer"></div>
+      <button class="btn danger" id="cEnd">■ Fine</button>
+    </div>`;
+  const rb = $('#rb');
+  let map, marker, done;
+  if (kind === 'workout') {
+    rb.innerHTML = `<div class="panel step-info" id="stepInfo"></div><div class="panel"><canvas id="wkC"></canvas><div class="wait-banner" id="wait">Inizia a pedalare per partire</div></div>`;
+  } else if (kind === 'route') {
+    rb.innerHTML = `
+      <div class="map-wrap" id="rideMap"></div>
+      <div class="side">
+        <div class="panel gradebox"><div class="muted small">PENDENZA</div><div class="g" id="gNow">0%</div><div class="muted small" id="gNext"></div></div>
+        <div class="panel" style="flex:1;min-height:90px"><canvas id="nearProf"></canvas></div>
+      </div>
+      <div class="panel full-profile"><canvas id="fullProf"></canvas><div class="wait-banner" id="wait">Inizia a pedalare per partire</div></div>`;
+    map = makeMap($('#rideMap'), s.route);
+    if (map) {
+      const icon = L.divIcon({ className: '', html: '<div class="rider-dot"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
+      marker = L.marker([s.route.lat[0], s.route.lon[0]], { icon }).addTo(map);
+      done = L.polyline([], { color: '#ffd8b8', weight: 6, opacity: .9 }).addTo(map);
+      map.setView([s.route.lat[0], s.route.lon[0]], 15);
+    }
+  } else {
+    rb.innerHTML = `<div class="panel step-info" id="freeInfo"></div><div class="panel"><canvas id="freeC"></canvas><div class="wait-banner" id="wait">Inizia a pedalare per partire</div></div>`;
+  }
+  // se il tablet ruota, la mappa deve ricalcolare le sue dimensioni
+  const onResize = () => { if (map) setTimeout(() => map.invalidateSize(), 200); };
+  window.addEventListener('resize', onResize);
+  window._mapCleanup = () => { window.removeEventListener('resize', onResize); if (map) map.remove(); };
+
+  $('#cPause').onclick = () => { s.togglePause(); };
+  $('#cMinus').onclick = () => s.adjust(-1);
+  $('#cPlus').onclick = () => s.adjust(+1);
+  $('#cLap').onclick = () => { s.lap(); toast('Nuovo giro'); };
+  $('#cEnd').onclick = endSession;
+  if ($('#cSkip')) $('#cSkip').onclick = () => s.skipStep();
+  if ($('#cMode')) $$('#cMode button').forEach(b => b.onclick = () => { s.setFreeMode(b.dataset.m); update(); });
+
+  let lastDraw = 0, follow = true, lastPathLen = 0;
+  if (map) map.on('dragstart', () => { follow = false; setTimeout(() => { follow = true; }, 15000); });
+
+  function update() {
+    if (S.session !== s) return;
+    const inp = s.inputs || { power: 0 };
+    const st = s.liveStats();
+    $('#mP').innerHTML = `${s.power3s()}<small>W</small>`;
+    $('#mPs').textContent = st.avgP != null ? `media ${n0(st.avgP)} · NP ${n0(st.np)}` : '';
+    $('#mC').innerHTML = `${inp.cadence != null ? inp.cadence : '–'}<small>rpm</small>`;
+    $('#mH').innerHTML = `${inp.hr || '–'}<small>bpm</small>`;
+    $('#mHs').textContent = st.avgHr ? `media ${n0(st.avgHr)}` : '';
+    $('#mV').innerHTML = `${(s.speed * 3.6).toFixed(1)}<small>km/h</small>`;
+    $('#mD').innerHTML = `${km(s.dist)}<small>km</small>`;
+    $('#mT').textContent = fmtDur(st.time);
+    $('#mTs').textContent = `${n0(st.kj)} kJ · TSS ${n0(st.tss)}`;
+    $('#cPause').textContent = s.state === 'paused' ? '▶ Riprendi' : '⏸ Pausa';
+    const wait = $('#wait');
+    if (wait) {
+      wait.classList.toggle('hidden', s.state === 'running');
+      wait.textContent = s.state === 'paused' ? (s.manualPause ? 'In pausa' : 'Pausa automatica: riprendi a pedalare') : 'Inizia a pedalare per partire';
+    }
+    // controllo +/-
+    let val;
+    if (s.kind === 'workout') val = `${s.intensity}%<small>intensità</small>`;
+    else if (s.kind === 'route') val = `${s.difficulty}%<small>difficoltà</small>`;
+    else if (s.freeMode === 'erg') val = `${s.freeErg} W<small>obiettivo</small>`;
+    else val = `${s.freeGrade.toFixed(1)}%<small>pendenza</small>`;
+    $('#cVal').innerHTML = val;
+    if ($('#cMode')) $$('#cMode button').forEach(b => b.classList.toggle('on', b.dataset.m === s.freeMode));
+
+    const now = performance.now();
+    const heavy = now - lastDraw > 900;
+    if (heavy) lastDraw = now;
+
+    if (kind === 'workout') {
+      const cs = s.kind === 'workout' ? s.currentStep() : null;
+      const tgt = s.targetPower();
+      const next = cs ? s.steps[cs.i + 1] : null;
+      $('#stepInfo').innerHTML = cs ? `
+        <div><div class="muted small">OBIETTIVO</div><div class="target" style="color:${cs.s.kind === 'free' ? '#94a3b8' : zoneOf(pctAt(cs.s, cs.t)).color}">${tgt != null ? tgt + ' W' : 'Libera'}</div></div>
+        <div><div class="muted small">FINE PASSO</div><div class="left">${fmtDur(cs.s.dur - cs.t)}</div></div>
+        <div><div class="muted small">RIMANENTE</div><div class="left">${fmtDur(s.duration - s.elapsed)}</div></div>
+        <div class="muted">${cs.s.text ? esc(cs.s.text) + '<br>' : ''}${next ? `Poi: ${next.kind === 'free' ? 'libera' : Math.round(pctAt(next, 0) * s.ftp / 100 * s.intensity / 100) + ' W'} per ${fmtDur(next.dur)}` : 'Ultimo passo'}</div>`
+        : `<div class="target">Completato ✅</div><div class="muted">Continui in pedalata libera (pendenza ${s.freeGrade}%). Premi Fine per salvare.</div>`;
+      if (heavy) drawWorkout($('#wkC'), s.workout.blocks, { progress: Math.min(s.elapsed, s.duration), power: s.samples.map(x => x.p), ftp: s.ftp / (s.intensity / 100) });
+    } else if (kind === 'route') {
+      const here = s.route.at(s.dist);
+      const g = here.grade;
+      $('#gNow').textContent = `${g.toFixed(1)}%`;
+      $('#gNow').style.color = gradeColor(g);
+      const ahead = s.route.gradeAhead(s.dist, 500);
+      $('#gNext').innerHTML = `prossimi 500 m: ${ahead.toFixed(1)}%<br>mancano ${km(Math.max(0, s.route.length - s.dist))} km · quota ${Math.round(here.ele)} m<br>salita fatta ${Math.round(s.ascent)} m`;
+      $('#mDs').textContent = `di ${km(s.route.length)} km`;
+      if (heavy) {
+        drawProfile($('#fullProf'), s.route, { pos: s.dist });
+        drawProfile($('#nearProf'), s.route, { from: Math.max(0, s.dist - 200), to: Math.min(s.route.length, Math.max(s.dist - 200, 0) + 2200), pos: s.dist });
+        if (map && marker) {
+          const ll = [here.lat, here.lon];
+          marker.setLatLng(ll);
+          if (follow) map.panTo(ll, { animate: true, duration: 0.8 });
+          const idx = Math.floor(s.dist / 10);
+          if (idx - lastPathLen > 5) {
+            const pts = []; for (let i = 0; i <= Math.min(idx, s.route.n - 1); i += Math.max(1, Math.floor(idx / 2000))) pts.push([s.route.lat[i], s.route.lon[i]]);
+            pts.push(ll); done.setLatLngs(pts); lastPathLen = idx;
+          }
+        }
+      }
+    } else {
+      const tgt = s.targetPower();
+      $('#freeInfo').innerHTML = s.freeMode === 'erg'
+        ? `<div><div class="muted small">WATT IMPOSTATI</div><div class="target">${tgt} W</div></div><div class="muted">Il rullo tiene questa potenza qualunque sia la cadenza. Usa + e − per cambiarla (5 W).<br>
+           Partenza morbida: il rullo passa ai watt quando superi i 50 rpm. Con watt bassi usa un rapporto agile (pignone grande dietro): con il volano veloce il rullo non riesce a scendere sotto la sua resistenza minima.</div>`
+        : `<div><div class="muted small">PENDENZA</div><div class="target" style="color:${gradeColor(s.freeGrade)}">${s.freeGrade.toFixed(1)}%</div></div><div class="muted">Strada virtuale: cambia la pendenza con + e − (0,5%). Usa i rapporti come su strada.</div>`;
+      if (heavy) {
+        const last = s.samples.slice(-1200);
+        drawSeries($('#freeC'), [
+          { data: last.map(x => x.p), color: '#ffa15c', max: Math.max(s.ftp * 1.6, ...last.map(x => x.p)), width: 2 },
+          { data: last.map(x => x.hr), color: '#ef4444', max: 200 },
+        ], { xmax: Math.max(600, last.length), grid: [{ value: s.ftp, color: 'rgba(255,255,255,.3)' }] });
+      }
+    }
+  }
+  s.on('tick', update);
+  s.on('pause', update);
+  update();
+  setTimeout(() => { if (map) map.invalidateSize(); update(); }, 300);
+}
+
+async function endSession() {
+  const s = S.session;
+  if (!s) return;
+  if (s.samples.length < 10) {
+    if (!await confirmBox('Pedalata troppo breve per essere salvata. Terminare?', 'Termina', 'danger')) return;
+    s.stop(); S.session = null; clearPending(); releaseWake(); go('home'); return;
+  }
+  if (!await confirmBox('Terminare la pedalata?', 'Termina')) return;
+  const act = s.stop();
+  S.session = null;
+  releaseWake();
+  savePending(act);
+  if (S.trainer?.connected) S.trainer.setSim({ grade: 0 });
+  showSummary(act);
+}
+
+function releaseWake() { try { S.wakeLock?.release(); } catch { /* */ } S.wakeLock = null; }
+
+// ----------------------------------------------------------- riepilogo e salvataggio
+async function showSummary(act, fromPending = false) {
+  go('home', false);
+  const sm = act.summary;
+  const tiles = [
+    ['Tempo', fmtDur(sm.duration)], ['Distanza', `${km(sm.distance)} km`], ['Velocità media', `${sm.avgSpeed} km/h`],
+    ['Potenza media', `${n0(sm.avgP)} W`], ['Potenza normalizzata', `${n0(sm.np)} W`], ['Potenza max', `${n0(sm.maxP)} W`],
+    ['Cardio medio', sm.avgHr ? `${sm.avgHr} bpm` : '–'], ['Cadenza media', sm.avgC ? `${sm.avgC} rpm` : '–'],
+    ['Lavoro', `${sm.kj} kJ (~${sm.kcal} kcal)`], ['TSS', n0(sm.tss)], ['Dislivello', sm.ascent ? `${sm.ascent} m` : '–'],
+  ];
+  let ftpEst = null;
+  if (act.rampTest && sm.best1m) ftpEst = Math.round(sm.best1m * 0.75);
+  const r = await modal(`<h2>${esc(act.name)}</h2><p class="muted">${dateStr(act.start)} alle ${timeStr(act.start)}</p>
+    <div class="stats">${tiles.map(([k, v]) => `<div><b>${v}</b><span>${k}</span></div>`).join('')}</div>
+    ${ftpEst ? `<div class="banner">Test a rampa: miglior minuto ${sm.best1m} W → <b>FTP stimato ${ftpEst} W</b> (attuale ${S.profile.ftp} W)</div>` : ''}`,
+  [{ label: 'Scarta', value: 'discard', cls: 'danger' }, ...(ftpEst ? [{ label: `Salva e imposta FTP ${ftpEst} W`, value: 'saveftp' }] : []), { label: 'Salva', value: 'save', cls: 'primary' }]);
+  if (r === 'discard') {
+    if (await confirmBox('La pedalata andrà persa. Sicuro?', 'Scarta', 'danger')) { clearPending(); renderHome(); }
+    else showSummary(act, fromPending);
+    return;
+  }
+  if (!r) return renderHome();
+  try {
+    const fit = buildFit(act);
+    const saved = await api.saveActivity({ ...act, fit: toBase64(fit) });
+    clearPending();
+    if (r === 'saveftp') { S.profile = await api.saveProfile({ ...S.profile, ftp: ftpEst }); toast(`FTP aggiornato a ${ftpEst} W`); }
+    renderHome();
+    if (garminReady() && S.profile.garminAuto !== false) {
+      // caricamento automatico subito dopo il salvataggio
+      $('#modal').hidden = false;
+      $('.modal-box').innerHTML = '<h2>Salvata ✅</h2><p>Caricamento su Garmin Connect in corso…</p>';
+      let res;
+      try { res = await api.garminUpload(saved.id); } catch (e) { res = { status: 'err', message: e.message }; }
+      saved.garmin = res.garmin || saved.garmin;
+      $('#modal').hidden = true;
+      if (res.status === 'ok' || res.status === 'dup') {
+        await modal(`<h2>Salvata ✅</h2><p>${res.status === 'ok' ? '<b>Caricata su Garmin Connect</b> (da lì passa anche a Strava).' : 'Garmin dice che questa attività <b>c\'è già</b>: nessun doppione creato.'}</p>`);
+      } else {
+        const r3 = await modal(`<h2>Salvata ✅</h2><p class="banner">Caricamento automatico su Garmin non riuscito:<br>${esc(res.message)}</p>
+          <p class="muted small">Puoi riprovare ora o più tardi dallo Storico, oppure caricarla a mano.</p>`,
+        [{ label: 'Più tardi', value: null }, { label: 'Carica a mano', value: 'manual' }, { label: 'Riprova', value: 'retry', cls: 'primary' }]);
+        if (r3 === 'retry') await garminAutoUpload(saved);
+        if (r3 === 'manual') await garminManual(saved);
+      }
+    } else {
+      const r2 = await modal(`<h2>Salvata ✅</h2><p>Vuoi mandarla a Garmin Connect (e da lì a Strava)?</p>
+        <p class="muted small">${garminReady() ? '"Carica su Garmin" la manda direttamente dal mini PC.' : '"Carica su Garmin" scarica il file .FIT e apre la pagina "Importa dati" di Garmin: premi "Sfoglia", nel menu ☰ scegli Download e seleziona il file.'} Puoi farlo anche più tardi dallo Storico.</p>`,
+      [{ label: 'Più tardi', value: null }, { label: 'Solo scarica .FIT', value: 'fit' }, { label: 'Carica su Garmin', value: 'garmin', cls: 'primary' }]);
+      if (r2 === 'fit') downloadFit(saved);
+      if (r2 === 'garmin') await garminButton(saved);
+    }
+  } catch (e) {
+    toast('Salvataggio non riuscito: ' + e.message + ' (la pedalata resta in memoria, riprova dalla Home)', 8000);
+    renderHome();
+  }
+}
+
+// ----------------------------------------------------------- Garmin Connect
+const GARMIN_IMPORT = 'https://connect.garmin.com/modern/import-data';
+const dtStr = ms => `${new Date(ms).toLocaleDateString('it-IT')} ${timeStr(ms)}`;
+let garminAsk = null; // uscita per cui chiedere "sei riuscito a caricarla?" al ritorno nell'app
+
+const garminReady = () => !!S.garmin?.configured;
+
+function garminBadge(g) {
+  if (g?.done) return `<span class="tag" style="color:#86efac">✅ su Garmin</span>`;
+  const last = g?.log?.[g.log.length - 1];
+  if (last?.action === 'auto-err') return `<span class="tag" style="color:#fca5a5" title="${esc(last.detail || '')}">⚠️ errore</span>`;
+  if (g?.log?.some(l => l.action === 'attempt')) return `<span class="tag" style="color:#fde68a">⏳ tentato</span>`;
+  return '';
+}
+
+const GARMIN_ACTIONS = {
+  attempt: 'caricamento a mano: scaricato il file e aperto Garmin',
+  done: 'confermato a mano: caricata su Garmin',
+  undo: 'annullata la conferma',
+  'auto-ok': 'caricata automaticamente dal mini PC',
+  'auto-dup': 'caricamento automatico: Garmin dice che c\'era già',
+  'auto-err': 'caricamento automatico NON riuscito',
+};
+
+function refreshGarminViews(a) {
+  if (currentScreen !== 'history') return;
+  if ($('#aBack')) showActivity(a.id); else renderHistory();
+}
+
+// pulsante principale: automatico se l'accesso a Garmin e' configurato, altrimenti a mano
+function garminButton(a) { return garminReady() ? garminAutoUpload(a) : garminManual(a); }
+
+async function garminAutoUpload(a) {
+  let force = false;
+  if (a.garmin?.done) {
+    if (!await confirmBox(`<b>Attenzione:</b> questa uscita risulta <b>già caricata</b> su Garmin il ${dtStr(a.garmin.done)}.<br><br>Caricarla di nuovo? (se c'è già, Garmin di solito la rifiuta come doppione)`, 'Sì, di nuovo')) return;
+    force = true;
+  }
+  toast('Caricamento su Garmin Connect…');
+  let res;
+  try { res = await api.garminUpload(a.id, force); } catch (e) { res = { status: 'err', message: e.message }; }
+  if (res.garmin) a.garmin = res.garmin;
+  if (res.status === 'ok') toast('✅ Caricata su Garmin Connect', 5000);
+  else if (res.status === 'dup') toast('Garmin dice che c\'era già: nessun doppione', 6000);
+  else {
+    const r = await modal(`<h2>Garmin Connect</h2><p class="banner">Caricamento non riuscito:<br>${esc(res.message)}</p>`,
+      [{ label: 'Chiudi', value: null }, { label: 'Carica a mano', value: 'manual', cls: 'primary' }]);
+    if (r === 'manual') return garminManual(a);
+  }
+  refreshGarminViews(a);
+}
+
+async function downloadFit(a) {
+  if (STANDALONE) {
+    // versione portatile: il .FIT si crea qui dai dati salvati nel browser
+    const full = a.samples ? a : await api.activity(a.id);
+    const name = `${a.id.slice(0, 15)}_${(a.name || 'uscita').replace(/[^A-Za-z0-9_-]+/g, '_').slice(0, 40)}.fit`;
+    download(name, buildFit(full), 'application/vnd.ant.fit');
+    return;
+  }
+  const link = document.createElement('a');
+  link.href = `/api/activities/${a.id}.fit`;
+  link.download = '';
+  document.body.appendChild(link); link.click(); link.remove();
+}
+
+// Scarica il .FIT e apre la pagina di importazione di Garmin in un'altra scheda
+async function garminManual(a) {
+  const g = a.garmin;
+  const attempts = (g?.log || []).filter(l => l.action === 'attempt');
+  if (g?.done || attempts.length) {
+    const msg = g?.done
+      ? `<b>Attenzione:</b> questa uscita risulta <b>già caricata</b> su Garmin il ${dtStr(g.done)}. Caricarla di nuovo creerebbe un doppione.`
+      : `Hai già provato a caricarla ${attempts.length === 1 ? 'una volta' : attempts.length + ' volte'}, l'ultima il ${dtStr(attempts[attempts.length - 1].ts)}. Controlla su Garmin Connect che non ci sia già.`;
+    if (!await confirmBox(msg + '<br><br>Vuoi scaricarla e aprire Garmin di nuovo?', 'Sì, di nuovo')) return;
+  }
+  await downloadFit(a);
+  window.open(GARMIN_IMPORT, '_blank', 'noopener');
+  if (!STANDALONE) { // il registro c'e' solo nella versione di casa
+    try { a.garmin = await api.garminLog(a.id, 'attempt'); } catch (e) { toast(e.message); }
+    garminAsk = a;
+  }
+  toast('File scaricato: su Garmin premi "Sfoglia", nel menu ☰ scegli "Download" e seleziona il file', 8000);
+}
+
+async function askGarminResult() {
+  const a = garminAsk;
+  if (!a || document.visibilityState !== 'visible' || S.session) return;
+  garminAsk = null;
+  const r = await modal(`<h2>Garmin Connect</h2><p>Sei riuscito a caricare <b>${esc(a.name)}</b> del ${dateStr(a.start)}?</p>`,
+    [{ label: 'Non ancora', value: false }, { label: 'Sì, caricata', value: true, cls: 'primary' }]);
+  if (r) {
+    try { a.garmin = await api.garminLog(a.id, 'done'); toast('Segnata come caricata su Garmin'); } catch (e) { toast(e.message); }
+  }
+  refreshGarminViews(a);
+}
+document.addEventListener('visibilitychange', () => { if (garminAsk) setTimeout(askGarminResult, 600); });
+
+const PENDING = 'rullo.pending';
+function savePending(act) { try { localStorage.setItem(PENDING, JSON.stringify(act)); } catch { /* spazio pieno */ } }
+function loadPending() { try { const a = JSON.parse(localStorage.getItem(PENDING)); return a && a.samples?.length >= 10 ? a : null; } catch { return null; } }
+function clearPending() { localStorage.removeItem(PENDING); }
+
+// ====================================================================== STORICO
+async function renderHistory() {
+  main.innerHTML = '<p class="muted">Caricamento…</p>';
+  let acts;
+  try { acts = await api.activities(); } catch (e) { main.innerHTML = `<p>${esc(e.message)}</p>`; return; }
+  acts.sort((a, b) => b.start - a.start);
+  const sum = (arr, f) => arr.reduce((s, a) => s + (f(a) || 0), 0);
+  const now = new Date();
+  const startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7)).getTime();
+  const periods = [
+    ['Questa settimana', acts.filter(a => a.start >= startOfWeek)],
+    ['Questo mese', acts.filter(a => a.start >= new Date(now.getFullYear(), now.getMonth(), 1).getTime())],
+    ['Quest\'anno', acts.filter(a => a.start >= new Date(now.getFullYear(), 0, 1).getTime())],
+  ];
+  // ultime 12 settimane
+  const weeks = [];
+  for (let i = 11; i >= 0; i--) {
+    const ws = startOfWeek - i * 7 * 86400e3, we = ws + 7 * 86400e3;
+    const wa = acts.filter(a => a.start >= ws && a.start < we);
+    weeks.push({ label: new Date(ws).toLocaleDateString('it-IT', { day: 'numeric', month: 'numeric' }), value: Math.round(sum(wa, a => a.summary?.duration) / 60) });
+  }
+  main.innerHTML = `
+    <h2>Storico</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:12px">${periods.map(([t, arr]) => `
+      <div class="card"><h3>${t}</h3><div class="stats">
+        <div><b>${arr.length}</b><span>uscite</span></div><div><b>${fmtDur(sum(arr, a => a.summary?.duration))}</b><span>tempo</span></div>
+        <div><b>${km(sum(arr, a => a.summary?.distance))}</b><span>km</span></div><div><b>${Math.round(sum(arr, a => a.summary?.tss))}</b><span>TSS</span></div>
+        <div><b>${Math.round(sum(arr, a => a.summary?.ascent))}</b><span>m salita</span></div></div></div>`).join('')}</div>
+    <div class="card" style="margin-bottom:12px"><h3>Minuti per settimana</h3><canvas class="chart" id="hWeeks" style="height:140px"></canvas></div>
+    ${acts.length ? `<div class="card" style="overflow-x:auto"><table>
+      <tr><th>Data</th><th>Uscita</th><th class="n">Tempo</th><th class="n">km</th><th class="n">W medi</th><th class="n">NP</th><th class="n">FC</th><th class="n">TSS</th><th>Garmin</th></tr>
+      ${acts.map(a => `<tr data-id="${a.id}" style="cursor:pointer"><td>${dateStr(a.start)}</td><td>${esc(a.name)}</td>
+        <td class="n">${fmtDur(a.summary?.duration || 0)}</td><td class="n">${km(a.summary?.distance || 0)}</td><td class="n">${n0(a.summary?.avgP)}</td>
+        <td class="n">${n0(a.summary?.np)}</td><td class="n">${n0(a.summary?.avgHr)}</td><td class="n">${n0(a.summary?.tss)}</td>
+        <td>${a.garmin?.done ? garminBadge(a.garmin) : `${garminBadge(a.garmin)} <button class="btn" data-garmin="${a.id}" style="min-height:36px;padding:6px 12px">Carica</button>`}</td></tr>`).join('')}
+    </table></div>` : '<div class="card"><p class="muted">Nessuna uscita salvata.</p></div>'}`;
+  drawBars($('#hWeeks'), weeks, { fmt: v => v });
+  $$('tr[data-id]').forEach(tr => tr.onclick = () => showActivity(tr.dataset.id));
+  $$('[data-garmin]').forEach(b => b.onclick = e => { e.stopPropagation(); garminButton(acts.find(a => a.id === b.dataset.garmin)); });
+}
+
+async function showActivity(id) {
+  const a = await api.activity(id);
+  const sm = a.summary;
+  main.innerHTML = `
+    <div class="row" style="margin-bottom:12px"><button class="btn" id="aBack">← Storico</button><h2 style="margin:0">${esc(a.name)}</h2>
+      <div class="spacer"></div>${garminBadge(a.garmin)}<button class="btn primary" id="aGarmin">Carica su Garmin</button>
+      ${garminReady() ? '<button class="btn" id="aManual">Carica a mano</button>' : ''}
+      <button class="btn" id="aFit">Solo scarica .FIT</button>
+      <button class="btn danger" id="aDel">Elimina</button></div>
+    ${a.garmin?.log?.length ? `<div class="card" style="margin-bottom:12px"><h3>Registro Garmin</h3><ul class="small" style="margin:0;padding-left:18px">
+      ${a.garmin.log.map(l => `<li>${dtStr(l.ts)} – ${GARMIN_ACTIONS[l.action] || esc(l.action)}${l.detail && l.action === 'auto-err' ? `: <span class="muted">${esc(l.detail)}</span>` : ''}</li>`).join('')}</ul>
+      ${a.garmin.done ? '<button class="btn" id="aUndo" style="margin-top:8px">Non era caricata davvero</button>' : '<button class="btn" id="aDone" style="margin-top:8px">Segna come caricata</button>'}</div>` : ''}
+    <p class="muted">${dateStr(a.start)} alle ${timeStr(a.start)} · FTP ${sm.ftp} W · peso ${sm.weight} kg</p>
+    <div class="card"><div class="stats">
+      <div><b>${fmtDur(sm.duration)}</b><span>tempo</span></div><div><b>${km(sm.distance)} km</b><span>distanza</span></div><div><b>${sm.avgSpeed} km/h</b><span>media</span></div>
+      <div><b>${n0(sm.avgP)} W</b><span>potenza media</span></div><div><b>${n0(sm.np)} W</b><span>normalizzata</span></div><div><b>${n0(sm.maxP)} W</b><span>max</span></div>
+      <div><b>${sm.avgHr ?? '–'}</b><span>FC media</span></div><div><b>${sm.maxHr ?? '–'}</b><span>FC max</span></div><div><b>${sm.avgC ?? '–'}</b><span>cadenza</span></div>
+      <div><b>${sm.kj} kJ</b><span>lavoro</span></div><div><b>${n0(sm.tss)}</b><span>TSS</span></div><div><b>${sm.if?.toFixed(2) ?? '–'}</b><span>IF</span></div>
+      <div><b>${sm.ascent || 0} m</b><span>salita</span></div><div><b>${sm.best1m ?? '–'} / ${sm.best5m ?? '–'} / ${sm.best20m ?? '–'}</b><span>miglior 1′ / 5′ / 20′ (W)</span></div>
+    </div>
+    <h3>Potenza (arancio) e cardio (rosso)</h3><canvas class="chart" id="aChart" style="height:220px"></canvas>
+    ${a.samples.some(x => x.ele != null) ? '<h3 style="margin-top:12px">Altimetria</h3><canvas class="chart" id="aEle" style="height:110px"></canvas><div class="map" id="aMap" style="margin-top:12px"></div>' : ''}
+    </div>`;
+  $('#aBack').onclick = renderHistory;
+  $('#aGarmin').onclick = () => garminButton(a);
+  if ($('#aManual')) $('#aManual').onclick = () => garminManual(a);
+  $('#aFit').onclick = () => downloadFit(a);
+  if ($('#aDone')) $('#aDone').onclick = async () => { await api.garminLog(a.id, 'done'); showActivity(a.id); };
+  if ($('#aUndo')) $('#aUndo').onclick = async () => { await api.garminLog(a.id, 'undo'); showActivity(a.id); };
+  $('#aDel').onclick = async () => {
+    if (!await confirmBox(STANDALONE ? 'Eliminare definitivamente questa uscita?' : 'Eliminare questa uscita? (finisce nel cestino sul server)', 'Elimina', 'danger')) return;
+    await api.deleteActivity(a.id); renderHistory();
+  };
+  drawSeries($('#aChart'), [
+    { data: a.samples.map(x => x.p), color: '#ffa15c', max: Math.max(...a.samples.map(x => x.p)) * 1.1 },
+    { data: a.samples.map(x => x.hr), color: '#ef4444', max: 200 },
+  ], { grid: [{ value: sm.ftp }] });
+  if ($('#aEle')) {
+    drawSeries($('#aEle'), [{ data: a.samples.map(x => x.ele), fill: 'rgba(255,122,26,.45)', max: Math.max(...a.samples.map(x => x.ele ?? 0)) + 20 }]);
+    if (window.L) {
+      const map = L.map($('#aMap'));
+      addTiles(map);
+      const line = L.polyline(a.samples.filter(x => x.lat != null).map(x => [x.lat, x.lon]), { color: '#ff7a1a', weight: 4 }).addTo(map);
+      map.fitBounds(line.getBounds(), { padding: [20, 20] });
+      window._mapCleanup = () => map.remove();
+    }
+  }
+}
+
+// ====================================================================== PROFILO
+function renderProfile() {
+  const p = structuredClone(S.profile);
+  main.innerHTML = `
+    <div class="row" style="margin-bottom:12px"><h2 style="margin:0">Profilo</h2><div class="spacer"></div><button class="btn primary" id="pSave">Salva</button></div>
+    ${STANDALONE && !S.profile.setupDone ? `<div class="banner"><b>Benvenuto!</b> Inserisci il tuo peso, quello della bici e il tuo FTP
+      (se non lo conosci lascia il valore proposto e poi fai il "Test FTP a rampa" negli Allenamenti), poi premi <b>Salva</b>.</div>` : ''}
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+      <div class="card"><h3>Tu e la bici</h3><div class="form-grid">
+        <label class="f">Peso (kg)<input type="number" step="0.1" inputmode="decimal" id="fWeight" value="${p.weight}"></label>
+        <label class="f">Peso bici (kg)<input type="number" step="0.1" inputmode="decimal" id="fBike" value="${p.bikeWeight}"></label>
+        <label class="f">FTP (W)<input type="number" inputmode="numeric" id="fFtp" value="${p.ftp}"></label>
+        <label class="f">FC massima (facoltativa)<input type="number" inputmode="numeric" id="fHrMax" value="${p.hrMax ?? ''}"></label>
+      </div><p class="muted small" id="fWkg"></p></div>
+      <div class="card"><h3>Realismo della strada virtuale</h3><div class="form-grid">
+        <label class="f">Posizione in sella<select id="fPos">${Object.entries(POSITIONS).map(([k, v]) => `<option value="${k}" ${k === p.position ? 'selected' : ''}>${v.label}</option>`).join('')}</select></label>
+        <label class="f">CdA (m²)<input type="number" step="0.01" id="fCda"></label>
+        <label class="f">Fondo stradale<select id="fSurf">${Object.entries(SURFACES).map(([k, v]) => `<option value="${k}" ${k === p.surface ? 'selected' : ''}>${v.label}</option>`).join('')}</select></label>
+        <label class="f">Crr<input type="number" step="0.001" id="fCrr"></label>
+        <label class="f">Difficoltà percorsi (%)<input type="number" step="10" min="0" max="150" id="fDiff" value="${p.difficulty}"></label>
+      </div><p class="muted small" id="fSpeeds"></p></div>
+      <div class="card"><h3>Rullo</h3><div class="form-grid">
+        <label class="f">Protocollo<select id="fProto">
+          <option value="auto" ${p.protocol === 'auto' ? 'selected' : ''}>Automatico (Wahoo se c'è)</option>
+          <option value="wahoo" ${p.protocol === 'wahoo' ? 'selected' : ''}>Wahoo (manda anche il peso)</option>
+          <option value="ftms" ${p.protocol === 'ftms' ? 'selected' : ''}>FTMS standard</option></select></label>
+        <label class="f">Pausa automatica<select id="fAuto"><option value="1" ${p.autoPause !== false ? 'selected' : ''}>Sì</option><option value="0" ${p.autoPause === false ? 'selected' : ''}>No</option></select></label>
+      </div><p class="muted small">Il protocollo si applica alla prossima connessione del rullo.</p></div>
+      ${STANDALONE ? `<div class="card"><h3>Garmin Connect</h3>
+        <p>Dopo ogni uscita: <b>Carica su Garmin</b> scarica il file .FIT e apre la pagina "Importa dati" di Garmin Connect.
+        Lì premi "Sfoglia", nel menu ☰ scegli "Download" e seleziona il file.</p></div>
+      <div class="card"><h3>I tuoi dati</h3>
+        <p class="small">In questa versione profilo, allenamenti, percorsi e uscite sono salvati <b>solo in questo browser</b>.
+        Se cancelli i dati di Chrome o cambi tablet li perdi: ogni tanto fai una copia.</p>
+        <div class="row"><button class="btn" id="bExport">Scarica copia dei dati</button><button class="btn" id="bImport">Ripristina da copia</button></div></div>`
+      : `<div class="card"><h3>Garmin Connect</h3>
+        <p>${garminReady() ? `✅ Collegato${S.garmin.account ? ' come <b>' + esc(S.garmin.account) + '</b>' : ''}: il mini PC carica le uscite direttamente.`
+          : '⚠️ Caricamento automatico non configurato: per ora si carica a mano.'}</p>
+        <label class="f">Dopo il salvataggio<select id="fGarminAuto">
+          <option value="1" ${p.garminAuto !== false ? 'selected' : ''}>Carica subito su Garmin</option>
+          <option value="0" ${p.garminAuto === false ? 'selected' : ''}>Chiedimi cosa fare</option></select></label>
+        <p class="muted small">${garminReady() ? 'Se l\'app segnala che l\'accesso è scaduto (circa una volta l\'anno), va rifatto il login sul mini PC.'
+          : 'Per attivarlo serve un accesso una tantum a Garmin dal mini PC (comando <code>~/rullo/garmin_login.sh</code>).'}</p></div>`}
+      <div class="card"><h3>Zone di potenza</h3><table id="fZones"></table></div>
+      <div class="card"><h3>Storico dei tuoi dati</h3><canvas class="chart" id="fHistC" style="height:140px"></canvas>
+        <table id="fHist" class="small"></table></div>
+    </div>`;
+  const cdaIn = $('#fCda'), crrIn = $('#fCrr');
+  const read = () => {
+    p.weight = +$('#fWeight').value || p.weight; p.bikeWeight = +$('#fBike').value || 0; p.ftp = +$('#fFtp').value || p.ftp;
+    p.hrMax = +$('#fHrMax').value || null; p.position = $('#fPos').value; p.surface = $('#fSurf').value;
+    p.difficulty = +$('#fDiff').value; p.protocol = $('#fProto').value; p.autoPause = $('#fAuto').value === '1';
+    if ($('#fGarminAuto')) p.garminAuto = $('#fGarminAuto').value === '1';
+    if (p.position === 'custom') p.cdaCustom = +cdaIn.value || p.cdaCustom || 0.45;
+    if (p.surface === 'custom') p.crrCustom = +crrIn.value || p.crrCustom || 0.005;
+  };
+  const refresh = () => {
+    read();
+    cdaIn.value = profileCda(p); cdaIn.disabled = p.position !== 'custom';
+    crrIn.value = profileCrr(p); crrIn.disabled = p.surface !== 'custom';
+    $('#fWkg').textContent = `${(p.ftp / p.weight).toFixed(2)} W/kg · massa totale ${(p.weight + p.bikeWeight).toFixed(1)} kg`;
+    const prm = { mass: p.weight + p.bikeWeight, cda: profileCda(p), crr: profileCrr(p) };
+    const sp = (w, g) => (steadySpeed(w, g, prm) * 3.6).toFixed(1);
+    $('#fSpeeds').innerHTML = `Con questi valori, a ${p.ftp} W: <b>${sp(p.ftp, 0)} km/h</b> in pianura, <b>${sp(p.ftp, 4)} km/h</b> al 4%, <b>${sp(p.ftp, 8)} km/h</b> all'8%.`;
+    $('#fZones').innerHTML = '<tr><th>Zona</th><th class="n">Watt</th></tr>' + ZONES.map((z, i) => {
+      const lo = i ? Math.round(ZONES[i - 1].max * p.ftp / 100) + 1 : 0;
+      return `<tr><td><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:${z.color};margin-right:6px"></span>${z.name}</td>
+        <td class="n">${i === ZONES.length - 1 ? `oltre ${lo - 1}` : `${lo}–${Math.round(z.max * p.ftp / 100)}`}</td></tr>`;
+    }).join('');
+  };
+  $$('input, select', main).forEach(el => el.addEventListener('change', refresh));
+  refresh();
+  const hist = S.profile.history || [];
+  $('#fHist').innerHTML = '<tr><th>Data</th><th class="n">Peso</th><th class="n">FTP</th><th class="n">W/kg</th></tr>' +
+    [...hist].reverse().map(h => `<tr><td>${new Date(h.date).toLocaleDateString('it-IT')}</td><td class="n">${h.weight}</td><td class="n">${h.ftp}</td><td class="n">${(h.ftp / h.weight).toFixed(2)}</td></tr>`).join('');
+  if (hist.length > 1) drawSeries($('#fHistC'), [
+    { data: hist.map(h => h.weight), color: '#3b82f6', max: Math.max(...hist.map(h => h.weight)) * 1.2, width: 2 },
+    { data: hist.map(h => h.ftp), color: '#ffa15c', max: Math.max(...hist.map(h => h.ftp)) * 1.2, width: 2 }]);
+  else $('#fHistC').replaceWith(Object.assign(document.createElement('p'), { className: 'muted small', textContent: 'Quando cambi peso o FTP, qui vedrai l\'andamento (blu peso, arancio FTP).' }));
+  $('#pSave').onclick = async () => {
+    read();
+    try { S.profile = await api.saveProfile(p); toast('Profilo salvato'); renderProfile(); }
+    catch (e) { toast(e.message, 5000); }
+  };
+  if ($('#bExport')) $('#bExport').onclick = async () => {
+    const data = await api.exportAll();
+    const d = new Date();
+    download(`rullo-copia-${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}.json`,
+      JSON.stringify(data), 'application/json');
+    toast(`Copia scaricata (${data.activities.length} uscite, ${data.routes.length} percorsi, ${data.workouts.length} allenamenti)`, 5000);
+  };
+  if ($('#bImport')) $('#bImport').onclick = async () => {
+    const [f] = await pickFile('.json,application/json');
+    if (!f) return;
+    if (!await confirmBox('Ripristinare i dati dalla copia? Profilo e elementi con lo stesso nome verranno sostituiti, gli altri restano.', 'Ripristina')) return;
+    try {
+      const n = await api.importAll(JSON.parse(await f.text()));
+      S.profile = await api.profile();
+      [S.workouts, S.routes] = await Promise.all([api.workouts(), api.routes()]);
+      toast(`Ripristinati ${n} elementi`); renderProfile();
+    } catch (e) { toast(e.message, 6000); }
+  };
+}
+
+// ====================================================================== avvio
+async function init() {
+  $('#btnHome').onclick = () => go('home');
+  $$('#nav button').forEach(b => b.onclick = () => go(b.dataset.go));
+  $('#chipTrainer').onclick = () => deviceDialog('trainer');
+  $('#chipHr').onclick = () => deviceDialog('hr');
+  window.addEventListener('hashchange', route);
+  window.addEventListener('beforeunload', e => { if (S.session) { e.preventDefault(); e.returnValue = ''; } });
+  window.addEventListener('resize', () => { if (currentScreen === 'ride' && S.session) S.session.emit('tick', S.session); });
+  try {
+    S.profile = await api.profile();
+    [S.workouts, S.routes] = await Promise.all([api.workouts(), api.routes()]);
+    S.garmin = await api.garminStatus().catch(() => null);
+  } catch (e) {
+    main.innerHTML = `<div class="card"><h2>${STANDALONE ? 'Errore nel leggere i dati' : 'Server non raggiungibile'}</h2><p>${esc(e.message)}</p><button class="btn" onclick="location.reload()">Riprova</button></div>`;
+    return;
+  }
+  if (STANDALONE) {
+    document.title = 'Rullo portatile';
+    // chiede al browser di non cancellare i dati per fare spazio
+    try { navigator.storage?.persist?.(); } catch { /* non disponibile */ }
+    if (!S.profile.setupDone) history.replaceState(null, '', '#profile');
+  }
+  updateChips();
+  route();
+  const useSw = !STANDALONE || window.RULLO_CONFIG.sw; // il file aperto da disco non puo' usarlo
+  if (useSw && 'serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+init();
+
+return {  };
+})();
+</script>
+</body>
+</html>
