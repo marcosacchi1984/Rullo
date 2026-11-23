@@ -1,5 +1,5 @@
 // Rende l'app installabile e utilizzabile anche senza rete (dopo la prima apertura)
-const CACHE = 'rullo-gh-2ee98f81';
+const CACHE = 'rullo-gh-b902976e';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'];
 self.addEventListener('install', e => {

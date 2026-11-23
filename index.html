@@ -175,7 +175,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 }
 
 </style>
-  <script>window.RULLO_CONFIG = { standalone: true, sw: true, plansRepo: 'marcosacchi1984/rullo' };</script>
+  <script>window.RULLO_CONFIG = { standalone: true, sw: true, plansRepo: 'marcosacchi1984/Rullo' };</script>
 </head>
 <body>
   <header id="topbar">
@@ -1098,7 +1098,7 @@ __m.ghplans = (() => {
 // Una sola chiamata all'API (albero del repository), poi si scaricano solo i file nuovi o cambiati
 // da raw.githubusercontent.com. L'ultimo risultato resta in memoria nel browser (funziona offline).
 const { importWorkoutFile } = __m.workouts;
-const CACHE_KEY = 'rullo.ghplans';
+const CACHE_KEY = 'rullo.ghplans.v2';
 const FOLDER = 'piani/';
 const EXT = /\.(zwo|erg|mrc)$/i;
 const REFRESH_MS = 10 * 60 * 1000;
@@ -1169,9 +1169,12 @@ async function refreshPlans(repo, ftp) {
       const folder = b.path.slice(FOLDER.length).split('/').slice(0, -1).join(' / ');
       try {
         const w = importWorkoutFile(fname, await r.text(), ftp);
-        // il piano viene dal nome ("Piano – 05. Titolo"), altrimenti dalla cartella
+        // il piano e' la cartella; dal nome ("Piano – 05. Titolo") si prende solo la grafia esatta
+        // (es. cartella "Alza lFTP" -> "Alza l'FTP")
         const m = w.name.match(/^(.+?) [–-] \d+\.\s/);
-        w.category = m ? m[1].trim() : (folder || 'GitHub');
+        const norm = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if (folder) w.category = m && norm(m[1]) === norm(folder) ? m[1].trim() : folder;
+        else w.category = m ? m[1].trim() : 'GitHub';
         if (/test ftp/i.test(w.name)) w.rampTest = true;
         w.id = stableId(b.path);
         w.source = 'github';
