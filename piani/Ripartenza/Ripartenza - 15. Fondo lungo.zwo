@@ -1,0 +1,18 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Ripartenza – 15. Fondo lungo</name>
+  <description>Settimana 5 di 8. L'uscita più lunga della settimana in zona 2, con qualche allungo di cadenza.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="300" PowerLow="0.40" PowerHigh="0.65"/>
+    <SteadyState Duration="570" Power="0.65"/>
+    <SteadyState Duration="30" Power="0.75"/>
+    <SteadyState Duration="570" Power="0.65"/>
+    <SteadyState Duration="30" Power="0.75"/>
+    <SteadyState Duration="570" Power="0.65"/>
+    <SteadyState Duration="30" Power="0.75"/>
+    <SteadyState Duration="570" Power="0.65"/>
+    <SteadyState Duration="30" Power="0.75"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

@@ -1,0 +1,14 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Dimagrimento – 11. Brevi e brillanti</name>
+  <description>Settimana 4 di 10 (scarico). 5 tratti da 1' al 105% con recupero ampio (scarico). Lo sweet spot (85-90% FTP) è faticoso ma sostenibile: fa crescere l'FTP con poco tempo.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="5" OnDuration="60" OffDuration="120" OnPower="1.05" OffPower="0.50"/>
+    <SteadyState Duration="780" Power="0.60"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

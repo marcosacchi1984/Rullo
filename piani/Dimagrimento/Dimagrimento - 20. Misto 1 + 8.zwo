@@ -1,0 +1,15 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Dimagrimento – 20. Misto 1' + 8'</name>
+  <description>Settimana 7 di 10. 6 × 1' al 110% per svegliare le gambe, poi 2 × 8' all'85%. Lo sweet spot (85-90% FTP) è faticoso ma sostenibile: fa crescere l'FTP con poco tempo.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="6" OnDuration="60" OffDuration="60" OnPower="1.10" OffPower="0.50"/>
+    <SteadyState Duration="240" Power="0.55"/>
+    <IntervalsT Repeat="2" OnDuration="480" OffDuration="240" OnPower="0.85" OffPower="0.55"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

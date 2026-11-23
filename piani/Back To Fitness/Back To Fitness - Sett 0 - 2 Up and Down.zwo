@@ -1,0 +1,16 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Back To Fitness – Sett. 0 – 2. Up and Down</name>
+  <description>Piano Back To Fitness (What's on Zwift), settimana 0, allenamento 2. Due rampe in salita e una in discesa tra zona 2 e zona 5: alza il battito senza affaticare troppo i muscoli.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="300" PowerLow="0.40" PowerHigh="1.05"/>
+    <SteadyState Duration="120" Power="0.50"/>
+    <Ramp Duration="300" PowerLow="0.70" PowerHigh="1.10"/>
+    <SteadyState Duration="240" Power="0.50"/>
+    <Ramp Duration="300" PowerLow="1.10" PowerHigh="0.70"/>
+    <SteadyState Duration="240" Power="0.50"/>
+    <Ramp Duration="300" PowerLow="0.70" PowerHigh="1.10"/>
+    <Ramp Duration="300" PowerLow="0.70" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

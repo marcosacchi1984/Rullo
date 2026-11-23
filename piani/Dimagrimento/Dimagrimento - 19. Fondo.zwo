@@ -1,0 +1,11 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Dimagrimento – 19. Fondo</name>
+  <description>Settimana 7 di 10. Zona 2 costante: è il ritmo in cui il corpo usa più grassi. Devi poter parlare; se il cardio sale troppo, abbassa l'intensità con −.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="300" PowerLow="0.40" PowerHigh="0.65"/>
+    <SteadyState Duration="3000" Power="0.66"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

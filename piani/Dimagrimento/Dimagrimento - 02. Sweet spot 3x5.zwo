@@ -1,0 +1,14 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Dimagrimento – 02. Sweet spot 3×5'</name>
+  <description>Settimana 1 di 10. 3 blocchi da 5' all'85% FTP. Lo sweet spot (85-90% FTP) è faticoso ma sostenibile: fa crescere l'FTP con poco tempo.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="3" OnDuration="300" OffDuration="180" OnPower="0.85" OffPower="0.55"/>
+    <SteadyState Duration="240" Power="0.60"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

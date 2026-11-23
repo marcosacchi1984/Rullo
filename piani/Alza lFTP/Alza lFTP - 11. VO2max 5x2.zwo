@@ -1,0 +1,13 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Alza l'FTP – 11. VO2max 5×2'</name>
+  <description>Settimana 4 di 6 (scarico). 5 × 2' al 115% con recupero ampio (scarico).</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="5" OnDuration="120" OffDuration="180" OnPower="1.15" OffPower="0.50"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

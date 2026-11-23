@@ -1,0 +1,12 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Ripartenza – 05. Agilità</name>
+  <description>Settimana 2 di 8. 5 tratti da 1' con cadenza alta (100+ rpm) e poco sforzo: insegna a pedalare rotondo senza spingere.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="360" PowerLow="0.40" PowerHigh="0.65"/>
+    <IntervalsT Repeat="5" OnDuration="60" OffDuration="120" OnPower="0.70" OffPower="0.55"/>
+    <SteadyState Duration="480" Power="0.62"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

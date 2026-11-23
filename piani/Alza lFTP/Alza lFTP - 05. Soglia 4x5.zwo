@@ -1,0 +1,13 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Alza l'FTP – 05. Soglia 4×5'</name>
+  <description>Settimana 2 di 6. 4 × 5' al 100% FTP: duro, ma recupero generoso.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="4" OnDuration="300" OffDuration="180" OnPower="1.00" OffPower="0.50"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

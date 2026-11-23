@@ -1,0 +1,13 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Ripartenza – 20. Ritmo</name>
+  <description>Settimana 7 di 8. 3 blocchi da 8' in zona 3 (80% FTP): un ritmo sostenuto ma controllato, respiro profondo ma regolare.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="3" OnDuration="480" OffDuration="180" OnPower="0.80" OffPower="0.55"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

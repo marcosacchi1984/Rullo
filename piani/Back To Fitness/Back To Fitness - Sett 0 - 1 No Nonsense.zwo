@@ -1,0 +1,12 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Back To Fitness – Sett. 0 – 1. No Nonsense</name>
+  <description>Piano Back To Fitness (What's on Zwift), settimana 0, allenamento 1. Tre blocchi da 6' in zona 3 (89% FTP): buono stimolo senza lasciare le gambe pesanti per il giorno dopo.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="300" PowerLow="0.40" PowerHigh="1.05"/>
+    <SteadyState Duration="120" Power="0.50"/>
+    <IntervalsT Repeat="3" OnDuration="360" OffDuration="120" OnPower="0.89" OffPower="0.51"/>
+    <Ramp Duration="300" PowerLow="0.70" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

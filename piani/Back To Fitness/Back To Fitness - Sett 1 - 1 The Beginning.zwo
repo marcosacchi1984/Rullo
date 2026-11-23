@@ -1,0 +1,14 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Back To Fitness – Sett. 1 – 1. The Beginning</name>
+  <description>Piano Back To Fitness (What's on Zwift), settimana 1, allenamento 1. Un blocco in zona 3 per entrare nel ritmo, poi 3 × 2' in zona 5 (110% FTP): impegnativo ma fattibile.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="300" PowerLow="0.40" PowerHigh="1.05"/>
+    <SteadyState Duration="120" Power="0.50"/>
+    <SteadyState Duration="300" Power="0.88"/>
+    <SteadyState Duration="240" Power="0.50"/>
+    <IntervalsT Repeat="3" OnDuration="120" OffDuration="120" OnPower="1.10" OffPower="0.40"/>
+    <Ramp Duration="300" PowerLow="0.70" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

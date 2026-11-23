@@ -1,0 +1,13 @@
+<workout_file>
+  <author>Rullo</author>
+  <name>Alza l'FTP – 17. Rifinitura</name>
+  <description>Settimana 6 di 6. 3 × 3' al 105%: gambe sveglie per il test.</description>
+  <sportType>bike</sportType>
+  <workout>
+    <Ramp Duration="480" PowerLow="0.40" PowerHigh="0.75"/>
+    <SteadyState Duration="60" Power="0.95"/>
+    <SteadyState Duration="180" Power="0.55"/>
+    <IntervalsT Repeat="3" OnDuration="180" OffDuration="180" OnPower="1.05" OffPower="0.50"/>
+    <Ramp Duration="300" PowerLow="0.60" PowerHigh="0.40"/>
+  </workout>
+</workout_file>

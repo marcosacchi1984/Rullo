@@ -79,6 +79,10 @@ main.ride { padding: 8px; overflow: hidden; display: flex; flex-direction: colum
 .list { display: flex; flex-direction: column; gap: 10px; }
 .item { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; text-align: left; width: 100%; }
 .item.sel { border-color: var(--accent); }
+details.plan { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 4px 10px; }
+details.plan summary { cursor: pointer; padding: 10px 2px; list-style-position: inside; }
+details.plan[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+details.plan .list { padding-bottom: 8px; }
 .item canvas { width: 100%; height: 46px; display: block; margin-top: 8px; border-radius: 6px; background: #0b0e13; }
 .split { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 14px; align-items: start; }
 .stats { display: flex; gap: 18px; flex-wrap: wrap; margin: 8px 0; }
@@ -171,7 +175,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 }
 
 </style>
-  <script>window.RULLO_CONFIG = { standalone: true, sw: true };</script>
+  <script>window.RULLO_CONFIG = { standalone: true, sw: true, plansRepo: 'marcosacchi1984/rullo' };</script>
 </head>
 <body>
   <header id="topbar">
@@ -1088,6 +1092,108 @@ const BUILTIN = [
 
 return { ZONES, zoneOf, FREE_COLOR, expand, pctAt, stats, fmtDur, drawWorkout, parseZwo, parseErgMrc, importWorkoutFile, toZwo, BUILTIN };
 })();
+// ===== ghplans.js
+__m.ghplans = (() => {
+// Piani di allenamento letti da un repository GitHub pubblico: cartella "piani/<Nome piano>/*.zwo|erg|mrc".
+// Una sola chiamata all'API (albero del repository), poi si scaricano solo i file nuovi o cambiati
+// da raw.githubusercontent.com. L'ultimo risultato resta in memoria nel browser (funziona offline).
+const { importWorkoutFile } = __m.workouts;
+const CACHE_KEY = 'rullo.ghplans';
+const FOLDER = 'piani/';
+const EXT = /\.(zwo|erg|mrc)$/i;
+const REFRESH_MS = 10 * 60 * 1000;
+
+// utente/repository: dal profilo, dall'indirizzo (utente.github.io/repository) o dalla configurazione
+function plansRepo(profile) {
+  if (profile && profile.plansRepo) return String(profile.plansRepo).trim().replace(/^https?:\/\/github\.com\//, '').replace(/\/+$/, '');
+  const h = location.hostname;
+  if (h.endsWith('.github.io')) {
+    const repo = location.pathname.split('/').filter(Boolean)[0];
+    if (repo && !repo.includes('.')) return `${h.split('.')[0]}/${repo}`;
+  }
+  return (window.RULLO_CONFIG && window.RULLO_CONFIG.plansRepo) || null;
+}
+
+function stableId(path) {
+  let h = 5381;
+  for (let i = 0; i < path.length; i++) h = ((h << 5) + h + path.charCodeAt(i)) >>> 0;
+  return 'gh-' + h.toString(36);
+}
+
+function readCache() { try { return JSON.parse(localStorage.getItem(CACHE_KEY)) || null; } catch { return null; } }
+function writeCache(c) { try { localStorage.setItem(CACHE_KEY, JSON.stringify(c)); } catch { /* spazio pieno */ } }
+
+function toWorkouts(cache) {
+  return Object.values(cache.files || {}).map(f => f.workout).filter(Boolean);
+}
+
+// Restituisce subito quelli in memoria: { repo, workouts, fetchedAt, error }
+function cachedPlans(repo) {
+  const c = readCache();
+  if (!c || c.repo !== repo) return { repo, workouts: [], fetchedAt: null };
+  return { repo, workouts: toWorkouts(c), fetchedAt: c.fetchedAt, error: c.error || null };
+}
+
+function needsRefresh(repo) {
+  const c = readCache();
+  return !c || c.repo !== repo || !c.fetchedAt || Date.now() - c.fetchedAt > REFRESH_MS;
+}
+
+async function getJson(url) {
+  const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+  if (r.status === 403 || r.status === 429) throw new Error('GitHub: troppe richieste, riprovo più tardi');
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error(`GitHub: errore ${r.status}`);
+  return r.json();
+}
+
+// Aggiorna da GitHub. ftp serve solo per i file .erg in watt.
+async function refreshPlans(repo, ftp) {
+  const old = readCache();
+  const prev = old && old.repo === repo ? old.files || {} : {};
+  try {
+    let tree = null, branch = null;
+    for (const b of ['main', 'master']) {
+      tree = await getJson(`https://api.github.com/repos/${repo}/git/trees/${b}?recursive=1`);
+      if (tree) { branch = b; break; }
+    }
+    if (!tree) throw new Error(`Repository ${repo} non trovato (deve essere pubblico)`);
+    const blobs = (tree.tree || []).filter(t => t.type === 'blob' && t.path.startsWith(FOLDER) && EXT.test(t.path));
+    const files = {};
+    for (const b of blobs) {
+      if (prev[b.path] && prev[b.path].sha === b.sha && prev[b.path].workout) { files[b.path] = prev[b.path]; continue; }
+      const enc = b.path.split('/').map(encodeURIComponent).join('/');
+      const r = await fetch(`https://raw.githubusercontent.com/${repo}/${branch}/${enc}`);
+      if (!r.ok) continue;
+      const fname = b.path.split('/').pop();
+      const folder = b.path.slice(FOLDER.length).split('/').slice(0, -1).join(' / ');
+      try {
+        const w = importWorkoutFile(fname, await r.text(), ftp);
+        // il piano viene dal nome ("Piano – 05. Titolo"), altrimenti dalla cartella
+        const m = w.name.match(/^(.+?) [–-] \d+\.\s/);
+        w.category = m ? m[1].trim() : (folder || 'GitHub');
+        if (/test ftp/i.test(w.name)) w.rampTest = true;
+        w.id = stableId(b.path);
+        w.source = 'github';
+        w.path = b.path;
+        files[b.path] = { sha: b.sha, workout: w };
+      } catch (e) {
+        files[b.path] = { sha: b.sha, workout: null, error: e.message };
+      }
+    }
+    const cache = { repo, fetchedAt: Date.now(), files, error: null };
+    writeCache(cache);
+    return { repo, workouts: toWorkouts(cache), fetchedAt: cache.fetchedAt, error: null, changed: JSON.stringify(Object.keys(files).map(k => files[k].sha)) !== JSON.stringify(Object.keys(prev).map(k => prev[k].sha)) };
+  } catch (e) {
+    const c = old && old.repo === repo ? old : { repo, files: {}, fetchedAt: null };
+    c.error = e.message;
+    writeCache(c);
+    return { repo, workouts: toWorkouts(c), fetchedAt: c.fetchedAt, error: e.message, changed: false };
+  }
+}
+
+return { plansRepo, cachedPlans, needsRefresh, refreshPlans };
+})();
 // ===== fit.js
 __m.fit = (() => {
 // Scrittura di file .FIT (attivita') da importare in Garmin Connect.
@@ -1383,7 +1489,7 @@ const STORES = ['kv', 'workouts', 'routes', 'activities'];
 
 const DEFAULT_PROFILE = {
   weight: 75, bikeWeight: 9, ftp: 180, hrMax: null, position: 'cappe', cdaCustom: null, surface: 'normale',
-  crrCustom: null, difficulty: 100, protocol: 'auto', autoPause: true, garminAuto: false, history: [], setupDone: false,
+  crrCustom: null, difficulty: 100, protocol: 'auto', autoPause: true, garminAuto: false, plansRepo: null, history: [], setupDone: false,
 };
 const TRACKED = ['weight', 'bikeWeight', 'ftp', 'hrMax'];
 
@@ -1888,6 +1994,7 @@ const { api, STANDALONE } = __m.api;
 const { Trainer, HeartRate, SimTrainer, SimHeartRate, bluetoothAvailable } = __m.ble;
 const { BUILTIN, expand, stats: wStats, drawWorkout, fmtDur, importWorkoutFile, toZwo, ZONES, zoneOf, pctAt } = __m.workouts;
 const { routeFromGpx } = __m.gpx;
+const { plansRepo, cachedPlans, needsRefresh, refreshPlans } = __m.ghplans;
 const { RideSession, bestAvg } = __m.ride;
 const { buildFit, toBase64 } = __m.fit;
 const { drawProfile, drawSeries, drawBars, gradeColor } = __m.charts;
@@ -2103,7 +2210,8 @@ async function renderHome() {
     const week = acts.filter(a => a.start > Date.now() - 7 * 86400e3);
     $('#hH').textContent = week.length ? `Ultimi 7 giorni: ${week.length} uscite, ${fmtDur(week.reduce((s, a) => s + (a.summary?.duration || 0), 0))}` : `${acts.length} uscite salvate`;
     $('#hR').textContent = `${S.routes.length} percorsi caricati`;
-    $('#hW').textContent = `${BUILTIN.length} di base · ${S.workouts.length} tuoi`;
+    const nPlans = new Set([...ghWorkouts(), ...localWorkouts()].map(w => w.category).filter(Boolean)).size;
+    $('#hW').textContent = `${nPlans ? nPlans + ' piani · ' : ''}${BUILTIN.length} di base · ${localWorkouts().filter(w => !w.category).length} tuoi`;
   } catch { /* server non raggiungibile */ }
 }
 
@@ -2116,33 +2224,89 @@ async function startFree() {
 }
 
 // ====================================================================== ALLENAMENTI
-function allWorkouts() { return [...S.workouts, ...BUILTIN]; }
+// allenamenti locali + piani da GitHub (se un allenamento c'e' in entrambi vince quello di GitHub)
+function ghWorkouts() { return S.gh?.workouts || []; }
+function localWorkouts() {
+  const gh = new Set(ghWorkouts().map(w => w.name));
+  return S.workouts.filter(w => !gh.has(w.name));
+}
+function allWorkouts() { return [...ghWorkouts(), ...localWorkouts(), ...BUILTIN]; }
+
+// aggiorna i piani da GitHub in sottofondo; se cambiano e si e' sulla schermata Allenamenti la ridisegna
+let ghBusy = false;
+async function syncGhPlans(force = false) {
+  const repo = plansRepo(S.profile);
+  if (!repo) { S.gh = null; return; }
+  if (!S.gh || S.gh.repo !== repo) S.gh = cachedPlans(repo);
+  if (ghBusy || (!force && !needsRefresh(repo))) return;
+  ghBusy = true;
+  try {
+    const res = await refreshPlans(repo, S.profile.ftp);
+    const changed = res.changed || !!res.error !== !!S.gh?.error;
+    S.gh = res;
+    if (force && res.error) toast(res.error, 5000);
+    else if (force) toast('Piani aggiornati da GitHub');
+    if ((changed || force) && currentScreen === 'workouts' && $('#wList')) renderWorkouts($('#wList .item.sel')?.dataset.id);
+  } finally { ghBusy = false; }
+}
 
 async function renderWorkouts(selId) {
   try { S.workouts = await api.workouts(); } catch (e) { toast(e.message); }
+  syncGhPlans(); // in sottofondo: se ci sono novita' su GitHub la schermata si ridisegna
   const list = allWorkouts();
-  const sel = list.find(w => w.id === selId) || list[0];
-  const groups = [['I miei allenamenti', S.workouts], ['Di base', BUILTIN]];
+  const local = localWorkouts();
+  // se non e' scelto nulla mostra un allenamento fuori dai piani, cosi' i piani restano chiusi
+  const sel = list.find(w => w.id === selId) || local.find(w => !w.category) || BUILTIN[0];
+  // allenamenti gia' fatti (per segnarli nei piani)
+  let done = new Set();
+  try { done = new Set((await api.activities()).map(a => a.workoutId).filter(Boolean)); } catch { /* pazienza */ }
+  // i piani (allenamenti con categoria) diventano gruppi richiudibili, in ordine di numero
+  const plans = {};
+  const loose = [];
+  const fromGh = new Set();
+  for (const w of [...ghWorkouts(), ...local]) {
+    (w.category ? (plans[w.category] ||= []) : loose).push(w);
+    if (w.source === 'github') fromGh.add(w.category);
+  }
+  Object.values(plans).forEach(a => a.sort((x, y) => x.name.localeCompare(y.name, 'it', { numeric: true })));
+  const item = w => { const st = wStats(w.blocks); return `
+    <button class="item ${w.id === sel?.id ? 'sel' : ''}" data-id="${esc(w.id)}">
+      <div class="row"><b>${esc(w.name)}</b><div class="spacer"></div>${done.has(w.id) ? '<span class="tag" style="color:#86efac">✓ fatto</span>' : ''}
+        <span class="tag">${fmtDur(st.duration)}</span><span class="tag">TSS ${st.tss}</span></div>
+      <canvas data-blocks="${esc(w.id)}"></canvas></button>`; };
+  const planGroup = (name, arr) => {
+    const nDone = arr.filter(w => done.has(w.id)).length;
+    const next = arr.find(w => !done.has(w.id));
+    return `<details class="plan" ${arr.some(w => w.id === sel?.id) ? 'open' : ''}>
+      <summary><b>${esc(name)}</b>${fromGh.has(name) ? ' <span class="tag">GitHub</span>' : ''} <span class="muted small">${nDone}/${arr.length} fatti${next ? ' · prossimo: ' + esc(next.name.split('–').pop().trim()) : ' · completato 🎉'}</span></summary>
+      <div class="list">${arr.map(item).join('')}</div></details>`;
+  };
   main.innerHTML = `
     <div class="row" style="margin-bottom:12px"><h2 style="margin:0">Allenamenti</h2><div class="spacer"></div>
       <button class="btn" id="wImport">Importa file</button><button class="btn primary" id="wNew">+ Nuovo</button></div>
     <div class="split">
-      <div class="list" id="wList">${groups.map(([title, arr]) => `
-        <h3 style="margin:6px 0 0">${title}</h3>
-        ${arr.length ? arr.map(w => { const st = wStats(w.blocks); return `
-          <button class="item ${w.id === sel?.id ? 'sel' : ''}" data-id="${esc(w.id)}">
-            <div class="row"><b>${esc(w.name)}</b><div class="spacer"></div><span class="tag">${fmtDur(st.duration)}</span><span class="tag">TSS ${st.tss}</span></div>
-            <canvas data-blocks="${esc(w.id)}"></canvas></button>`; }).join('') : '<p class="muted small">Nessuno: creane uno o importa un file .zwo/.erg/.mrc</p>'}`).join('')}
+      <div class="list" id="wList">
+        ${Object.keys(plans).length || S.gh ? `<div class="row" style="margin:6px 0 0"><h3 style="margin:0">Piani</h3><div class="spacer"></div>
+          ${S.gh ? `<span class="muted small">${S.gh.error ? '⚠️ ' + esc(S.gh.error) : S.gh.fetchedAt ? 'GitHub: aggiornati alle ' + timeStr(S.gh.fetchedAt) : 'GitHub: caricamento…'}</span>
+          <button class="btn" id="wGhRefresh" style="min-height:36px;padding:6px 12px">↻</button>` : ''}</div>
+          ${Object.entries(plans).sort().map(([n, a]) => planGroup(n, a)).join('')}` : ''}
+        <h3 style="margin:6px 0 0">I miei allenamenti</h3>
+        ${loose.length ? loose.map(item).join('') : '<p class="muted small">Nessuno: creane uno o importa un file .zwo/.erg/.mrc</p>'}
+        <h3 style="margin:6px 0 0">Di base</h3>
+        ${BUILTIN.map(item).join('')}
       </div>
       <div class="card" id="wDetail"></div>
     </div>`;
-  $$('#wList canvas').forEach(c => drawWorkout(c, list.find(w => w.id === c.dataset.blocks).blocks));
+  const drawAll = () => $$('#wList canvas').forEach(c => { if (!c.dataset.drawn && c.clientWidth) { drawWorkout(c, list.find(w => w.id === c.dataset.blocks).blocks); c.dataset.drawn = 1; } });
+  drawAll();
+  $$('#wList details').forEach(d => d.addEventListener('toggle', drawAll));
   $$('#wList .item').forEach(b => b.onclick = () => {
     $$('#wList .item').forEach(x => x.classList.toggle('sel', x === b));
     showWorkoutDetail(list.find(w => w.id === b.dataset.id));
   });
   $('#wNew').onclick = () => editWorkout({ name: 'Nuovo allenamento', description: '', blocks: [{ type: 'ramp', dur: 600, from: 45, to: 70 }, { type: 'steady', dur: 1200, pct: 75 }, { type: 'ramp', dur: 300, from: 60, to: 40 }] });
   $('#wImport').onclick = importWorkouts;
+  if ($('#wGhRefresh')) $('#wGhRefresh').onclick = () => { toast('Controllo i piani su GitHub…'); syncGhPlans(true); };
   if (sel) showWorkoutDetail(sel);
 }
 
@@ -2188,6 +2352,11 @@ async function importWorkouts() {
   for (const f of files) {
     try {
       const w = importWorkoutFile(f.name, await f.text(), S.profile.ftp);
+      // file dei piani ("Piano – 05. Titolo"): li raggruppa sotto il piano
+      const m = w.name.match(/^(.+?) [–-] \d+\.\s/);
+      if (m) w.category = m[1].trim();
+      if (/test ftp/i.test(w.name)) w.rampTest = true;
+      if (S.workouts.some(x => x.name === w.name)) continue; // gia' importato
       last = await api.saveWorkout(w); ok++;
     } catch (e) { toast(`${f.name}: ${e.message}`, 5000); }
   }
@@ -2871,6 +3040,10 @@ function renderProfile() {
           <option value="tacx" ${p.protocol === 'tacx' ? 'selected' : ''}>Tacx FE-C (Tacx senza FTMS)</option></select></label>
         <label class="f">Pausa automatica<select id="fAuto"><option value="1" ${p.autoPause !== false ? 'selected' : ''}>Sì</option><option value="0" ${p.autoPause === false ? 'selected' : ''}>No</option></select></label>
       </div><p class="muted small">Il protocollo si applica alla prossima connessione del rullo.</p></div>
+      <div class="card"><h3>Piani da GitHub</h3>
+        <label class="f">Repository (utente/nome)<input id="fRepo" placeholder="${esc(plansRepo({}) || 'utente/rullo')}" value="${esc(p.plansRepo || '')}"></label>
+        <p class="muted small">L'app legge i file .zwo/.erg/.mrc nella cartella <code>piani/</code> del repository
+        (una sottocartella per piano). ${plansRepo({}) ? `Se lasci vuoto usa <b>${esc(plansRepo({}))}</b>.` : 'Lascia vuoto per non usarlo.'}</p></div>
       ${STANDALONE ? `<div class="card"><h3>Garmin Connect</h3>
         <p>Dopo ogni uscita: <b>Carica su Garmin</b> scarica il file .FIT e apre la pagina "Importa dati" di Garmin Connect.
         Lì premi "Sfoglia", nel menu ☰ scegli "Download" e seleziona il file.</p></div>
@@ -2896,6 +3069,7 @@ function renderProfile() {
     p.hrMax = +$('#fHrMax').value || null; p.position = $('#fPos').value; p.surface = $('#fSurf').value;
     p.difficulty = +$('#fDiff').value; p.protocol = $('#fProto').value; p.autoPause = $('#fAuto').value === '1';
     if ($('#fGarminAuto')) p.garminAuto = $('#fGarminAuto').value === '1';
+    p.plansRepo = $('#fRepo').value.trim() || null;
     if (p.position === 'custom') p.cdaCustom = +cdaIn.value || p.cdaCustom || 0.45;
     if (p.surface === 'custom') p.crrCustom = +crrIn.value || p.crrCustom || 0.005;
   };
@@ -2924,7 +3098,7 @@ function renderProfile() {
   else $('#fHistC').replaceWith(Object.assign(document.createElement('p'), { className: 'muted small', textContent: 'Quando cambi peso o FTP, qui vedrai l\'andamento (blu peso, arancio FTP).' }));
   $('#pSave').onclick = async () => {
     read();
-    try { S.profile = await api.saveProfile(p); toast('Profilo salvato'); renderProfile(); }
+    try { S.profile = await api.saveProfile(p); toast('Profilo salvato'); renderProfile(); S.gh = null; syncGhPlans(true); }
     catch (e) { toast(e.message, 5000); }
   };
   if ($('#bExport')) $('#bExport').onclick = async () => {
@@ -2960,6 +3134,8 @@ async function init() {
     S.profile = await api.profile();
     [S.workouts, S.routes] = await Promise.all([api.workouts(), api.routes()]);
     S.garmin = await api.garminStatus().catch(() => null);
+    S.gh = plansRepo(S.profile) ? cachedPlans(plansRepo(S.profile)) : null;
+    setTimeout(() => syncGhPlans(), 1500); // piani da GitHub in sottofondo
   } catch (e) {
     main.innerHTML = `<div class="card"><h2>${STANDALONE ? 'Errore nel leggere i dati' : 'Server non raggiungibile'}</h2><p>${esc(e.message)}</p><button class="btn" onclick="location.reload()">Riprova</button></div>`;
     return;
