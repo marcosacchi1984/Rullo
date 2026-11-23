@@ -311,6 +311,49 @@ const CPS = 0x1818, CPS_MEAS = 0x2a63;
 const WAHOO_CTRL = 'a026e005-0a7d-4ab3-97fa-f1500f9feb8b';
 const WAHOO_SVC2 = 'a026ee0b-0a7d-4ab3-97fa-f1500f9feb8b';
 const HR_SVC = 0x180d, HR_MEAS = 0x2a37;
+// Tacx: messaggi ANT+ FE-C trasportati via Bluetooth (rulli Tacx dal 2015 circa, anche senza FTMS)
+const TACX_SVC = '6e40fec1-b5a3-f393-e0a9-e50e24dcca9e';
+const TACX_RX = '6e40fec2-b5a3-f393-e0a9-e50e24dcca9e'; // il rullo invia (notifiche)
+const TACX_TX = '6e40fec3-b5a3-f393-e0a9-e50e24dcca9e'; // l'app scrive i comandi
+const PROTO_NAMES = { ftms: 'FTMS', wahoo: 'Wahoo', tacx: 'Tacx FE-C' };
+
+// Messaggio ANT "acknowledged data" (0x4F) sul canale 5 con una pagina FE-C di 8 byte
+function fecMessage(page) {
+  const msg = [0xa4, 0x09, 0x4f, 0x05, ...page];
+  msg.push(msg.reduce((a, b) => a ^ b, 0));
+  return msg;
+}
+const fecPages = {
+  // pagina 49: potenza obiettivo (ERG), unita' 0,25 W
+  targetPower: w => { const v = Math.round(clamp(w, 0, 4000) * 4); return [0x31, 0xff, 0xff, 0xff, 0xff, 0xff, v & 0xff, v >> 8]; },
+  // pagina 51: pendenza (0,01% con offset 200%) e coefficiente di rotolamento (unita' 5e-5)
+  track: (grade, crr) => {
+    const g = Math.round((clamp(grade, -200, 200) + 200) * 100);
+    return [0x33, 0xff, 0xff, 0xff, 0xff, g & 0xff, g >> 8, clamp(Math.round(crr / 5e-5), 0, 254)];
+  },
+  // pagina 50: resistenza dell'aria (kg/m), vento 0 km/h (offset 127), scia 100%
+  wind: cw => [0x32, 0xff, 0xff, 0xff, 0xff, clamp(Math.round(cw * 100), 0, 186), 127, 100],
+  // pagina 55: peso ciclista (0,01 kg), peso bici (0,05 kg), diametro ruota 0,70 m
+  user: (riderKg, bikeKg) => {
+    const r = Math.round(clamp(riderKg, 0, 650) * 100), b = Math.round(clamp(bikeKg, 0, 50) / 0.05);
+    return [0x37, r & 0xff, r >> 8, 0xff, 0x0f | ((b & 0x0f) << 4), b >> 4, 70, 0x00];
+  },
+};
+
+// Legge una pagina FE-C ricevuta dal rullo -> { power, cadence, speed, hr } (solo i campi presenti)
+function parseFec(bytes) {
+  if (bytes.length < 12 || bytes[0] !== 0xa4) return null;
+  const p = bytes.slice(4, 12), out = {};
+  if (p[0] === 0x10) { // dati generali
+    out.speed = ((p[4] | (p[5] << 8)) / 1000) * 3.6;
+    if (p[6] !== 0xff && p[6] !== 0) out.hr = p[6];
+  } else if (p[0] === 0x19) { // dati specifici del rullo
+    if (p[2] !== 0xff) out.cadence = p[2];
+    const w = p[5] | ((p[6] & 0x0f) << 8);
+    if (w !== 0xfff) out.power = w;
+  }
+  return out;
+}
 
 const bluetoothAvailable = () => !!(navigator.bluetooth && navigator.bluetooth.requestDevice);
 
@@ -345,8 +388,8 @@ class Trainer extends Emitter {
   async connect(preferred = 'auto') {
     this.preferred = preferred;
     this.device = await navigator.bluetooth.requestDevice({
-      filters: [{ services: [FTMS] }, { services: [CPS] }, { namePrefix: 'KICKR' }],
-      optionalServices: [FTMS, CPS, WAHOO_SVC2, 0x180a],
+      filters: [{ services: [FTMS] }, { services: [CPS] }, { services: [TACX_SVC] }, { namePrefix: 'KICKR' }, { namePrefix: 'Tacx' }],
+      optionalServices: [FTMS, CPS, WAHOO_SVC2, TACX_SVC, 0x180a],
     });
     this.device.addEventListener('gattserverdisconnected', () => this._onDisconnect());
     this._manualClose = false;
@@ -360,12 +403,15 @@ class Trainer extends Emitter {
     try { ftms = await server.getPrimaryService(FTMS); } catch { /* assente */ }
     try { cps = await server.getPrimaryService(CPS); } catch { /* assente */ }
     if (cps) { try { wahoo = await cps.getCharacteristic(WAHOO_CTRL); } catch { /* assente */ } }
+    let tacx = null;
+    try { tacx = await server.getPrimaryService(TACX_SVC); } catch { /* assente */ }
 
     let proto = this.preferred;
     if (proto === 'wahoo' && !wahoo) proto = 'auto';
     if (proto === 'ftms' && !ftms) proto = 'auto';
-    if (proto === 'auto') proto = wahoo ? 'wahoo' : (ftms ? 'ftms' : null);
-    if (!proto) throw new Error('Il dispositivo non espone ne\' FTMS ne\' il controllo Wahoo');
+    if (proto === 'tacx' && !tacx) proto = 'auto';
+    if (proto === 'auto') proto = wahoo ? 'wahoo' : ftms ? 'ftms' : tacx ? 'tacx' : null;
+    if (!proto) throw new Error('Il dispositivo non si lascia comandare (niente FTMS, Wahoo o Tacx FE-C): forse è solo un misuratore di potenza');
     this.protocol = proto;
     this.mode = null;
     this._crank = null;
@@ -383,6 +429,16 @@ class Trainer extends Emitter {
       } catch { /* facoltativa */ }
       await this._write(this.cp, [0x00]);        // richiesta controllo
       await this._write(this.cp, [0x07]);        // avvio/ripresa
+    } else if (proto === 'tacx') {
+      const rx = await tacx.getCharacteristic(TACX_RX);
+      rx.addEventListener('characteristicvaluechanged', e => {
+        const dv = e.target.value;
+        const d = parseFec(new Uint8Array(dv.buffer, dv.byteOffset, dv.byteLength));
+        if (d && Object.keys(d).length) { Object.assign(this.data, d, { ts: performance.now() }); this.emit('data', this.data); }
+      });
+      await rx.startNotifications();
+      this.cp = await tacx.getCharacteristic(TACX_TX);
+      this._tacxSent = {};
     } else {
       // dati da Cycling Power, controllo con protocollo Wahoo
       const meas = await cps.getCharacteristic(CPS_MEAS);
@@ -394,7 +450,7 @@ class Trainer extends Emitter {
       await this._write(this.cp, [0x20, 0xee, 0xfc]); // sblocco
     }
     this.connected = true;
-    this.emit('status', `Collegato (${proto === 'ftms' ? 'FTMS' : 'Wahoo'})`);
+    this.emit('status', `Collegato (${PROTO_NAMES[proto]})`);
     this.emit('connected', this);
     // riapplica l'ultimo comando (dopo una riconnessione)
     if (this.last.erg != null && this.lastMode === 'erg') await this.setErg(this.last.erg);
@@ -426,7 +482,9 @@ class Trainer extends Emitter {
   // scritture in fila: Web Bluetooth non accetta due operazioni GATT insieme
   _write(char, bytes) {
     const buf = new Uint8Array(bytes);
-    this._q = this._q.then(() => (char.writeValueWithResponse ? char.writeValueWithResponse(buf) : char.writeValue(buf)))
+    const withResp = char.properties ? char.properties.write : true;
+    this._q = this._q.then(() => (withResp && char.writeValueWithResponse ? char.writeValueWithResponse(buf)
+      : char.writeValueWithoutResponse ? char.writeValueWithoutResponse(buf) : char.writeValue(buf)))
       .catch(e => { console.warn('scrittura BLE', e); });
     return this._q;
   }
@@ -448,6 +506,7 @@ class Trainer extends Emitter {
     this.lastMode = 'erg';
     if (!this.connected) return;
     if (this.protocol === 'ftms') await this._write(this.cp, [0x05, ...u16(watts)]);
+    else if (this.protocol === 'tacx') await this._write(this.cp, fecMessage(fecPages.targetPower(watts)));
     else await this._write(this.cp, [0x42, ...u16(watts)]);
     this.mode = 'erg';
   }
@@ -465,6 +524,12 @@ class Trainer extends Emitter {
       const g = Math.round(grade * 100);
       await this._write(this.cp, [0x11, ...u16(wind & 0xffff), ...u16(g & 0xffff),
         clamp(Math.round((s.crr ?? 0.004) * 10000), 0, 255), clamp(Math.round((s.cw ?? 0.51) * 100), 0, 255)]);
+    } else if (this.protocol === 'tacx') {
+      const t = this._tacxSent || (this._tacxSent = {});
+      const bike = s.bikeWeight ?? 9, rider = (s.weight ?? 85) - bike;
+      if (t.rider !== rider || t.bike !== bike) { await this._write(this.cp, fecMessage(fecPages.user(rider, bike))); t.rider = rider; t.bike = bike; }
+      if (t.cw !== s.cw) { await this._write(this.cp, fecMessage(fecPages.wind(s.cw ?? 0.51))); t.cw = s.cw; }
+      await this._write(this.cp, fecMessage(fecPages.track(grade, s.crr ?? 0.004)));
     } else {
       const needInit = this.mode !== 'sim' || prev.weight !== s.weight || prev.crr !== s.crr || prev.cw !== s.cw;
       if (needInit) {
@@ -615,7 +680,7 @@ class SimHeartRate extends Emitter {
   disconnect() { clearInterval(this._t); this.connected = false; this.hr = null; this.emit('status', 'Disconnesso'); this.emit('disconnected', this); }
 }
 
-return { bluetoothAvailable, Trainer, HeartRate, SimTrainer, SimHeartRate };
+return { fecMessage, fecPages, parseFec, bluetoothAvailable, Trainer, HeartRate, SimTrainer, SimHeartRate };
 })();
 // ===== gpx.js
 __m.gpx = (() => {
@@ -1606,7 +1671,7 @@ class RideSession extends Emitter {
   // ------------------------------------------------------------ comandi al rullo
   _simParams(grade) {
     const ele = this.kind === 'route' ? this.route.at(this.bike.dist).ele : 0;
-    return { grade, crr: this.crr, cw: +(airDensity(ele) * this.cda).toFixed(3), weight: this.mass };
+    return { grade, crr: this.crr, cw: +(airDensity(ele) * this.cda).toFixed(3), weight: this.mass, bikeWeight: +this.profile.bikeWeight || 9 };
   }
 
   _applyControl(force = false) {
@@ -2800,9 +2865,10 @@ function renderProfile() {
       </div><p class="muted small" id="fSpeeds"></p></div>
       <div class="card"><h3>Rullo</h3><div class="form-grid">
         <label class="f">Protocollo<select id="fProto">
-          <option value="auto" ${p.protocol === 'auto' ? 'selected' : ''}>Automatico (Wahoo se c'è)</option>
+          <option value="auto" ${p.protocol === 'auto' ? 'selected' : ''}>Automatico (Wahoo, poi FTMS, poi Tacx)</option>
           <option value="wahoo" ${p.protocol === 'wahoo' ? 'selected' : ''}>Wahoo (manda anche il peso)</option>
-          <option value="ftms" ${p.protocol === 'ftms' ? 'selected' : ''}>FTMS standard</option></select></label>
+          <option value="ftms" ${p.protocol === 'ftms' ? 'selected' : ''}>FTMS standard (quasi tutte le marche)</option>
+          <option value="tacx" ${p.protocol === 'tacx' ? 'selected' : ''}>Tacx FE-C (Tacx senza FTMS)</option></select></label>
         <label class="f">Pausa automatica<select id="fAuto"><option value="1" ${p.autoPause !== false ? 'selected' : ''}>Sì</option><option value="0" ${p.autoPause === false ? 'selected' : ''}>No</option></select></label>
       </div><p class="muted small">Il protocollo si applica alla prossima connessione del rullo.</p></div>
       ${STANDALONE ? `<div class="card"><h3>Garmin Connect</h3>
